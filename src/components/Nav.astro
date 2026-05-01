@@ -1,7 +1,7 @@
 ---
 // Nav.astro — Site navigation bar
 // Base path for links
-const base = '';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 
 const links = [
