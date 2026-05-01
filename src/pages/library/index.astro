@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Library" description="Deep dives into Eastern Christian topics — theology, history, practice — each one standalone.">
@@ -26,7 +28,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
 
     <div class="library-grid">
-      <a href="/library/theosis/" class="library-card">
+      <a href={`${base}/library/theosis/`} class="library-card">
         <div class="library-card-cat">Theology</div>
         <h3>Theosis — Becoming God by Grace</h3>
         <p>The Eastern understanding of salvation isn't a courtroom verdict — it's a healing. Humanity was made to share in the divine nature.</p>
@@ -38,7 +40,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>From Nicaea to Nicaea II — the seven gatherings that defined what Christians believe and why icons matter.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 8</span></div>
       </div>
-      <a href="/library/jesus-prayer/" class="library-card">
+      <a href={`${base}/library/jesus-prayer/`} class="library-card">
         <div class="library-card-cat">Practice</div>
         <h3>The Jesus Prayer</h3>
         <p>"Lord Jesus Christ, Son of God, have mercy on me, a sinner." Eight words that contain an entire theology.</p>
@@ -56,7 +58,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>What actually happened, what didn't, and why healing this wound matters more than scoring points.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 14</span></div>
       </div>
-      <a href="/library/desert-fathers/" class="library-card">
+      <a href={`${base}/library/desert-fathers/`} class="library-card">
         <div class="library-card-cat">Spirituality</div>
         <h3>The Desert Fathers & Mothers</h3>
         <p>In the 4th century, thousands of Christians walked into the Egyptian desert. What they found there shaped all of Eastern spirituality.</p>

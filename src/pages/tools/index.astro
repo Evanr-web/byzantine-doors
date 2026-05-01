@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Tools & Guides" description="Practical guides for Eastern Christian life — your first visit, fasting, prayer corners, and feast-day hymns.">
@@ -17,7 +19,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <div class="container" style="padding-bottom:80px;">
     <div class="tools-grid">
 
-      <a href="/tools/first-visit/" class="tool-card">
+      <a href={`${base}/tools/first-visit/`} class="tool-card">
         <div class="tool-card-icon">🚪</div>
         <div class="tool-card-body">
           <h3>Your First Visit to a Byzantine Parish</h3>
@@ -26,7 +28,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </a>
 
-      <a href="/tools/fasting-guide/" class="tool-card">
+      <a href={`${base}/tools/fasting-guide/`} class="tool-card">
         <div class="tool-card-icon">🍞</div>
         <div class="tool-card-body">
           <h3>Byzantine Fasting Guide</h3>
@@ -35,7 +37,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </a>
 
-      <a href="/tools/prayer-corner/" class="tool-card">
+      <a href={`${base}/tools/prayer-corner/`} class="tool-card">
         <div class="tool-card-icon">🕯️</div>
         <div class="tool-card-body">
           <h3>Setting Up a Home Prayer Corner</h3>
@@ -44,7 +46,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </a>
 
-      <a href="/tools/troparion-cards/" class="tool-card">
+      <a href={`${base}/tools/troparion-cards/`} class="tool-card">
         <div class="tool-card-icon">🎵</div>
         <div class="tool-card-body">
           <h3>Troparion Cards for Major Feasts</h3>

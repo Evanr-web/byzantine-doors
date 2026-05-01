@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Troparion Cards" description="Printable troparion and kontakion cards for the major feasts of the Byzantine liturgical year.">
@@ -17,9 +19,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   <div class="article-surface">
     <div class="container--narrow">
       <nav class="breadcrumbs">
-        <a href="/">Home</a>
+        <a href={`${base}/`}>Home</a>
         <span class="sep">›</span>
-        <a href="/tools/">Tools</a>
+        <a href={`${base}/tools/`}>Tools</a>
         <span class="sep">›</span>
         <span style="color: var(--beeswax);">Troparion Cards</span>
       </nav>

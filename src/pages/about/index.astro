@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="About" description="What is Byzantine Doors — and who is it for?">
@@ -8,7 +10,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="article-hero">
       <div class="container--narrow" style="position:relative;">
         <div class="breadcrumbs">
-          <a href="/">Home</a>
+          <a href={`${base}/`}>Home</a>
           <span class="sep">›</span>
           <span style="color:var(--censer-smoke)">About</span>
         </div>
@@ -50,9 +52,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>Where theological opinions differ among Eastern Christians, we note the range of views rather than picking sides. Where the Eastern and Western traditions diverge, we present the Eastern perspective irenically — honestly, but without polemic.</p>
 
         <h2>Where to Start</h2>
-        <p>If you're new here, we recommend <strong><a href="/journey/">The Journey</a></strong> — a sixteen-step guided path through Eastern Christianity, from your first encounter with the Divine Liturgy to the deepest questions of theology and practice. Each step is designed to be read in 5-8 minutes, and you can follow them in order or jump to whatever draws you.</p>
+        <p>If you're new here, we recommend <strong><a href={`${base}/journey/`}>The Journey</a></strong> — a sixteen-step guided path through Eastern Christianity, from your first encounter with the Divine Liturgy to the deepest questions of theology and practice. Each step is designed to be read in 5-8 minutes, and you can follow them in order or jump to whatever draws you.</p>
 
-        <p>You can also explore the <a href="/library/">Library</a> for standalone deep dives on specific topics, or check the <a href="/tools/">Tools & Guides</a> for practical resources like "Your First Visit to a Byzantine Parish" and the Byzantine Fasting Guide.</p>
+        <p>You can also explore the <a href={`${base}/library/`}>Library</a> for standalone deep dives on specific topics, or check the <a href={`${base}/tools/`}>Tools & Guides</a> for practical resources like "Your First Visit to a Byzantine Parish" and the Byzantine Fasting Guide.</p>
 
         <h2>An Open Invitation</h2>
         <p>The doors of a Byzantine church are heavy. They are often made of dark wood, carved with crosses and saints, and they can look imposing from the outside. But they open. They have always opened. Everyone who pushes through them is welcome.</p>
@@ -61,7 +63,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <div class="cta-box">
           <p>Ready to walk through?</p>
-          <a href="/journey/" class="btn-primary">Begin the Journey →</a>
+          <a href={`${base}/journey/`} class="btn-primary">Begin the Journey →</a>
         </div>
 
       </div>

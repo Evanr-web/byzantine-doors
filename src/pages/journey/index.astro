@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="The Journey" description="A guided path through Eastern Christianity — sixteen steps from first curiosity to deep understanding.">
@@ -24,10 +26,10 @@ import Card from '../../components/Card.astro';
         <span class="journey-part-title">What is this place?</span>
       </div>
       <div class="journey-steps-grid">
-        <Card number="01" title="What Happens Behind Those Doors?" description="The Divine Liturgy as first encounter" href="/journey/01/" />
-        <Card number="02" title="Icons — Windows into Heaven" description="Visual theology and why the walls are covered in paintings" href="/journey/02/" />
-        <Card number="03" title="The Holy Trinity" description="Three Persons, One God, and why it matters" href="/journey/03/" />
-        <Card number="04" title="Jesus Christ — God Becomes Human" description="The Incarnation" href="/journey/04/" />
+        <Card number="01" title="What Happens Behind Those Doors?" description="The Divine Liturgy as first encounter" href={`${base}/journey/01/`} />
+        <Card number="02" title="Icons — Windows into Heaven" description="Visual theology and why the walls are covered in paintings" href={`${base}/journey/02/`} />
+        <Card number="03" title="The Holy Trinity" description="Three Persons, One God, and why it matters" href={`${base}/journey/03/`} />
+        <Card number="04" title="Jesus Christ — God Becomes Human" description="The Incarnation" href={`${base}/journey/04/`} />
       </div>
     </div>
 
@@ -38,11 +40,11 @@ import Card from '../../components/Card.astro';
         <span class="journey-part-title">What do they believe?</span>
       </div>
       <div class="journey-steps-grid">
-        <Card number="05" title="Creation and the Fall" description="What went wrong — ancestral sin, not inherited guilt" href="/journey/05/" />
-        <Card number="06" title="Salvation as Healing" description="Theosis and the journey to God" href="/journey/06/" />
-        <Card number="07" title="The Holy Spirit" description="The Lord and Giver of Life" href="/journey/07/" />
-        <Card number="08" title="The Church" description="One Body, Many Members" href="/journey/08/" />
-        <Card number="09" title="The Mysteries" description="Where heaven meets earth" href="/journey/09/" />
+        <Card number="05" title="Creation and the Fall" description="What went wrong — ancestral sin, not inherited guilt" href={`${base}/journey/05/`} />
+        <Card number="06" title="Salvation as Healing" description="Theosis and the journey to God" href={`${base}/journey/06/`} />
+        <Card number="07" title="The Holy Spirit" description="The Lord and Giver of Life" href={`${base}/journey/07/`} />
+        <Card number="08" title="The Church" description="One Body, Many Members" href={`${base}/journey/08/`} />
+        <Card number="09" title="The Mysteries" description="Where heaven meets earth" href={`${base}/journey/09/`} />
       </div>
     </div>
 
