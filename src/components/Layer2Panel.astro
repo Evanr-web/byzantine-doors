@@ -1,0 +1,95 @@
+---
+// Layer2Panel.astro — Expandable "Going Deeper" accordion panel
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="layer2-panel">
+  <div class="layer2-header" role="button" tabindex="0" aria-expanded="false">
+    <div class="layer2-header-left">
+      <span class="layer2-tag">LAYER 2</span>
+      <span class="layer2-label">{label}</span>
+    </div>
+    <span class="layer2-chevron" aria-hidden="true">▾</span>
+  </div>
+  <div class="layer2-body">
+    <slot />
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.layer2-header').forEach(header => {
+    const toggle = () => {
+      const panel = header.parentElement;
+      const expanded = panel?.classList.toggle('open');
+      header.setAttribute('aria-expanded', String(!!expanded));
+    };
+    header.addEventListener('click', toggle);
+    header.addEventListener('keydown', (e) => {
+      if (e instanceof KeyboardEvent && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+</script>
+
+<style>
+  .layer2-panel {
+    border: 0.5px solid var(--gold-15);
+    border-radius: 8px;
+    margin: 24px 0;
+    overflow: hidden;
+  }
+  .layer2-header {
+    background: var(--gold-06);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+  .layer2-header:hover { background: var(--gold-10); }
+  .layer2-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .layer2-label {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--beeswax);
+  }
+  .layer2-tag {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--halo-gold);
+    border: 0.5px solid var(--gold-40);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .layer2-chevron {
+    color: var(--halo-gold);
+    font-size: 14px;
+    transition: transform 0.3s;
+  }
+  .layer2-body {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+  .layer2-panel.open .layer2-body {
+    max-height: 800px;
+    padding: 20px;
+  }
+  .layer2-panel.open .layer2-chevron {
+    transform: rotate(180deg);
+  }
+</style>

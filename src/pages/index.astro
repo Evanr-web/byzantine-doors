@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StarDivider from '../components/StarDivider.astro';
+---
+
+<BaseLayout title="Step Through the Doors">
+
+  <!-- Hero -->
+  <section class="hero hero--video">
+    <div class="hero-video-wrap">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="/video/hero-poster.jpg"
+      >
+        <source src="/video/hero-incense.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:20px;">Welcome to</div>
+      <h1 class="hero-title">Byzantine Doors</h1>
+      <p class="hero-subtitle">
+        Discover the ancient faith of Eastern Christianity — its beauty, its theology, its living tradition — through a door that opens to everyone.
+      </p>
+      <div class="hero-actions">
+        <a href="/journey/" class="btn-primary">Begin the Journey</a>
+        <a href="/journey/" class="btn-secondary">I'm just curious</a>
+      </div>
+    </div>
+  </section>
+
+  <StarDivider />
+
+  <!-- Five Pillars -->
+  <section class="container" style="padding-bottom: 64px;">
+    <div style="text-align:center; margin-bottom: 8px;">
+      <div class="section-label">Explore</div>
+    </div>
+    <div class="pillars-grid">
+      <a class="pillar-card" href="/journey/">
+        <div class="pillar-icon">☩</div>
+        <div class="pillar-name">Journey</div>
+        <div class="pillar-desc-text">A guided path through Eastern Christianity, from first curiosity to understanding</div>
+      </a>
+      <a class="pillar-card" href="/library/">
+        <div class="pillar-icon">📖</div>
+        <div class="pillar-name">Library</div>
+        <div class="pillar-desc-text">Deep dives into topics — theology, history, practice — each one standalone</div>
+      </a>
+      <a class="pillar-card" href="/daily/">
+        <div class="pillar-icon">🕯</div>
+        <div class="pillar-name">Daily</div>
+        <div class="pillar-desc-text">Readings, reflections, and prayers tied to the liturgical calendar</div>
+      </a>
+      <a class="pillar-card" href="/liturgy/">
+        <div class="pillar-icon">⛪</div>
+        <div class="pillar-name">Liturgy</div>
+        <div class="pillar-desc-text">Texts, chants, and guides for liturgical worship — coming soon</div>
+      </a>
+      <a class="pillar-card" href="/tools/">
+        <div class="pillar-icon">🔑</div>
+        <div class="pillar-name">Tools</div>
+        <div class="pillar-desc-text">Practical guides — your first visit, fasting, how to venerate an icon</div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width:1100px; margin-left:auto; margin-right:auto;" />
+
+  <!-- Narthex / Discovery -->
+  <section class="container" style="padding-bottom: 64px;">
+    <div class="section-label">The Narthex — For the Curious</div>
+    <div class="section-title">You don't have to believe anything to start here</div>
+    <div class="section-desc">These questions aren't about religion. They're about reality. Start with whichever one pulls you in.</div>
+    <div class="narthex-questions">
+      <div class="narthex-q">
+        <h3>"Why does beauty matter?"</h3>
+        <p>Why do we build cathedrals instead of warehouses? What ancient Christians understood about beauty that we've forgotten.</p>
+      </div>
+      <div class="narthex-q">
+        <h3>"What did ancient Christians actually believe?"</h3>
+        <p>Before the splits, before the denominations — what did the first thousand years of Christianity look like?</p>
+      </div>
+      <div class="narthex-q">
+        <h3>"Is there more to reality than what we can measure?"</h3>
+        <p>A tradition that never had a war with science, because it never reduced truth to only what is empirical.</p>
+      </div>
+      <div class="narthex-q">
+        <h3>"What if prayer isn't what you think it is?"</h3>
+        <p>Not talking at God. Not asking for things. Something older, quieter, and far more transformative.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" style="max-width:1100px; margin-left:auto; margin-right:auto;" />
+
+  <!-- Daily Preview -->
+  <section class="container" style="padding-bottom: 64px;">
+    <div class="section-label">Today</div>
+    <div class="section-title">Living in Sacred Time</div>
+    <div class="daily-preview">
+      <a class="daily-calendar-card" href="/daily/">
+        <div class="daily-date-label">Today's Feast</div>
+        <div class="daily-feast">Wednesday of Bright Week</div>
+        <div class="daily-saint">Apostle James, Brother of John</div>
+        <div class="daily-tone">Tone 1 · Paschal Season</div>
+      </a>
+      <div class="daily-content-preview">
+        <div class="daily-item">
+          <div class="daily-item-type">Reading</div>
+          <div class="daily-item-text">Acts 2:22–36 · John 1:35–51</div>
+        </div>
+        <div class="daily-item">
+          <div class="daily-item-type">Reflection</div>
+          <div class="daily-item-text">"The first disciples didn't receive a theology lesson. They received an invitation: <em>Come and see.</em>"</div>
+        </div>
+        <div class="daily-item">
+          <div class="daily-item-type">Desert Father</div>
+          <div class="daily-item-text">"Go and sit in your cell, and your cell will teach you everything." <em>— Abba Moses</em></div>
+        </div>
+        <div class="daily-item">
+          <div class="daily-item-type">Prayer</div>
+          <div class="daily-item-text">Christ is risen from the dead, trampling down death by death, and upon those in the tombs bestowing life.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

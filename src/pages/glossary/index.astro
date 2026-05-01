@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Glossary" description="Every unfamiliar word in Eastern Christianity, explained in plain language.">
+
+  <section class="hero" style="padding-bottom:32px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Glossary</div>
+      <h1 class="hero-title" style="font-size:34px;">Words You'll Encounter</h1>
+      <p class="hero-subtitle">
+        Eastern Christianity has its own vocabulary. Here's every word explained in plain language.
+      </p>
+    </div>
+  </section>
+
+  <div class="container--narrow" style="padding-bottom:80px;">
+
+    <div class="glossary-search">
+      <input type="text" placeholder="Search terms..." id="glossary-input" />
+    </div>
+
+    <div id="glossary-list">
+      <div class="glossary-letter">A</div>
+
+      <div class="glossary-entry" data-term="akathist">
+        <div class="glossary-term">Akathist</div>
+        <div class="glossary-pron">/ah-KAH-thist/</div>
+        <div class="glossary-def">A hymn of praise sung while standing (the word literally means "not sitting"). Usually dedicated to Christ, the Theotokos, or a saint. One of the most beloved forms of Eastern prayer.</div>
+      </div>
+
+      <div class="glossary-entry" data-term="ancestral sin">
+        <div class="glossary-term">Ancestral Sin</div>
+        <div class="glossary-pron">/an-SES-tral sin/</div>
+        <div class="glossary-def">The Eastern understanding of the Fall. Rather than inheriting Adam's guilt (the Western "original sin" concept), humanity inherits the consequences: mortality, weakness, and a tendency toward sin.</div>
+      </div>
+
+      <div class="glossary-letter">D</div>
+
+      <div class="glossary-entry" data-term="divine liturgy">
+        <div class="glossary-term">Divine Liturgy</div>
+        <div class="glossary-pron">/dih-VINE LIT-er-jee/</div>
+        <div class="glossary-def">The central worship service of the Eastern Church. Almost entirely sung, rich in ritual, and understood as a genuine participation in the worship of heaven.</div>
+      </div>
+
+      <div class="glossary-letter">H</div>
+
+      <div class="glossary-entry" data-term="hesychasm">
+        <div class="glossary-term">Hesychasm</div>
+        <div class="glossary-pron">/HEZ-ih-kazm/</div>
+        <div class="glossary-def">A contemplative prayer tradition emphasizing inner stillness (hesychia) and the repetition of the Jesus Prayer. Associated with Mount Athos and St. Gregory Palamas.</div>
+      </div>
+
+      <div class="glossary-entry" data-term="horologion">
+        <div class="glossary-term">Horologion</div>
+        <div class="glossary-pron">/hor-oh-LOH-gee-on/</div>
+        <div class="glossary-def">The "Book of Hours" — the liturgical book containing the fixed prayers for each hour of the day. The backbone of the Eastern prayer cycle.</div>
+      </div>
+
+      <div class="glossary-letter">I</div>
+
+      <div class="glossary-entry" data-term="iconostasis">
+        <div class="glossary-term">Iconostasis</div>
+        <div class="glossary-pron">/eye-koh-NAH-stah-sis/</div>
+        <div class="glossary-def">The wall of icons between the nave and the sanctuary. It has three doors: the Royal Doors in the center, and two smaller doors on the sides. Every icon has a specific place and meaning.</div>
+      </div>
+
+      <div class="glossary-letter">T</div>
+
+      <div class="glossary-entry" data-term="theosis">
+        <div class="glossary-term">Theosis</div>
+        <div class="glossary-pron">/thee-OH-sis/</div>
+        <div class="glossary-def">Divinization — the process of becoming united with God by grace. The ultimate purpose of human existence in Eastern theology. "God became human so that humans might become God" (St. Athanasius).</div>
+      </div>
+
+      <div class="glossary-entry" data-term="theotokos">
+        <div class="glossary-term">Theotokos</div>
+        <div class="glossary-pron">/thee-oh-TOH-kos/</div>
+        <div class="glossary-def">Literally "God-bearer" — the title given to Mary at the Council of Ephesus (431 AD). It's a statement about Jesus — that the one she bore was truly God.</div>
+      </div>
+
+      <div class="glossary-entry" data-term="troparion">
+        <div class="glossary-term">Troparion</div>
+        <div class="glossary-pron">/troh-PAR-ee-on/</div>
+        <div class="glossary-def">A short hymn that captures the theme of a feast day, saint, or liturgical occasion. Think of it as the "thesis statement" of the day in musical form.</div>
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('glossary-input');
+  input?.addEventListener('input', () => {
+    const q = (input as HTMLInputElement).value.toLowerCase();
+    const entries = document.querySelectorAll('.glossary-entry');
+    const letters = document.querySelectorAll('.glossary-letter');
+
+    entries.forEach(entry => {
+      const el = entry as HTMLElement;
+      const text = el.textContent?.toLowerCase() || '';
+      el.style.display = (q === '' || text.includes(q)) ? 'block' : 'none';
+    });
+
+    letters.forEach(letter => {
+      const el = letter as HTMLElement;
+      let next = el.nextElementSibling;
+      let hasVisible = false;
+      while (next && !next.classList.contains('glossary-letter')) {
+        if (next.classList.contains('glossary-entry') && (next as HTMLElement).style.display !== 'none') {
+          hasVisible = true;
+        }
+        next = next.nextElementSibling;
+      }
+      el.style.display = hasVisible ? 'block' : 'none';
+    });
+  });
+</script>
+
+<style>
+  .glossary-search { margin-bottom: 32px; }
+  .glossary-search input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    color: var(--beeswax);
+    font-family: var(--font-body);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .glossary-search input::placeholder { color: var(--deep-muted); }
+  .glossary-search input:focus { border-color: var(--gold-40); }
+  .glossary-letter {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--halo-gold);
+    opacity: 0.5;
+    margin: 32px 0 16px;
+  }
+  .glossary-entry {
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--gold-06);
+  }
+  .glossary-term {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--beeswax);
+    margin-bottom: 4px;
+  }
+  .glossary-pron {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--deep-muted);
+    margin-bottom: 6px;
+  }
+  .glossary-def {
+    font-size: 15px;
+    color: var(--aged-vellum);
+    line-height: 1.6;
+  }
+</style>

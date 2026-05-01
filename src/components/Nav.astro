@@ -1,0 +1,92 @@
+---
+// Nav.astro — Site navigation bar
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/journey/', label: 'Journey' },
+  { href: '/library/', label: 'Library' },
+  { href: '/daily/', label: 'Daily' },
+  { href: '/liturgy/', label: 'Liturgy' },
+  { href: '/tools/', label: 'Tools' },
+];
+---
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Byzantine Doors</a>
+  <div class="nav-links">
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={[{ active: currentPath.startsWith(link.href) }]}
+      >
+        {link.label}
+      </a>
+    ))}
+    <a href="/journey/" class="nav-cta">Begin the Journey</a>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--narthex-dark);
+    border-bottom: 0.5px solid var(--gold-10);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--halo-gold);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .nav-logo:hover { opacity: 0.8; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--censer-smoke);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--beeswax);
+    opacity: 1;
+  }
+  .nav-cta {
+    font-family: var(--font-ui) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+    color: var(--halo-gold) !important;
+    border: 0.5px solid var(--gold-40);
+    padding: 6px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-06); }
+
+  @media (max-width: 768px) {
+    .site-nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 10px; }
+  }
+  @media (max-width: 480px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+</style>

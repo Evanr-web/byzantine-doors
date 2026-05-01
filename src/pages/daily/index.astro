@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pullquote from '../../components/Pullquote.astro';
+---
+
+<BaseLayout title="Daily" description="Readings, reflections, and prayers tied to the liturgical calendar.">
+
+  <!-- Daily Hero -->
+  <div class="daily-page-hero">
+    <div class="container--narrow">
+      <div class="daily-page-date">Today's Liturgical Day</div>
+      <h1 class="daily-page-feast">Wednesday of Bright Week</h1>
+      <div class="daily-page-tone">Tone 1 · Paschal Season · No Fast</div>
+    </div>
+  </div>
+
+  <div class="container--narrow" style="padding-bottom:80px;">
+
+    <!-- Paschal Troparion -->
+    <div class="daily-section">
+      <div class="daily-section-label">Paschal Troparion</div>
+      <p class="daily-prayer-text">
+        Christ is risen from the dead,<br />
+        trampling down death by death,<br />
+        and upon those in the tombs<br />
+        bestowing life.
+      </p>
+    </div>
+
+    <!-- Scripture -->
+    <div class="daily-section">
+      <div class="daily-section-label">Scripture Readings</div>
+      <div class="reading-block">
+        <div class="reading-type">Epistle</div>
+        <div class="reading-ref">Acts 2:22–36</div>
+        <p class="reading-excerpt">"This Jesus God raised up, and of that we all are witnesses…"</p>
+      </div>
+      <div class="reading-block" style="margin-top:20px;">
+        <div class="reading-type">Gospel</div>
+        <div class="reading-ref">John 1:35–51</div>
+        <p class="reading-excerpt">"Come and see."</p>
+      </div>
+    </div>
+
+    <!-- Reflection -->
+    <div class="daily-section">
+      <div class="daily-section-label">Reflection</div>
+      <p>The first disciples didn't receive a theology lesson. They received an invitation: <em>Come and see.</em> Andrew and John didn't follow Jesus because they were convinced by an argument. They followed because something in his presence pulled them forward.</p>
+      <p style="margin-top:16px;">The Paschal season is an invitation to the same encounter. Not to learn <em>about</em> the Resurrection, but to stand inside it. Christ is risen. Come and see.</p>
+    </div>
+
+    <!-- Desert Father -->
+    <div class="daily-section">
+      <div class="daily-section-label">Desert Father</div>
+      <Pullquote attribution="— The Sayings of the Desert Fathers (Alphabetical Collection)">
+        "A brother asked Abba Moses for a word. The old man said: Go and sit in your cell, and your cell will teach you everything."
+      </Pullquote>
+      <p class="desert-father-note">Abba Moses was a 4th-century Egyptian monk, a former bandit who became one of the most revered Desert Fathers. His counsel here is deceptively simple: stop looking for answers outside. Sit still. The silence will do the rest.</p>
+    </div>
+
+    <!-- Prayer -->
+    <div class="daily-section">
+      <div class="daily-section-label">Prayer</div>
+      <p class="daily-prayer-text">
+        O Heavenly King, Comforter, Spirit of Truth,<br />
+        who are everywhere present and fill all things,<br />
+        Treasury of blessings and Giver of Life,<br />
+        come and dwell in us,<br />
+        cleanse us from every stain,<br />
+        and save our souls, O gracious Lord.
+      </p>
+      <div class="prayer-source">Prayer to the Holy Spirit — from the Horologion</div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .daily-page-hero {
+    text-align: center;
+    padding: 56px 0 40px;
+    position: relative;
+  }
+  .daily-page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(186,143,67,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .daily-page-date {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--censer-smoke);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .daily-page-feast {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--beeswax);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .daily-page-tone {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--deep-muted);
+    position: relative;
+  }
+  .daily-section {
+    background: var(--warm-dark);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .daily-section-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .daily-section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--gold-15);
+  }
+  .daily-prayer-text {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--beeswax);
+    line-height: 1.6;
+  }
+  .reading-type {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    margin-bottom: 8px;
+  }
+  .reading-ref {
+    font-size: 16px;
+    color: var(--beeswax);
+    margin-bottom: 4px;
+  }
+  .reading-excerpt {
+    font-size: 15px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+  }
+  .desert-father-note {
+    font-size: 14px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  .prayer-source {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--deep-muted);
+    margin-top: 8px;
+    text-align: center;
+  }
+</style>

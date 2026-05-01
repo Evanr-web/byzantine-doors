@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<BaseLayout title="The Journey" description="A guided path through Eastern Christianity — sixteen steps from first curiosity to deep understanding.">
+
+  <section class="hero" style="padding-bottom:48px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">The Journey</div>
+      <h1 class="hero-title" style="font-size:34px;">A Path Through Eastern Christianity</h1>
+      <p class="hero-subtitle">
+        Sixteen steps from first curiosity to deep understanding. Follow them in order, or jump to whatever draws you.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-bottom:80px;">
+
+    <!-- Part 1 -->
+    <div class="journey-part">
+      <div class="journey-part-header">
+        <span class="journey-part-num">PART 1</span>
+        <span class="journey-part-title">What is this place?</span>
+      </div>
+      <div class="journey-steps-grid">
+        <Card number="01" title="What Happens Behind Those Doors?" description="The Divine Liturgy as first encounter" />
+        <Card number="02" title="Icons — Windows into Heaven" description="Visual theology and why the walls are covered in paintings" />
+        <Card number="03" title="The Holy Trinity" description="Three Persons, One God, and why it matters" />
+        <Card number="04" title="Jesus Christ — God Becomes Human" description="The Incarnation" />
+      </div>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="journey-part">
+      <div class="journey-part-header">
+        <span class="journey-part-num">PART 2</span>
+        <span class="journey-part-title">What do they believe?</span>
+      </div>
+      <div class="journey-steps-grid">
+        <Card number="05" title="Creation and the Fall" description="What went wrong — ancestral sin, not inherited guilt" />
+        <Card number="06" title="Salvation as Healing" description="Theosis and the journey to God" />
+        <Card number="07" title="The Holy Spirit" description="The Lord and Giver of Life" />
+        <Card number="08" title="The Church" description="One Body, Many Members" />
+        <Card number="09" title="The Mysteries" description="Where heaven meets earth" />
+      </div>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="journey-part">
+      <div class="journey-part-header">
+        <span class="journey-part-num">PART 3</span>
+        <span class="journey-part-title">How do they live?</span>
+      </div>
+      <div class="journey-steps-grid">
+        <Card number="10" title="Prayer — Learning to Breathe" description="The Eastern approach to prayer life" />
+        <Card number="11" title="The Liturgical Year" description="Living in sacred time" />
+        <Card number="12" title="Fasting and Feasting" description="The rhythm of the body" />
+        <Card number="13" title="The Saints" description="A cloud of witnesses" />
+      </div>
+    </div>
+
+    <!-- Part 4 -->
+    <div class="journey-part">
+      <div class="journey-part-header">
+        <span class="journey-part-num">PART 4</span>
+        <span class="journey-part-title">Where do I fit?</span>
+      </div>
+      <div class="journey-steps-grid">
+        <Card number="14" title="East and West, Catholic and Orthodox" description="One tradition, painful divisions, and the hope for unity" />
+        <Card number="15" title="Eastern and Western Christianity" description="Two lungs, one body" />
+        <Card number="16" title="Coming Home" description="What it looks like to join" />
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .journey-part {
+    margin-bottom: 56px;
+  }
+  .journey-part-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid var(--gold-10);
+  }
+  .journey-part-num {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--halo-gold);
+    letter-spacing: 1px;
+  }
+  .journey-part-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--beeswax);
+  }
+  .journey-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    .journey-steps-grid { grid-template-columns: 1fr; }
+  }
+</style>

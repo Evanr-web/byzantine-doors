@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Library" description="Deep dives into Eastern Christian topics — theology, history, practice — each one standalone.">
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Library</div>
+      <h1 class="hero-title" style="font-size:34px;">Topics & Deep Dives</h1>
+      <p class="hero-subtitle">
+        Every topic is self-contained. Start wherever your curiosity takes you.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-bottom:80px;">
+
+    <div class="library-filter-bar">
+      <span class="filter-chip active">All</span>
+      <span class="filter-chip">Theology</span>
+      <span class="filter-chip">History</span>
+      <span class="filter-chip">Practice</span>
+      <span class="filter-chip">Spirituality</span>
+      <span class="filter-chip">Ecumenism</span>
+    </div>
+
+    <div class="library-grid">
+      <div class="library-card">
+        <div class="library-card-cat">Theology</div>
+        <h3>Theosis — Becoming God by Grace</h3>
+        <p>The Eastern understanding of salvation isn't a courtroom verdict — it's a healing. Humanity was made to share in the divine nature.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 6</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">History</div>
+        <h3>The Seven Ecumenical Councils</h3>
+        <p>From Nicaea to Nicaea II — the seven gatherings that defined what Christians believe and why icons matter.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 8</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Practice</div>
+        <h3>The Jesus Prayer</h3>
+        <p>"Lord Jesus Christ, Son of God, have mercy on me, a sinner." Eight words that contain an entire theology.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 10</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Theology</div>
+        <h3>Ancestral Sin vs. Original Sin</h3>
+        <p>Why Eastern Christianity doesn't teach inherited guilt — and what it teaches instead.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 5</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Ecumenism</div>
+        <h3>The Great Schism of 1054</h3>
+        <p>What actually happened, what didn't, and why healing this wound matters more than scoring points.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 14</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Spirituality</div>
+        <h3>The Desert Fathers & Mothers</h3>
+        <p>In the 4th century, thousands of Christians walked into the Egyptian desert. What they found there shaped all of Eastern spirituality.</p>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Practice</div>
+        <h3>The Iconostasis Explained</h3>
+        <p>The wall of icons that separates the nave from the sanctuary — every icon has a place, and every placement has a meaning.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 2</span></div>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">History</div>
+        <h3>The Union of Brest (1596)</h3>
+        <p>How Eastern Christians in Ukraine reconnected with Rome — a story that's still shaping the Church today.</p>
+      </div>
+      <div class="library-card">
+        <div class="library-card-cat">Theology</div>
+        <h3>The Filioque Controversy</h3>
+        <p>One word added to the Creed — "and the Son" — and a thousand-year conversation about what it means.</p>
+        <div class="library-card-footer"><span class="tag">Journey Step 14</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .library-filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .filter-chip {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--censer-smoke);
+    border: 0.5px solid var(--gold-10);
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: transparent;
+  }
+  .filter-chip:hover, .filter-chip.active {
+    color: var(--halo-gold);
+    border-color: var(--gold-40);
+    background: var(--gold-06);
+  }
+  .library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .library-card {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .library-card:hover {
+    border-color: var(--gold-15);
+    transform: translateY(-2px);
+  }
+  .library-card-cat {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    margin-bottom: 8px;
+  }
+  .library-card h3 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin-bottom: 8px;
+  }
+  .library-card p {
+    font-size: 14px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+  }
+  .library-card-footer {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+  }
+  @media (max-width: 768px) {
+    .library-grid { grid-template-columns: 1fr; }
+  }
+</style>

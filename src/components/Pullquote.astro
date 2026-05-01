@@ -1,0 +1,37 @@
+---
+// Pullquote.astro — Left-border gold pullquote
+interface Props {
+  attribution?: string;
+}
+
+const { attribution } = Astro.props;
+---
+
+<blockquote class="pullquote">
+  <div class="pullquote-text"><slot /></div>
+  {attribution && <div class="pullquote-attr">{attribution}</div>}
+</blockquote>
+
+<style>
+  .pullquote {
+    border-left: 2px solid var(--halo-gold);
+    background: var(--gold-04);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .pullquote-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    color: #D4C5AB;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .pullquote-attr {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--censer-smoke);
+    letter-spacing: 0.5px;
+  }
+</style>

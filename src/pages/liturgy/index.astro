@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StarDivider from '../../components/StarDivider.astro';
+---
+
+<BaseLayout title="Liturgy" description="Liturgical texts, chants, and guides — coming soon.">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Liturgy</div>
+      <h1 class="hero-title" style="font-size:34px;">Liturgical Texts & Guides</h1>
+      <p class="hero-subtitle">
+        Texts, chants, and guides for liturgical worship in the Byzantine tradition.
+      </p>
+    </div>
+  </section>
+
+  <div class="container--narrow" style="padding-bottom:80px; text-align:center;">
+
+    <StarDivider />
+
+    <div class="coming-soon">
+      <div class="coming-soon-icon">⛪</div>
+      <h2 class="coming-soon-title">Coming Soon</h2>
+      <p class="coming-soon-desc">
+        We're preparing a comprehensive liturgical resource — texts of the Divine Liturgy, explanations of each part, chant recordings, and guides for following along at your first (or fiftieth) service.
+      </p>
+      <p class="coming-soon-sub">
+        In the meantime, explore the <a href="/journey/">Journey</a> to learn what happens during the Liturgy, or visit <a href="/tools/">Tools</a> for practical guides on attending.
+      </p>
+    </div>
+
+    <StarDivider />
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .coming-soon {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .coming-soon-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+    opacity: 0.5;
+  }
+  .coming-soon-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--beeswax);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .coming-soon-desc {
+    font-size: 16px;
+    color: var(--aged-vellum);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .coming-soon-sub {
+    font-size: 15px;
+    color: var(--censer-smoke);
+    line-height: 1.7;
+  }
+</style>
