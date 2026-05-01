@@ -1,0 +1,332 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Pullquote from '../components/Pullquote.astro';
+import StarDivider from '../components/StarDivider.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  stepNumber: string;
+  heroImage: string;
+  heroImageAlt?: string;
+  readTime?: string;
+  glossaryTerms?: string[];
+  prevStep?: { number: string; title: string; href: string };
+  nextStep?: { number: string; title: string; href: string };
+}
+
+const {
+  title,
+  subtitle,
+  stepNumber,
+  heroImage,
+  heroImageAlt = '',
+  readTime = '5 min read',
+  glossaryTerms = [],
+  prevStep,
+  nextStep
+} = Astro.props;
+---
+
+<BaseLayout title={`Step ${stepNumber}: ${title}`} description={subtitle}>
+
+  <!-- Hero -->
+  <section class="journey-hero">
+    <div class="journey-hero-image-wrap">
+      <img src={heroImage} alt={heroImageAlt} class="journey-hero-image" loading="eager" />
+      <div class="journey-hero-overlay"></div>
+    </div>
+    <div class="journey-hero-content">
+      <div class="section-label" style="margin-bottom:12px;">Step {stepNumber}</div>
+      <h1 class="journey-hero-title">{title}</h1>
+      {subtitle && <p class="journey-hero-subtitle">{subtitle}</p>}
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
+  <div class="article-surface">
+    <div class="container--narrow">
+      <nav class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="sep">›</span>
+        <a href="/journey/">Journey</a>
+        <span class="sep">›</span>
+        <span style="color: var(--beeswax);">{title}</span>
+      </nav>
+
+      <!-- Meta bar -->
+      <div class="journey-meta-bar">
+        <div class="journey-meta-item">
+          <span class="journey-meta-label">Step</span>
+          <span class="journey-meta-value">{stepNumber} of 16</span>
+        </div>
+        <div class="journey-meta-item">
+          <span class="journey-meta-label">Read time</span>
+          <span class="journey-meta-value">{readTime}</span>
+        </div>
+        {glossaryTerms.length > 0 && (
+          <div class="journey-meta-item journey-meta-terms">
+            <span class="journey-meta-label">Key terms</span>
+            <div class="journey-meta-tags">
+              {glossaryTerms.map(term => (
+                <a href={`/glossary/#${term.toLowerCase().replace(/\s+/g, '-')}`} class="tag">{term}</a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Article body -->
+      <article class="journey-article-body">
+        <slot />
+      </article>
+
+      <StarDivider />
+
+      <!-- Navigation -->
+      <nav class="journey-nav">
+        {prevStep ? (
+          <a href={prevStep.href} class="journey-nav-link journey-nav-prev">
+            <span class="journey-nav-dir">← Previous</span>
+            <span class="journey-nav-step">Step {prevStep.number}</span>
+            <span class="journey-nav-title">{prevStep.title}</span>
+          </a>
+        ) : <div></div>}
+        {nextStep ? (
+          <a href={nextStep.href} class="journey-nav-link journey-nav-next">
+            <span class="journey-nav-dir">Next →</span>
+            <span class="journey-nav-step">Step {nextStep.number}</span>
+            <span class="journey-nav-title">{nextStep.title}</span>
+          </a>
+        ) : (
+          <a href="/journey/" class="journey-nav-link journey-nav-next">
+            <span class="journey-nav-dir">Back to</span>
+            <span class="journey-nav-step">The Journey</span>
+            <span class="journey-nav-title">See all steps</span>
+          </a>
+        )}
+      </nav>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  /* ========== HERO ========== */
+  .journey-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .journey-hero-image-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .journey-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .journey-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,11,8,0.3) 0%,
+      rgba(13,11,8,0.5) 40%,
+      rgba(13,11,8,0.85) 80%,
+      rgba(13,11,8,1) 100%
+    );
+  }
+  .journey-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 720px;
+    padding: 0 40px 48px;
+  }
+  .journey-hero-title {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--beeswax);
+    letter-spacing: 2px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .journey-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+  }
+
+  /* ========== META BAR ========== */
+  .journey-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 20px 0;
+    margin-bottom: 32px;
+    border-bottom: 0.5px solid var(--gold-10);
+  }
+  .journey-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .journey-meta-terms {
+    flex: 1;
+  }
+  .journey-meta-label {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--deep-muted);
+  }
+  .journey-meta-value {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--aged-vellum);
+  }
+  .journey-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  /* ========== ARTICLE BODY ========== */
+  .journey-article-body {
+    padding-bottom: 40px;
+  }
+  .journey-article-body :global(p) {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--aged-vellum);
+  }
+  .journey-article-body :global(h2) {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 48px 0 16px;
+    letter-spacing: 0.5px;
+  }
+  .journey-article-body :global(h3) {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 36px 0 12px;
+  }
+  .journey-article-body :global(.drop-cap)::first-letter {
+    font-family: var(--font-display);
+    font-size: 56px;
+    float: left;
+    color: var(--halo-gold);
+    opacity: 0.7;
+    line-height: 0.8;
+    margin: 8px 14px 0 0;
+    font-weight: 400;
+  }
+  .journey-article-body :global(em) {
+    color: var(--censer-smoke);
+  }
+
+  /* ========== INLINE IMAGES ========== */
+  .journey-article-body :global(.article-image) {
+    margin: 36px 0;
+    text-align: center;
+  }
+  .journey-article-body :global(.article-image img) {
+    max-width: 100%;
+    max-height: 500px;
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .journey-article-body :global(.article-image figcaption) {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ========== WIDE IMAGE (breaks out of narrow container) ========== */
+  .journey-article-body :global(.article-image--wide) {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+  .journey-article-body :global(.article-image--wide img) {
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* ========== NAVIGATION ========== */
+  .journey-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-bottom: 80px;
+  }
+  .journey-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 24px;
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .journey-nav-link:hover {
+    border-color: var(--gold-15);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  .journey-nav-next { text-align: right; }
+  .journey-nav-dir {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+  }
+  .journey-nav-step {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--deep-muted);
+  }
+  .journey-nav-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--beeswax);
+    font-weight: 400;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .journey-hero { min-height: 40vh; }
+    .journey-hero-title { font-size: 28px; }
+    .journey-hero-content { padding: 0 20px 36px; }
+    .journey-nav { grid-template-columns: 1fr; }
+    .journey-nav-next { text-align: left; }
+    .journey-meta-bar { flex-direction: column; gap: 12px; }
+    .journey-article-body :global(.article-image--wide) {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+</style>
