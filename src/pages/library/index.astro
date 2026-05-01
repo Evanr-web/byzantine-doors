@@ -26,24 +26,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
 
     <div class="library-grid">
-      <div class="library-card">
+      <a href="/library/theosis/" class="library-card">
         <div class="library-card-cat">Theology</div>
         <h3>Theosis — Becoming God by Grace</h3>
         <p>The Eastern understanding of salvation isn't a courtroom verdict — it's a healing. Humanity was made to share in the divine nature.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 6</span></div>
-      </div>
+      </a>
       <div class="library-card">
         <div class="library-card-cat">History</div>
         <h3>The Seven Ecumenical Councils</h3>
         <p>From Nicaea to Nicaea II — the seven gatherings that defined what Christians believe and why icons matter.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 8</span></div>
       </div>
-      <div class="library-card">
+      <a href="/library/jesus-prayer/" class="library-card">
         <div class="library-card-cat">Practice</div>
         <h3>The Jesus Prayer</h3>
         <p>"Lord Jesus Christ, Son of God, have mercy on me, a sinner." Eight words that contain an entire theology.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 10</span></div>
-      </div>
+      </a>
       <div class="library-card">
         <div class="library-card-cat">Theology</div>
         <h3>Ancestral Sin vs. Original Sin</h3>
@@ -56,11 +56,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>What actually happened, what didn't, and why healing this wound matters more than scoring points.</p>
         <div class="library-card-footer"><span class="tag">Journey Step 14</span></div>
       </div>
-      <div class="library-card">
+      <a href="/library/desert-fathers/" class="library-card">
         <div class="library-card-cat">Spirituality</div>
         <h3>The Desert Fathers & Mothers</h3>
         <p>In the 4th century, thousands of Christians walked into the Egyptian desert. What they found there shaped all of Eastern spirituality.</p>
-      </div>
+      </a>
       <div class="library-card">
         <div class="library-card-cat">Practice</div>
         <h3>The Iconostasis Explained</h3>
@@ -114,12 +114,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     gap: 20px;
   }
   .library-card {
+    display: block;
     background: var(--icon-wall);
     border: 0.5px solid var(--gold-10);
     border-radius: 12px;
     padding: 24px;
     cursor: pointer;
     transition: border-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
   }
   .library-card:hover {
     border-color: var(--gold-15);

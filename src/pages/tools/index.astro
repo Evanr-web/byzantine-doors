@@ -1,149 +1,133 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<BaseLayout title="Tools" description="Practical guides for Eastern Christian life — your first visit, fasting, how to venerate an icon.">
+<BaseLayout title="Tools & Guides" description="Practical guides for Eastern Christian life — your first visit, fasting, prayer corners, and feast-day hymns.">
 
-  <div class="article-surface">
-    <div class="article-hero">
-      <div class="container--narrow" style="position:relative;">
-        <div class="breadcrumbs">
-          <a href={`${base}/`}>Home</a>
-          <span class="sep">›</span>
-          <span style="color:var(--censer-smoke)">Tools</span>
-        </div>
-        <div class="article-meta">
-          <span class="tag">Practical Guide</span>
-        </div>
-        <h1 class="article-title">Your First Visit to a Byzantine Parish</h1>
-        <p class="article-subtitle">Everything you need to know before, during, and after your first Divine Liturgy. You'll be fine — here's how.</p>
-      </div>
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Tools & Guides</div>
+      <h1 class="hero-title" style="font-size:34px;">Practical Guides</h1>
+      <p class="hero-subtitle">
+        Everything you need to know before, during, and after your encounters with Eastern Christianity. No prior knowledge required.
+      </p>
     </div>
+  </section>
 
-    <div class="article-body">
-      <div class="container--narrow">
+  <div class="container" style="padding-bottom:80px;">
+    <div class="tools-grid">
 
-        <p style="margin-bottom:40px;">You don't need to know anything, believe anything, or prepare anything special. But if you're the kind of person who likes to know what to expect before walking into an unfamiliar situation, this guide is for you.</p>
-
-        <div class="tool-step">
-          <div class="tool-step-num">1</div>
-          <div class="tool-step-content">
-            <h3>Before You Go</h3>
-            <p>Find a Byzantine parish near you. A quick search for "Byzantine liturgy" plus your city should turn up options. Sunday Liturgy times vary — most are between 9:00 and 11:00 AM. Arrive 5–10 minutes early.</p>
-            <div class="sensory-note">
-              <strong>What to wear:</strong> There is no dress code. Business casual is a safe bet. Some older parishioners may wear head coverings, but this is not expected of visitors.
-            </div>
-          </div>
+      <a href="/tools/first-visit/" class="tool-card">
+        <div class="tool-card-icon">🚪</div>
+        <div class="tool-card-body">
+          <h3>Your First Visit to a Byzantine Parish</h3>
+          <p>Everything you need to know before, during, and after your first Divine Liturgy. You'll be fine — here's how.</p>
+          <span class="tool-card-tag">Start Here</span>
         </div>
+      </a>
 
-        <div class="tool-step">
-          <div class="tool-step-num">2</div>
-          <div class="tool-step-content">
-            <h3>When You Walk In</h3>
-            <p>The first thing you'll notice is the smell — beeswax candles and incense. The church will likely be dimmer than you're used to. Look for the icon of Christ to the right of the main doors and the Theotokos (Mary) to the left.</p>
-            <div class="sensory-note">
-              <strong>What you'll see:</strong> A wall of icons (the iconostasis) at the front. Candle stands. Perhaps some older parishioners crossing themselves and bowing.
-            </div>
-          </div>
+      <a href="/tools/fasting-guide/" class="tool-card">
+        <div class="tool-card-icon">🍞</div>
+        <div class="tool-card-body">
+          <h3>Byzantine Fasting Guide</h3>
+          <p>The rhythm of fasting and feasting in the Eastern tradition — what to eat, when, and why it matters for the soul.</p>
+          <span class="tool-card-tag">Practice</span>
         </div>
+      </a>
 
-        <div class="tool-step">
-          <div class="tool-step-num">3</div>
-          <div class="tool-step-content">
-            <h3>During the Liturgy</h3>
-            <p>Almost everything is sung. The congregation will stand for most of the service (it's okay to sit if you need to). Don't worry about following along perfectly — most parishes have handouts with the responses.</p>
-            <div class="sensory-note">
-              <strong>What you'll hear:</strong> Chanting — sometimes in English, sometimes in a liturgical language. No instruments — only human voices.
-            </div>
-          </div>
+      <a href="/tools/prayer-corner/" class="tool-card">
+        <div class="tool-card-icon">🕯️</div>
+        <div class="tool-card-body">
+          <h3>Setting Up a Home Prayer Corner</h3>
+          <p>How to create a sacred space in your home — icons, candles, and the art of praying where you live.</p>
+          <span class="tool-card-tag">Practice</span>
         </div>
+      </a>
 
-        <div class="tool-step">
-          <div class="tool-step-num">4</div>
-          <div class="tool-step-content">
-            <h3>Communion</h3>
-            <p>If you are visiting for the first time, it's best not to receive Communion until you've spoken with the priest — but you are warmly welcome to approach and ask for a blessing. Simply cross your arms over your chest and say "a blessing, Father."</p>
-          </div>
+      <a href="/tools/troparion-cards/" class="tool-card">
+        <div class="tool-card-icon">🎵</div>
+        <div class="tool-card-body">
+          <h3>Troparion Cards for Major Feasts</h3>
+          <p>Printable cards with the troparion (main hymn) for each major feast of the liturgical year — text and melody guides.</p>
+          <span class="tool-card-tag">Reference</span>
         </div>
+      </a>
 
-        <div class="tool-step">
-          <div class="tool-step-num">5</div>
-          <div class="tool-step-content">
-            <h3>After the Liturgy</h3>
-            <p>Many parishes have a fellowship hour with coffee and snacks. Go. This is where you'll meet people. Eastern Christians are famously hospitable — don't be surprised if someone hands you a plate of food within five minutes.</p>
-            <div class="sensory-note">
-              <strong>What to expect:</strong> Coffee, conversation, and quite possibly homemade food. If someone asks "is this your first time?" — that's an invitation to connect, not an interrogation.
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-box">
-          <p>Ready to understand what's happening during the Liturgy?</p>
-          <a href={`${base}/journey/`} class="btn-primary">Step 1: What Happens Behind Those Doors?</a>
-        </div>
-
-      </div>
     </div>
   </div>
 
 </BaseLayout>
 
 <style>
-  .tool-step {
+  .tools-grid {
     display: grid;
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 20px;
-    margin-bottom: 32px;
-    align-items: start;
   }
-  .tool-step-num {
+  .tool-card {
+    display: flex;
+    gap: 20px;
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-40), transparent);
+  }
+  .tool-card:hover {
+    border-color: var(--gold-15);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  .tool-card-icon {
+    font-size: 28px;
+    flex-shrink: 0;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
-    border: 0.5px solid var(--gold-15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-size: 20px;
-    color: var(--halo-gold);
-    opacity: 0.6;
-    flex-shrink: 0;
+    border: 0.5px solid var(--gold-10);
+    border-radius: 10px;
+    background: var(--gold-04);
   }
-  .tool-step-content h3 {
+  .tool-card-body h3 {
     font-family: var(--font-display);
     font-size: 19px;
     font-weight: 400;
     color: var(--beeswax);
     margin-bottom: 8px;
   }
-  .tool-step-content p {
-    font-size: 15px;
-    color: var(--aged-vellum);
-    line-height: 1.7;
-  }
-  .sensory-note {
-    margin-top: 12px;
-    padding: 12px 16px;
-    background: var(--gold-04);
-    border-radius: 6px;
-    font-family: var(--font-ui);
-    font-size: 12px;
+  .tool-card-body p {
+    font-size: 14px;
     color: var(--censer-smoke);
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 12px;
   }
-  .sensory-note strong { color: var(--halo-gold); font-weight: 500; }
-  .cta-box {
-    margin-top: 48px;
-    padding: 24px;
-    background: var(--gold-04);
-    border-radius: 8px;
-    text-align: center;
+  .tool-card-tag {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    padding: 4px 10px;
+    border: 0.5px solid var(--gold-15);
+    border-radius: 12px;
   }
-  .cta-box p {
-    font-size: 16px;
-    color: var(--beeswax);
-    margin-bottom: 16px;
+  @media (max-width: 768px) {
+    .tools-grid { grid-template-columns: 1fr; }
+    .tool-card { flex-direction: column; gap: 12px; }
   }
 </style>
