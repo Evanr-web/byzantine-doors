@@ -15,9 +15,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         muted
         loop
         playsinline
-        poster="/video/hero-poster.jpg"
+        poster={`${base}/video/hero-kadylo-poster.jpg`}
       >
-        <source src="/video/hero-incense.mp4" type="video/mp4" />
+        <source src={`${base}/video/hero-kadylo.mp4`} type="video/mp4" />
       </video>
       <div class="hero-video-overlay"></div>
     </div>
