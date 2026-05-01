@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Tools" description="Practical guides for Eastern Christian life — your first visit, fasting, how to venerate an icon.">
@@ -8,7 +9,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="article-hero">
       <div class="container--narrow" style="position:relative;">
         <div class="breadcrumbs">
-          <a href="/">Home</a>
+          <a href={`${base}/`}>Home</a>
           <span class="sep">›</span>
           <span style="color:var(--censer-smoke)">Tools</span>
         </div>
@@ -79,7 +80,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <div class="cta-box">
           <p>Ready to understand what's happening during the Liturgy?</p>
-          <a href="/journey/" class="btn-primary">Step 1: What Happens Behind Those Doors?</a>
+          <a href={`${base}/journey/`} class="btn-primary">Step 1: What Happens Behind Those Doors?</a>
         </div>
 
       </div>

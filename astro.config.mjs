@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://byzantinedoors.com',
+  site: 'https://evanr-web.github.io',
+  base: '/byzantine-doors',
 });
