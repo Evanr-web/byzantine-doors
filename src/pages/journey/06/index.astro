@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -90,5 +91,20 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>Each sacrament addresses a different dimension of the human person's journey toward God. Together, they form a comprehensive therapy, not because the Church thinks grace is mechanical, but because God, who made human beings as embodied creatures, heals them through embodied means.</p>
 
 <p>The next step introduces the One who makes all of this possible: the Holy Spirit, the Lord and Giver of Life, who dwells within each Christian and draws them, step by step, into the life of God.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "Theosis — Becoming God by Grace", href: "/library/theosis/", note: "The full theological framework behind the East's understanding of salvation" },
+    { emoji: "✝️", title: "Ancestral Sin vs. Original Sin", href: "/library/ancestral-sin/", note: "Why the East starts with sickness, not guilt — and what that changes" },
+    { emoji: "👤", title: "St. Maximus the Confessor", href: "/library/fathers/maximus/", note: "The theologian who made theosis precise", comingSoon: true },
+    { emoji: "⚖️", title: "Essence and Energies", href: "/library/east-west/essence-energies/", note: "The Palamite distinction — the metaphysics behind participation in God", comingSoon: true },
+    { emoji: "🙏", title: "The Jesus Prayer", href: "/library/jesus-prayer/", note: "The prayer that opens the door to theosis in daily life" },
+  ]}
+  readingRec={{
+    title: "On the Incarnation",
+    author: "St. Athanasius of Alexandria",
+    note: "Short (50 pages), ancient, foundational. C.S. Lewis wrote the introduction to the most popular English edition."
+  }}
+/>
 
 </JourneyArticleLayout>

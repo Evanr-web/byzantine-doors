@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -105,5 +106,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p><strong>"Amen."</strong></p>
 
 <p>Come and see.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "🧭", title: "Your First Visit", href: "/tools/first-visit/", note: "Practical guidance for walking through the doors" },
+    { emoji: "🛐", title: "Prayer Corner Guide", href: "/tools/prayer-corner/", note: "Start where you are — set up a prayer corner at home" },
+    { emoji: "🙏", title: "The Jesus Prayer", href: "/library/jesus-prayer/", note: "Begin with seven words: 'Lord Jesus Christ, have mercy on me'" },
+    { emoji: "🏠", title: "Liturgical Life in the Home", href: "/tools/family-prayer/", note: "Bring the tradition into your daily life, starting today" },
+  ]}
+  readingRec={{
+    title: "The Orthodox Way",
+    author: "Kallistos Ware",
+    note: "The spiritual companion to 'The Orthodox Church.' Less history, more prayer. A book for the heart."
+  }}
+/>
 
 </JourneyArticleLayout>

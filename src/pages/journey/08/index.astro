@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -90,5 +91,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>And this Body extends beyond the living. The saints who have died are still members of the Church. The icons on the walls are not decorations. They are windows into the communion of saints, reminders that the Church includes both the living and the dead, the visible and the invisible, those who worship on earth and those who worship in heaven.</p>
 
 <p>The next step explores the means by which this Body is sustained: the seven Mysteries (sacraments) through which heaven meets earth, and ordinary things like water, oil, bread, and wine become vehicles of divine life.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "⚔️", title: "The Seven Ecumenical Councils", href: "/library/ecumenical-councils/", note: "How the early Church governed itself — and why councils matter more than popes in the East" },
+    { emoji: "📖", title: "The Great Schism of 1054", href: "/library/great-schism/", note: "When one Church became two — and what was really at stake" },
+    { emoji: "⚖️", title: "Papal Primacy — Honor vs. Jurisdiction", href: "/library/east-west/papal-primacy/", note: "How East and West understand the role of the Bishop of Rome", comingSoon: true },
+    { emoji: "📖", title: "The Union of Brest (1596)", href: "/library/union-of-brest/", note: "When Ukrainian Christians chose communion with Rome — and what it cost" },
+  ]}
+  readingRec={{
+    title: "The Orthodox Church",
+    author: "Kallistos Ware",
+    note: "Chapters 1–7 cover ecclesiology beautifully — how the East understands the Church as communion."
+  }}
+/>
 
 </JourneyArticleLayout>

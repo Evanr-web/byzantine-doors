@@ -1,0 +1,183 @@
+---
+// GoDeeper.astro — Curated "Go Deeper" links at the end of Journey articles
+// Bridges Layer 1 (Journey) into Layer 3 (Library deep dives, Fathers, etc.)
+
+interface DeeperLink {
+  emoji: string;
+  title: string;
+  href: string;
+  note?: string;       // short description or "Coming soon" marker
+  external?: boolean;  // opens in new tab
+  comingSoon?: boolean; // dimmed, no link
+}
+
+interface Props {
+  links: DeeperLink[];
+  readingRec?: {       // optional "Start reading" book recommendation
+    title: string;
+    author: string;
+    note?: string;
+  };
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { links, readingRec } = Astro.props;
+---
+
+<aside class="go-deeper" aria-label="Go deeper into this topic">
+  <div class="go-deeper-header">
+    <span class="go-deeper-tag">LAYER 3</span>
+    <h3 class="go-deeper-title">Go Deeper</h3>
+  </div>
+  <ul class="go-deeper-links">
+    {links.map(link => (
+      <li class:list={["go-deeper-item", { "go-deeper-item--soon": link.comingSoon }]}>
+        <span class="go-deeper-emoji" aria-hidden="true">{link.emoji}</span>
+        <div class="go-deeper-text">
+          {link.comingSoon ? (
+            <span class="go-deeper-link-title">{link.title}</span>
+          ) : (
+            <a
+              href={link.external ? link.href : `${base}${link.href}`}
+              class="go-deeper-link-title"
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            >{link.title}</a>
+          )}
+          {link.note && <span class="go-deeper-note">{link.note}</span>}
+          {link.comingSoon && <span class="go-deeper-soon">Coming soon</span>}
+        </div>
+      </li>
+    ))}
+  </ul>
+  {readingRec && (
+    <div class="go-deeper-reading">
+      <span class="go-deeper-reading-label">📚 Start reading</span>
+      <span class="go-deeper-reading-book"><em>{readingRec.title}</em> by {readingRec.author}</span>
+      {readingRec.note && <span class="go-deeper-reading-note">{readingRec.note}</span>}
+    </div>
+  )}
+</aside>
+
+<style>
+  .go-deeper {
+    margin: 48px 0 32px;
+    border: 0.5px solid var(--gold-15);
+    border-radius: 12px;
+    background: var(--gold-04);
+    overflow: hidden;
+  }
+  .go-deeper-header {
+    padding: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .go-deeper-tag {
+    font-family: var(--font-ui);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--halo-gold);
+    border: 0.5px solid var(--gold-40);
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .go-deeper-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--beeswax);
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  .go-deeper-links {
+    list-style: none;
+    padding: 16px 24px 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .go-deeper-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .go-deeper-item--soon {
+    opacity: 0.45;
+  }
+  .go-deeper-emoji {
+    font-size: 18px;
+    line-height: 1.4;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .go-deeper-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  a.go-deeper-link-title {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--halo-gold);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  a.go-deeper-link-title:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  span.go-deeper-link-title {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--aged-vellum);
+    line-height: 1.4;
+  }
+  .go-deeper-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+    line-height: 1.5;
+  }
+  .go-deeper-soon {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--censer-smoke);
+  }
+  .go-deeper-reading {
+    border-top: 0.5px solid var(--gold-10);
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .go-deeper-reading-label {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+  }
+  .go-deeper-reading-book {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--beeswax);
+    line-height: 1.4;
+  }
+  .go-deeper-reading-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+  }
+
+  @media (max-width: 768px) {
+    .go-deeper { margin: 36px 0 24px; }
+    .go-deeper-header { padding: 16px 16px 0; }
+    .go-deeper-links { padding: 12px 16px 16px; }
+    .go-deeper-reading { padding: 12px 16px; }
+  }
+</style>

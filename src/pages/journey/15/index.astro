@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -78,5 +79,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>The healthier posture is gratitude. The West gave the world the university, the hospital, the systematic defense of human rights, and a missionary energy that carried the Gospel to every continent. The East preserved the liturgy in its ancient fullness, developed a theology of the human person that anticipates modern psychology by a millennium, and produced a monastic tradition of breathtaking depth.</p>
 
 <p>Two lungs. One body. The Body of Christ needs both to breathe fully. And perhaps the greatest gift Byzantine Catholics offer the universal Church is the daily, lived experience of holding East and West together. Not in theory. In worship, in prayer, and in the communion of saints.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Filioque Controversy", href: "/library/filioque/", note: "The theological difference examined — and paths toward resolution" },
+    { emoji: "⚖️", title: "Ancestral Sin vs. Original Sin", href: "/library/ancestral-sin/", note: "How East and West read the Fall differently — and why both readings contain truth" },
+    { emoji: "⚖️", title: "Papal Primacy — Honor vs. Jurisdiction", href: "/library/east-west/papal-primacy/", note: "The governance question — can the East accept the Pope?", comingSoon: true },
+    { emoji: "❓", title: "What is a Byzantine Catholic?", href: "/library/what-is-byzantine-catholic/", note: "Living proof that East and West can breathe together", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "Ut Unum Sint",
+    author: "Pope John Paul II",
+    note: "The 1995 encyclical where a pope invited the East to help reimagine the papacy. Extraordinary."
+  }}
+/>
 
 </JourneyArticleLayout>

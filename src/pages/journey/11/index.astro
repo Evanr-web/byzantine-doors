@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -86,5 +87,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>The liturgical year is, in the end, a form of catechesis. You do not learn the faith primarily from textbooks; you learn it by living through it, year after year, feast after feast, fast after fast. The calendar teaches what no lecture can: that salvation is not an idea but a rhythm, not a concept but a life.</p>
 
 <p>The next step examines the most physical dimension of that rhythm: fasting and feasting, the ancient practice that connects the body to the spirit in ways that modern Christianity has largely forgotten.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📅", title: "Feasts & Fasts", href: "/liturgy/feasts-and-fasts/", note: "The complete guide — Pascha, the Twelve Great Feasts, and the four fasting seasons" },
+    { emoji: "🎵", title: "Troparion Cards", href: "/tools/troparion-cards/", note: "Printable hymn cards for the major feasts" },
+    { emoji: "🏠", title: "Liturgical Life in the Home", href: "/tools/family-prayer/", note: "Bringing the liturgical year into your family's daily life" },
+    { emoji: "📖", title: "The Transfiguration", href: "/library/feasts/transfiguration/", note: "Why August 6 matters — the theology of uncreated light", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "The Festal Menaion",
+    author: "Mother Mary & Kallistos Ware",
+    note: "The actual hymns and services for the great feasts. Dense but magnificent."
+  }}
+/>
 
 </JourneyArticleLayout>

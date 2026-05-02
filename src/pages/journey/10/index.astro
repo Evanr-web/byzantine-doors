@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -92,5 +93,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>The point is communion. The God who became human in a stable in Bethlehem still desires to enter the stable of the human heart, cluttered and inadequate as it is. Prayer is opening the door. Quite literally, learning to breathe: learning to inhale the mercy of God and exhale the gratitude that is the only fitting response.</p>
 
 <p>The next step shows how this rhythm of prayer expands into the calendar itself, the liturgical year that shapes every day, every week, and every season into a living encounter with salvation.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "🙏", title: "The Jesus Prayer", href: "/library/jesus-prayer/", note: "The complete guide to the prayer that becomes breathing" },
+    { emoji: "🏜️", title: "The Desert Fathers & Mothers", href: "/library/desert-fathers/", note: "The men and women who pioneered the practice of unceasing prayer" },
+    { emoji: "🛐", title: "Prayer Corner Guide", href: "/tools/prayer-corner/", note: "Set up the 'beautiful corner' that anchors your daily prayer" },
+    { emoji: "👤", title: "St. Gregory Palamas", href: "/library/fathers/gregory-palamas/", note: "The defender of hesychasm — the theology of prayer as encounter with God", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "The Way of a Pilgrim",
+    author: "Anonymous",
+    note: "A 19th-century Russian classic. A wanderer learns the Jesus Prayer and it transforms everything."
+  }}
+/>
 
 </JourneyArticleLayout>

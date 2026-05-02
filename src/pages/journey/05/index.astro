@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -84,5 +85,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>Eastern Christianity chose the second metaphor. The Church is a hospital. Sin is a disease. The sacraments are medicine. And Christ is the Physician who became sick so that the sick might be healed.</p>
 
 <p>The next step explores what that healing actually looks like, and encounters one of the most extraordinary claims in all of Christian theology: that the goal of human life is not merely to be forgiven, but to become God.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "Ancestral Sin vs. Original Sin", href: "/library/ancestral-sin/", note: "The East's understanding of the Fall — inherited mortality, not inherited guilt" },
+    { emoji: "📖", title: "Theosis — Becoming God by Grace", href: "/library/theosis/", note: "If the Fall is sickness, theosis is the cure" },
+    { emoji: "👤", title: "St. Irenaeus of Lyon", href: "/library/fathers/irenaeus/", note: "Recapitulation — Christ relives and reverses what Adam lost", comingSoon: true },
+    { emoji: "🏥", title: "Essence and Energies", href: "/library/east-west/essence-energies/", note: "The metaphysics behind participation in God vs. separation from God", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "The Ancestral Sin",
+    author: "John S. Romanides",
+    note: "Dense but important. The theological argument for why the East reads Genesis differently."
+  }}
+/>
 
 </JourneyArticleLayout>

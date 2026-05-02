@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -86,5 +87,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>Modern Western culture treats the body as either an object to be perfected (fitness culture) or an appetite to be indulged (consumer culture). The Eastern tradition offers a third way: the body as a temple. Not to be punished, not to be pampered, but to be sanctified. Fasting is the tool. Feasting is the reward. And the rhythm between them is the heartbeat of the Christian life.</p>
 
 <p>The next step introduces the men and women who have walked this path before: the saints, the cloud of witnesses who prove that theosis is not a theory but a lived reality.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "🍽️", title: "Fasting Guide", href: "/tools/fasting-guide/", note: "Practical, week-by-week guidance for Byzantine fasting" },
+    { emoji: "📅", title: "Feasts & Fasts", href: "/liturgy/feasts-and-fasts/", note: "The theological framework — why fasting and feasting form a single rhythm" },
+    { emoji: "🏠", title: "Liturgical Life in the Home", href: "/tools/family-prayer/", note: "Fasting with children and living the liturgical year as a family" },
+    { emoji: "🏜️", title: "The Desert Fathers & Mothers", href: "/library/desert-fathers/", note: "The pioneers of ascetic practice — fasting as medicine for the soul" },
+  ]}
+  readingRec={{
+    title: "The Lenten Spring",
+    author: "Thomas Hopko",
+    note: "A day-by-day devotional guide through Great Lent. Practical and deeply spiritual."
+  }}
+/>
 
 </JourneyArticleLayout>

@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -98,5 +99,19 @@ import Pullquote from '../../../components/Pullquote.astro';
   <img src="/byzantine-doors/images/hagia-sophia-deesis.jpg" alt="The Deesis mosaic in Hagia Sophia showing Christ flanked by Mary and John the Baptist" />
   <figcaption>The Deesis mosaic, Hagia Sophia, Istanbul (13th century). Christ flanked by the Theotokos and St. John the Baptist — intercession made visible in gold and glass.</figcaption>
 </figure>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Iconostasis Explained", href: "/library/iconostasis/", note: "The icon screen that separates — and connects — heaven and earth" },
+    { emoji: "⛪", title: "Liturgical Walkthrough", href: "/liturgy/walkthrough/", note: "Step-by-step through the entire Divine Liturgy" },
+    { emoji: "🧭", title: "Your First Visit", href: "/tools/first-visit/", note: "Practical guide — what to wear, where to stand, what to do" },
+    { emoji: "🎨", title: "How to Read an Icon", href: "/library/how-to-read-an-icon/", note: "Understanding the visual language of Byzantine art", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "The Orthodox Church",
+    author: "Kallistos Ware",
+    note: "The classic introduction. Readable, thorough, and still the best starting point after 60 years."
+  }}
+/>
 
 </JourneyArticleLayout>

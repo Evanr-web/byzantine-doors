@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -104,5 +105,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>That is what you see when you look at the icon of the Nativity. That is what the choir is singing about at Christmas. That is what Chalcedon was trying to protect with its four careful negatives.</p>
 
 <p>The God who made the universe chose to become one of us, and in doing so, opened the door for us to become like Him. That door is what this entire journey is about.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "⚔️", title: "The Seven Ecumenical Councils", href: "/library/ecumenical-councils/", note: "From Nicaea to Chalcedon — the Christological battles that shaped the faith" },
+    { emoji: "📖", title: "Theosis — Becoming God by Grace", href: "/library/theosis/", note: "Why the Incarnation is the foundation of everything — God became human so we could become God" },
+    { emoji: "👤", title: "St. Athanasius of Alexandria", href: "/library/fathers/athanasius/", note: "The man who stood against the world to defend Christ's divinity", comingSoon: true },
+    { emoji: "👤", title: "St. Cyril of Alexandria", href: "/library/fathers/cyril/", note: "The theologian of the Incarnation and defender of Theotokos", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "On the Incarnation",
+    author: "St. Athanasius",
+    note: "The foundational text. Only 50 pages. C.S. Lewis wrote the introduction."
+  }}
+/>
 
 </JourneyArticleLayout>

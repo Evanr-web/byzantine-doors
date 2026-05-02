@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -88,5 +89,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>Including, the Church dares to hope, out of you.</p>
 
 <p>The beliefs, practices, and lived spirituality of Eastern Christianity have now been explored. The next step turns to a harder question: why is the Christian East divided from the Christian West, and what hope is there for reunion?</p>
+
+<GoDeeper
+  links={[
+    { emoji: "🏜️", title: "The Desert Fathers & Mothers", href: "/library/desert-fathers/", note: "The earliest monks and nuns — radical lives of prayer in the Egyptian desert" },
+    { emoji: "📖", title: "Theosis — Becoming God by Grace", href: "/library/theosis/", note: "The saints are proof that theosis works — ordinary humans transformed by grace" },
+    { emoji: "👤", title: "St. John Chrysostom", href: "/library/fathers/john-chrysostom/", note: "The 'Golden Mouth' — bishop, preacher, exile, saint", comingSoon: true },
+    { emoji: "📅", title: "Daily", href: "/daily/", note: "Today's saint, troparion, and liturgical information" },
+  ]}
+  readingRec={{
+    title: "The Sayings of the Desert Fathers",
+    author: "Benedicta Ward",
+    note: "Short, startling, funny, devastating. The best introduction to early Christian holiness."
+  }}
+/>
 
 </JourneyArticleLayout>

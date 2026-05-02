@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -94,5 +95,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>The door is open. There is a seat at the table.</p>
 
 <p>For a deeper exploration, Vladimir Lossky's <em>The Mystical Theology of the Eastern Church</em> devotes its finest chapters to the Trinity. It is dense but rewarding.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Filioque Controversy", href: "/library/filioque/", note: "The one word that divided East and West — and why it matters" },
+    { emoji: "⚔️", title: "The Seven Ecumenical Councils", href: "/library/ecumenical-councils/", note: "Nicaea, Constantinople, and the councils that hammered out Trinitarian doctrine" },
+    { emoji: "👤", title: "St. Gregory the Theologian", href: "/library/fathers/gregory-theologian/", note: "The Cappadocian who earned the title 'Theologian' for his work on the Trinity", comingSoon: true },
+    { emoji: "👤", title: "St. Basil the Great", href: "/library/fathers/basil/", note: "On the Holy Spirit — the treatise that shaped Eastern pneumatology", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "On God and Christ: The Five Theological Orations",
+    author: "St. Gregory of Nazianzus",
+    note: "The sermons that defined Trinitarian orthodoxy. Short, electrifying, 4th century."
+  }}
+/>
 
 </JourneyArticleLayout>

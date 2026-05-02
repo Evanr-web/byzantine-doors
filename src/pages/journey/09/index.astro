@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -96,5 +97,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>This is why the East calls them Mysteries and not merely sacraments. They cannot be fully explained. They can only be entered into, with faith, with repentance, with awe, and experienced.</p>
 
 <p>The next step moves from what Byzantine Christians believe to how they live, beginning with prayer: the breath of the spiritual life, and the practice that sustains everything else.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "⛪", title: "Liturgical Walkthrough", href: "/liturgy/walkthrough/", note: "The Divine Liturgy step by step — the Eucharist as the Mystery of mysteries" },
+    { emoji: "🔮", title: "Liturgical Symbolism", href: "/liturgy/symbolism/", note: "The symbolic language of Byzantine worship — what every gesture and object means" },
+    { emoji: "🙏", title: "The Jesus Prayer", href: "/library/jesus-prayer/", note: "Prayer as ongoing participation in the sacramental life" },
+    { emoji: "👤", title: "St. John Chrysostom", href: "/library/fathers/john-chrysostom/", note: "The author of the Liturgy most Byzantine Christians attend every Sunday", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "For the Life of the World",
+    author: "Alexander Schmemann",
+    note: "The best modern book on sacramental theology. Short, luminous, life-changing."
+  }}
+/>
 
 </JourneyArticleLayout>

@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -89,5 +90,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>This is why the resolution of the iconoclastic controversy is celebrated every year on the first Sunday of Lent, the <strong>Sunday of Orthodoxy</strong>, with a procession of icons around the church. It is not a celebration of art. It is a celebration of the Incarnation itself: that God entered the material world and, in doing so, made it possible for the material world to bear the image of God.</p>
 
 <p>When you stand before an icon, you are not looking at a relic of the past. You are standing at a window. And on the other side, someone is looking back.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Iconostasis Explained", href: "/library/iconostasis/", note: "Architecture, theology, and meaning of the icon screen" },
+    { emoji: "⚔️", title: "The Seven Ecumenical Councils", href: "/library/ecumenical-councils/", note: "The councils that defined Christian doctrine — including the defense of icons" },
+    { emoji: "🎨", title: "How to Read an Icon", href: "/library/how-to-read-an-icon/", note: "Colors, gestures, composition — the grammar of iconography", comingSoon: true },
+    { emoji: "🛐", title: "Prayer Corner Guide", href: "/tools/prayer-corner/", note: "Set up your own icon corner at home" },
+  ]}
+  readingRec={{
+    title: "The Meaning of Icons",
+    author: "Leonid Ouspensky & Vladimir Lossky",
+    note: "The definitive theological and artistic study of icons."
+  }}
+/>
 
 </JourneyArticleLayout>

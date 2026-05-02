@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -96,5 +97,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>That goal is worth praying for. Worth working for. And worth believing in, because the Christ who prayed "that they may all be one" is not in the habit of praying for impossible things.</p>
 
 <p>The next step explores what East and West can learn from each other, and why the fullness of Christianity may require both lungs breathing together.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Great Schism of 1054", href: "/library/great-schism/", note: "What actually happened — and what didn't" },
+    { emoji: "📖", title: "The Filioque Controversy", href: "/library/filioque/", note: "The theological dispute at the heart of the division" },
+    { emoji: "📖", title: "The Union of Brest (1596)", href: "/library/union-of-brest/", note: "When Ukrainian Christians chose Rome — and what it meant for the East" },
+    { emoji: "⚖️", title: "Dormition vs. Assumption", href: "/library/east-west/dormition-assumption/", note: "How East and West honor Mary's departure — coherent but distinct", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "His Broken Body",
+    author: "Laurent Cleenewerck",
+    note: "An Eastern Orthodox perspective on the schism that is remarkably fair to both sides."
+  }}
+/>
 
 </JourneyArticleLayout>

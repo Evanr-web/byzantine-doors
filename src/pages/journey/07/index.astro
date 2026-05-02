@@ -1,6 +1,7 @@
 ---
 import JourneyArticleLayout from '../../../layouts/JourneyArticleLayout.astro';
 import Pullquote from '../../../components/Pullquote.astro';
+import GoDeeper from '../../../components/GoDeeper.astro';
 ---
 
 <JourneyArticleLayout
@@ -84,5 +85,19 @@ import Pullquote from '../../../components/Pullquote.astro';
 <p>The repetition is deliberate. Eastern worship is not afraid of repetition, because the Spirit works through repetition the way water works through stone. Slowly, patiently, shaping the soul by gradual pressure rather than dramatic force. The <a href="/byzantine-doors/glossary/#trisagion">Trisagion</a> is said three times. The Lord's Prayer is preceded by silence. The Jesus Prayer is repeated thousands of times. In each case, the human being is creating space, and the Spirit is filling it.</p>
 
 <p>The next step looks at the community that the Spirit brought into existence on Pentecost: the Church itself, its structure, its self-understanding, and why Eastern Christians believe that the local parish gathered around its bishop is the Church in its fullness.</p>
+
+<GoDeeper
+  links={[
+    { emoji: "📖", title: "The Filioque Controversy", href: "/library/filioque/", note: "Does the Spirit proceed from the Father alone, or from the Father 'and the Son'?" },
+    { emoji: "🙏", title: "The Jesus Prayer", href: "/library/jesus-prayer/", note: "The prayer that opens the heart to the Spirit's presence" },
+    { emoji: "👤", title: "St. Basil the Great", href: "/library/fathers/basil/", note: "His treatise On the Holy Spirit defined Eastern pneumatology", comingSoon: true },
+    { emoji: "👤", title: "St. Symeon the New Theologian", href: "/library/fathers/symeon/", note: "The mystic who insisted on direct experience of the Spirit", comingSoon: true },
+  ]}
+  readingRec={{
+    title: "On the Holy Spirit",
+    author: "St. Basil the Great",
+    note: "The 4th-century treatise that settled the Spirit's divinity. Surprisingly readable."
+  }}
+/>
 
 </JourneyArticleLayout>
