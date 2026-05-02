@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Family Resources" description="Downloadable resources for families — icon coloring pages, printable prayers, and materials to help bring the Byzantine tradition into your home.">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Tools</div>
+      <h1 class="hero-title" style="font-size:34px;">Family Resources</h1>
+      <p class="hero-subtitle">
+        Downloadable materials for parents, catechists, and anyone looking for ways to bring the Byzantine tradition into the home — especially with children.
+      </p>
+    </div>
+  </section>
+
+  <div class="article-surface">
+    <div class="container--narrow">
+
+      <nav class="breadcrumbs">
+        <a href={`${base}/`}>Home</a>
+        <span class="sep">›</span>
+        <a href={`${base}/tools/`}>Tools</a>
+        <span class="sep">›</span>
+        <span style="color: var(--beeswax);">Family Resources</span>
+      </nav>
+
+      <!-- Icon Coloring Pages -->
+      <section class="resource-section">
+        <h2>Icon Coloring Pages</h2>
+        <p class="resource-intro">Coloring pages based on iconic images of the Byzantine tradition. Print them, hand them to your kids, and let them encounter the faith through their hands. Each image is a real icon — not a cartoon. Children deserve to engage with the real tradition, even in simplified form.</p>
+
+        <div class="coloring-grid">
+
+          <div class="coloring-card">
+            <div class="coloring-preview">
+              <img src={`${base}/downloads/coloring-pages/holy-trinity-rublev.jpg`} alt="Holy Trinity (Rublev) coloring page" />
+            </div>
+            <div class="coloring-info">
+              <h3>The Holy Trinity</h3>
+              <p class="coloring-desc">After the famous icon by Andrei Rublev (c. 1411). Three angels visit Abraham at the Oak of Mamre — a prefiguration of the Holy Trinity. The chalice at the center points to the Eucharist.</p>
+              <div class="coloring-meta">
+                <span class="coloring-feast">Pentecost / Trinity Sunday</span>
+              </div>
+              <a href={`${base}/downloads/coloring-pages/holy-trinity-rublev.jpg`} download="holy-trinity-coloring-page.jpg" class="download-btn">↓ Download</a>
+            </div>
+          </div>
+
+          <div class="coloring-card">
+            <div class="coloring-preview">
+              <img src={`${base}/downloads/coloring-pages/theotokos-hodegetria.jpg`} alt="Theotokos Hodegetria coloring page" />
+            </div>
+            <div class="coloring-info">
+              <h3>Theotokos Hodegetria</h3>
+              <p class="coloring-desc">The Mother of God "Who Shows the Way" — pointing to Christ as the path to salvation. The Christ Child holds the Gospel and gives a blessing. The three stars on Mary's veil symbolize her perpetual virginity.</p>
+              <div class="coloring-meta">
+                <span class="coloring-feast">Marian Feasts / Year-round</span>
+              </div>
+              <a href={`${base}/downloads/coloring-pages/theotokos-hodegetria.jpg`} download="theotokos-hodegetria-coloring-page.jpg" class="download-btn">↓ Download</a>
+            </div>
+          </div>
+
+          <div class="coloring-card">
+            <div class="coloring-preview">
+              <img src={`${base}/downloads/coloring-pages/christ-pantocrator.jpg`} alt="Christ Pantocrator coloring page" />
+            </div>
+            <div class="coloring-info">
+              <h3>Christ Pantocrator</h3>
+              <p class="coloring-desc">"Christ the Almighty" — the most fundamental image in Byzantine iconography, traditionally placed in the central dome of every church. His right hand blesses; His left holds the Gospel. The cross in the halo is unique to Christ.</p>
+              <div class="coloring-meta">
+                <span class="coloring-feast">Year-round / Sunday of Orthodoxy</span>
+              </div>
+              <a href={`${base}/downloads/coloring-pages/christ-pantocrator.jpg`} download="christ-pantocrator-coloring-page.jpg" class="download-btn">↓ Download</a>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="resource-note">More coloring pages coming soon — including the Nativity, Theophany, Transfiguration, and other Great Feasts.</p>
+      </section>
+
+      <!-- More Resources Coming -->
+      <section class="resource-section">
+        <h2>More Resources Coming</h2>
+        <p class="resource-intro">We're building a library of downloadable materials for families and catechists. Planned additions include:</p>
+        <ul class="coming-list">
+          <li><strong>Printable prayer cards</strong> — Morning prayers, mealtime grace, and bedtime prayers formatted for the fridge or icon corner</li>
+          <li><strong>Feast day activity sheets</strong> — Simple activities tied to the Twelve Great Feasts</li>
+          <li><strong>Saint of the day cards</strong> — Brief saint stories with illustrations for children</li>
+          <li><strong>Liturgical year calendar</strong> — A printable wall calendar marking feasts, fasts, and seasons</li>
+        </ul>
+      </section>
+
+      <!-- Link to Family Prayer -->
+      <div class="cta-box">
+        <p>Looking for guidance on how to pray with your family?</p>
+        <a href={`${base}/tools/family-prayer/`} class="btn-primary">Liturgical Life in the Home →</a>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .resource-section {
+    margin-bottom: 48px;
+  }
+  .resource-section h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 32px 0 12px;
+    letter-spacing: 0.5px;
+  }
+  .resource-intro {
+    font-size: 16px;
+    color: var(--censer-smoke);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .resource-note {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--deep-muted);
+    font-style: italic;
+    margin-top: 20px;
+  }
+
+  /* Coloring page grid */
+  .coloring-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .coloring-card {
+    display: flex;
+    gap: 24px;
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+  .coloring-preview {
+    flex-shrink: 0;
+    width: 140px;
+  }
+  .coloring-preview img {
+    width: 100%;
+    border-radius: 6px;
+    border: 0.5px solid var(--gold-10);
+  }
+  .coloring-info {
+    flex: 1;
+  }
+  .coloring-info h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 8px;
+  }
+  .coloring-desc {
+    font-size: 14px;
+    color: var(--aged-vellum);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .coloring-meta {
+    margin-bottom: 12px;
+  }
+  .coloring-feast {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    border: 0.5px solid var(--gold-15);
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+  .download-btn {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--narthex-dark);
+    background: var(--halo-gold);
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .download-btn:hover { opacity: 0.9; color: var(--narthex-dark); }
+
+  /* Coming soon list */
+  .coming-list {
+    padding-left: 20px;
+    margin: 0;
+  }
+  .coming-list li {
+    font-size: 15px;
+    color: var(--aged-vellum);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .coming-list strong {
+    color: var(--beeswax);
+  }
+
+  /* CTA */
+  .cta-box {
+    margin-top: 48px;
+    margin-bottom: 80px;
+    padding: 24px;
+    background: var(--gold-04);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .cta-box p {
+    font-size: 16px;
+    color: var(--beeswax);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .coloring-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .coloring-preview { width: 200px; }
+  }
+</style>
