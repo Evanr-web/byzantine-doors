@@ -135,8 +135,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     document.getElementById('daily-meta').textContent = '';
     
     // Hide all content sections, show loading
-    ['section-troparion','section-kontakion','section-saints-uk','section-readings','section-rubrics','section-services'].forEach(id => {
-      document.getElementById(id).style.display = 'none';
+    ['section-troparion','section-kontakion','section-saints-uk','section-readings','section-rubrics'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
     });
     document.getElementById('section-loading').style.display = '';
     document.getElementById('section-error').style.display = 'none';
