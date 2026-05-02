@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Reading Tracks" description="Five curated paths through Byzantine Doors — pick the one that fits where you're coming from.">
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Reading Tracks</div>
+      <h1 class="hero-title" style="font-size:34px;">Where Should I Start?</h1>
+      <p class="hero-subtitle">
+        Five paths through the site — each one designed for a different kind of reader. Pick the one that fits and follow it.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-bottom:80px;">
+
+    <p class="tracks-intro">
+      Byzantine Doors has 48 pages of theology, history, practice, and prayer. That's a lot. These reading tracks give you a curated path based on where you're coming from. Each track is a suggested order — you're free to jump around, but the sequence is designed to build understanding step by step.
+    </p>
+
+    <!-- Track 1 -->
+    <div class="track-card">
+      <div class="track-emoji">🚪</div>
+      <div class="track-body">
+        <h2 class="track-name">The Curious Visitor</h2>
+        <p class="track-desc">"I went to a Byzantine church and I have no idea what just happened."</p>
+        <p class="track-who">You walked in, the incense hit you, the singing was in a language you didn't recognize, and you left feeling like you witnessed something beautiful but completely mysterious. Start here.</p>
+        <ol class="track-list">
+          <li><a href={`${base}/tools/first-visit/`}>Your First Visit</a> <span class="track-note">— What to wear, where to stand, what to do</span></li>
+          <li><a href={`${base}/journey/01/`}>What Happens Behind Those Doors?</a> <span class="track-note">— The Liturgy as first encounter</span></li>
+          <li><a href={`${base}/journey/02/`}>Icons — Windows into Heaven</a> <span class="track-note">— Why the walls are covered in paintings</span></li>
+          <li><a href={`${base}/liturgy/whats-happening-now/`}>What's Happening Now</a> <span class="track-note">— Quick-reference guide for during services</span></li>
+          <li><a href={`${base}/library/iconostasis/`}>The Iconostasis Explained</a> <span class="track-note">— The icon screen and what it means</span></li>
+          <li><a href={`${base}/library/what-is-byzantine-catholic/`}>What Is a Byzantine Catholic?</a> <span class="track-note">— Understanding what you just experienced</span></li>
+        </ol>
+        <a href={`${base}/tools/first-visit/`} class="track-start">Start here →</a>
+      </div>
+    </div>
+
+    <!-- Track 2 -->
+    <div class="track-card">
+      <div class="track-emoji">📖</div>
+      <div class="track-body">
+        <h2 class="track-name">The Theology Seeker</h2>
+        <p class="track-desc">"I want to understand Eastern Christian theology — properly."</p>
+        <p class="track-who">You've read C.S. Lewis. Maybe some N.T. Wright. You know Western theology but you sense there's a whole other tradition you haven't explored. You want depth, not devotion (though devotion may come later).</p>
+        <ol class="track-list">
+          <li><a href={`${base}/journey/03/`}>The Holy Trinity</a> <span class="track-note">— How the East thinks about God</span></li>
+          <li><a href={`${base}/journey/05/`}>Creation and the Fall</a> <span class="track-note">— Ancestral sin, not original sin</span></li>
+          <li><a href={`${base}/journey/06/`}>Salvation as Healing</a> <span class="track-note">— Theosis, not just forgiveness</span></li>
+          <li><a href={`${base}/library/theosis/`}>Theosis — Becoming God by Grace</a> <span class="track-note">— The full framework</span></li>
+          <li><a href={`${base}/library/ancestral-sin/`}>Ancestral Sin vs. Original Sin</a> <span class="track-note">— The key distinction</span></li>
+          <li><a href={`${base}/library/filioque/`}>The Filioque Controversy</a> <span class="track-note">— The word that divided the churches</span></li>
+          <li><a href={`${base}/library/ecumenical-councils/`}>The Seven Ecumenical Councils</a> <span class="track-note">— Where doctrine was forged</span></li>
+          <li><a href={`${base}/library/desert-fathers/`}>The Desert Fathers & Mothers</a> <span class="track-note">— Where Eastern spirituality began</span></li>
+        </ol>
+        <a href={`${base}/journey/03/`} class="track-start">Start here →</a>
+      </div>
+    </div>
+
+    <!-- Track 3 -->
+    <div class="track-card">
+      <div class="track-emoji">✝️</div>
+      <div class="track-body">
+        <h2 class="track-name">The Convert or Catechumen</h2>
+        <p class="track-desc">"I'm becoming Byzantine Catholic — or seriously considering it."</p>
+        <p class="track-who">You've made (or are making) the most consequential decision of your spiritual life. You need theology AND practice, in order, with practical tools woven in.</p>
+        <ol class="track-list">
+          <li><a href={`${base}/library/what-is-byzantine-catholic/`}>What Is a Byzantine Catholic?</a> <span class="track-note">— Know what you're joining</span></li>
+          <li><a href={`${base}/journey/03/`}>The Holy Trinity</a> <span class="track-note">— Foundation of everything</span></li>
+          <li><a href={`${base}/journey/04/`}>Jesus Christ — God Becomes Human</a> <span class="track-note">— The Incarnation</span></li>
+          <li><a href={`${base}/journey/09/`}>The Mysteries</a> <span class="track-note">— The seven sacraments</span></li>
+          <li><a href={`${base}/liturgy/walkthrough/`}>Liturgical Walkthrough</a> <span class="track-note">— Understand the Liturgy you'll attend every week</span></li>
+          <li><a href={`${base}/journey/10/`}>Prayer — Learning to Breathe</a> <span class="track-note">— Building a prayer life</span></li>
+          <li><a href={`${base}/library/jesus-prayer/`}>The Jesus Prayer</a> <span class="track-note">— Your daily companion</span></li>
+          <li><a href={`${base}/tools/prayer-corner/`}>Prayer Corner Guide</a> <span class="track-note">— Set up your home for prayer</span></li>
+          <li><a href={`${base}/tools/fasting-guide/`}>Fasting Guide</a> <span class="track-note">— The discipline you'll practice</span></li>
+          <li><a href={`${base}/tools/family-prayer/`}>Liturgical Life in the Home</a> <span class="track-note">— Living the faith daily</span></li>
+        </ol>
+        <a href={`${base}/library/what-is-byzantine-catholic/`} class="track-start">Start here →</a>
+      </div>
+    </div>
+
+    <!-- Track 4 -->
+    <div class="track-card">
+      <div class="track-emoji">🏛️</div>
+      <div class="track-body">
+        <h2 class="track-name">The Latin Rite Catholic</h2>
+        <p class="track-desc">"I'm Roman Catholic and curious about the Eastern side."</p>
+        <p class="track-who">You love your faith. You've heard about "the two lungs of the Church" but the Eastern lung is a mystery. You want to understand your Eastern brothers and sisters — and maybe discover something that enriches your own practice.</p>
+        <ol class="track-list">
+          <li><a href={`${base}/library/what-is-byzantine-catholic/`}>What Is a Byzantine Catholic?</a> <span class="track-note">— We're in the same Church</span></li>
+          <li><a href={`${base}/journey/15/`}>Two Lungs, One Body</a> <span class="track-note">— Why both traditions matter</span></li>
+          <li><a href={`${base}/journey/14/`}>East and West, Catholic and Orthodox</a> <span class="track-note">— The history of the division</span></li>
+          <li><a href={`${base}/library/ancestral-sin/`}>Ancestral Sin vs. Original Sin</a> <span class="track-note">— A different reading of the Fall</span></li>
+          <li><a href={`${base}/library/filioque/`}>The Filioque Controversy</a> <span class="track-note">— The word you say that we don't</span></li>
+          <li><a href={`${base}/library/union-of-brest/`}>The Union of Brest (1596)</a> <span class="track-note">— How Eastern Catholics came to be</span></li>
+          <li><a href={`${base}/liturgy/walkthrough/`}>Liturgical Walkthrough</a> <span class="track-note">— Experience the Divine Liturgy</span></li>
+          <li><a href={`${base}/tools/first-visit/`}>Your First Visit</a> <span class="track-note">— Come visit — you're already welcome at the Table</span></li>
+        </ol>
+        <a href={`${base}/library/what-is-byzantine-catholic/`} class="track-start">Start here →</a>
+      </div>
+    </div>
+
+    <!-- Track 5 -->
+    <div class="track-card">
+      <div class="track-emoji">☦️</div>
+      <div class="track-body">
+        <h2 class="track-name">The Orthodox Christian</h2>
+        <p class="track-desc">"I'm Orthodox and I want to understand Eastern Catholics."</p>
+        <p class="track-who">We share almost everything — the Liturgy, the theology, the Fathers, the icons. The question between us is ecclesial, not liturgical. This track presents the Eastern Catholic perspective honestly, without polemic.</p>
+        <ol class="track-list">
+          <li><a href={`${base}/library/what-is-byzantine-catholic/`}>What Is a Byzantine Catholic?</a> <span class="track-note">— Our self-understanding</span></li>
+          <li><a href={`${base}/library/union-of-brest/`}>The Union of Brest (1596)</a> <span class="track-note">— The history, honestly told</span></li>
+          <li><a href={`${base}/library/great-schism/`}>The Great Schism of 1054</a> <span class="track-note">— What happened and what it cost</span></li>
+          <li><a href={`${base}/journey/14/`}>East and West, Catholic and Orthodox</a> <span class="track-note">— The hope for unity</span></li>
+          <li><a href={`${base}/journey/15/`}>Two Lungs, One Body</a> <span class="track-note">— What we believe about reunion</span></li>
+          <li><a href={`${base}/library/filioque/`}>The Filioque Controversy</a> <span class="track-note">— The theological question, fairly presented</span></li>
+          <li><a href={`${base}/library/theosis/`}>Theosis — Becoming God by Grace</a> <span class="track-note">— We believe the same thing here</span></li>
+          <li><a href={`${base}/library/desert-fathers/`}>The Desert Fathers & Mothers</a> <span class="track-note">— Our shared inheritance</span></li>
+        </ol>
+        <a href={`${base}/library/what-is-byzantine-catholic/`} class="track-start">Start here →</a>
+      </div>
+    </div>
+
+    <div class="tracks-closing">
+      <p>These tracks overlap — and that's intentional. The same truths look different depending on where you're standing. If you've finished one track and want to go deeper, start another. The Journey's sixteen steps are always there as the backbone.</p>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .tracks-intro {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--censer-smoke);
+    max-width: 720px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+
+  .track-card {
+    background: rgba(13, 11, 8, 0.6);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 32px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .track-emoji {
+    font-size: 48px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .track-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .track-name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--halo-gold);
+    margin: 0 0 8px;
+  }
+
+  .track-desc {
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--beeswax);
+    margin: 0 0 12px;
+    line-height: 1.5;
+  }
+
+  .track-who {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+
+  .track-list {
+    list-style: none;
+    counter-reset: track-step;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+
+  .track-list li {
+    counter-increment: track-step;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--gold-06);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .track-list li:last-child {
+    border-bottom: none;
+  }
+
+  .track-list li::before {
+    content: counter(track-step) ".";
+    color: var(--halo-gold);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 10px;
+    min-width: 24px;
+    display: inline-block;
+  }
+
+  .track-list a {
+    color: var(--beeswax);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .track-list a:hover {
+    color: var(--halo-gold);
+  }
+
+  .track-note {
+    color: var(--censer-smoke);
+    font-size: 14px;
+  }
+
+  .track-start {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: var(--halo-gold);
+    border: 0.5px solid var(--gold-40);
+    padding: 8px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .track-start:hover {
+    background: var(--gold-06);
+  }
+
+  .tracks-closing {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 0.5px solid var(--gold-10);
+    text-align: center;
+  }
+
+  .tracks-closing p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--censer-smoke);
+    max-width: 640px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .track-card {
+      flex-direction: column;
+      padding: 28px 24px;
+      gap: 16px;
+    }
+    .track-emoji {
+      font-size: 40px;
+    }
+    .track-name {
+      font-size: 21px;
+    }
+  }
+</style>
