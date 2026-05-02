@@ -1,85 +1,248 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Pullquote from '../../components/Pullquote.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<BaseLayout title="Daily" description="Readings, reflections, and prayers tied to the liturgical calendar.">
+<BaseLayout title="Daily" description="Today's liturgical day — saints, troparion, fasting, and tone from the UGCC liturgical calendar.">
 
-  <!-- Daily Hero -->
+  <!-- Daily Hero (populated by JS) -->
   <div class="daily-page-hero">
     <div class="container--narrow">
-      <div class="daily-page-date">Today's Liturgical Day</div>
-      <h1 class="daily-page-feast">Wednesday of Bright Week</h1>
-      <div class="daily-page-tone">Tone 1 · Paschal Season · No Fast</div>
+      <div class="daily-page-date" id="daily-date">Loading…</div>
+      <h1 class="daily-page-feast" id="daily-saints">—</h1>
+      <div class="daily-page-tone" id="daily-meta">—</div>
     </div>
   </div>
 
   <div class="container--narrow" style="padding-bottom:80px;">
 
-    <!-- Paschal Troparion -->
-    <div class="daily-section">
-      <div class="daily-section-label">Paschal Troparion</div>
-      <p class="daily-prayer-text">
-        Christ is risen from the dead,<br />
-        trampling down death by death,<br />
-        and upon those in the tombs<br />
-        bestowing life.
-      </p>
+    <!-- Date Navigation -->
+    <div class="date-nav">
+      <button class="date-nav-btn" id="prev-day" aria-label="Previous day">‹</button>
+      <button class="date-nav-today" id="today-btn">Today</button>
+      <button class="date-nav-btn" id="next-day" aria-label="Next day">›</button>
     </div>
 
-    <!-- Scripture -->
-    <div class="daily-section">
-      <div class="daily-section-label">Scripture Readings</div>
-      <div class="reading-block">
-        <div class="reading-type">Epistle</div>
-        <div class="reading-ref">Acts 2:22–36</div>
-        <p class="reading-excerpt">"This Jesus God raised up, and of that we all are witnesses…"</p>
+    <!-- Troparion -->
+    <div class="daily-section" id="section-troparion" style="display:none;">
+      <div class="daily-section-label">Troparion</div>
+      <p class="daily-prayer-text" id="daily-troparion"></p>
+    </div>
+
+    <!-- Kontakion -->
+    <div class="daily-section" id="section-kontakion" style="display:none;">
+      <div class="daily-section-label">Kontakion</div>
+      <p class="daily-prayer-text" id="daily-kontakion"></p>
+    </div>
+
+    <!-- Fasting & Season Info -->
+    <div class="daily-section" id="section-fast">
+      <div class="daily-section-label">Liturgical Day</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Tone</div>
+          <div class="info-value" id="info-tone">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Fast</div>
+          <div class="info-value" id="info-fast">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Rank</div>
+          <div class="info-value" id="info-rank">—</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Season</div>
+          <div class="info-value" id="info-season">—</div>
+        </div>
       </div>
-      <div class="reading-block" style="margin-top:20px;">
-        <div class="reading-type">Gospel</div>
-        <div class="reading-ref">John 1:35–51</div>
-        <p class="reading-excerpt">"Come and see."</p>
-      </div>
     </div>
 
-    <!-- Reflection -->
-    <div class="daily-section">
-      <div class="daily-section-label">Reflection</div>
-      <p>The first disciples didn't receive a theology lesson. They received an invitation: <em>Come and see.</em> Andrew and John didn't follow Jesus because they were convinced by an argument. They followed because something in his presence pulled them forward.</p>
-      <p style="margin-top:16px;">The Paschal season is an invitation to the same encounter. Not to learn <em>about</em> the Resurrection, but to stand inside it. Christ is risen. Come and see.</p>
+    <!-- Saints (Ukrainian) -->
+    <div class="daily-section" id="section-saints-uk" style="display:none;">
+      <div class="daily-section-label">Commemorations (Ukrainian)</div>
+      <ul class="saints-list" id="daily-saints-uk"></ul>
     </div>
 
-    <!-- Desert Father -->
-    <div class="daily-section">
-      <div class="daily-section-label">Desert Father</div>
-      <Pullquote attribution="— The Sayings of the Desert Fathers (Alphabetical Collection)">
-        "A brother asked Abba Moses for a word. The old man said: Go and sit in your cell, and your cell will teach you everything."
-      </Pullquote>
-      <p class="desert-father-note">Abba Moses was a 4th-century Egyptian monk, a former bandit who became one of the most revered Desert Fathers. His counsel here is deceptively simple: stop looking for answers outside. Sit still. The silence will do the rest.</p>
+    <!-- Rubrics -->
+    <div class="daily-section" id="section-rubrics" style="display:none;">
+      <div class="daily-section-label">Service Instructions (Ustav)</div>
+      <p class="rubrics-text" id="daily-rubrics"></p>
     </div>
 
-    <!-- Prayer -->
-    <div class="daily-section">
-      <div class="daily-section-label">Prayer</div>
-      <p class="daily-prayer-text">
-        O Heavenly King, Comforter, Spirit of Truth,<br />
-        who are everywhere present and fill all things,<br />
-        Treasury of blessings and Giver of Life,<br />
-        come and dwell in us,<br />
-        cleanse us from every stain,<br />
-        and save our souls, O gracious Lord.
-      </p>
-      <div class="prayer-source">Prayer to the Holy Spirit — from the Horologion</div>
+    <!-- Available Services -->
+    <div class="daily-section" id="section-services" style="display:none;">
+      <div class="daily-section-label">Services Available</div>
+      <div class="services-badges" id="daily-services"></div>
+      <p class="services-note">Full service texts are available in the <a href="https://evanr-web.github.io/prayer-app/" style="color:var(--halo-gold);">Prayer of the Church</a> app.</p>
+    </div>
+
+    <!-- Loading / Error states -->
+    <div class="daily-section" id="section-loading">
+      <p style="text-align:center; color:var(--censer-smoke);">Loading liturgical data…</p>
+    </div>
+
+    <div class="daily-section" id="section-error" style="display:none;">
+      <p style="text-align:center; color:var(--censer-smoke);">Unable to load data for this date. The calendar API covers January–December 2026.</p>
+    </div>
+
+    <!-- About -->
+    <div class="about-box">
+      <p>Liturgical data from the <a href="https://evanr-web.github.io/calendar-api/">UGCC Calendar API</a>. Calendar follows the Ukrainian Greek-Catholic Church (Gregorian/New Calendar). English translations courtesy of <a href="https://liturgy.royaldoors.net">Royal Doors</a>.</p>
     </div>
 
   </div>
 
 </BaseLayout>
 
+<script is:inline>
+  const API_BASE = 'https://evanr-web.github.io/calendar-api/api/2026';
+  
+  const MONTHS_EN = ['','January','February','March','April','May','June',
+                     'July','August','September','October','November','December'];
+  const DAYS_OF_WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  // API uses 1=Mon..7=Sun, JS Date uses 0=Sun..6=Sat
+  const DOW_FROM_API = {1:'Monday',2:'Tuesday',3:'Wednesday',4:'Thursday',5:'Friday',6:'Saturday',7:'Sunday'};
+  
+  let currentDate = new Date();
+  
+  function formatDateDisplay(d) {
+    return `${DAYS_OF_WEEK[d.getDay()]}, ${MONTHS_EN[d.getMonth()+1]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
+  
+  function mm(d) { return String(d.getMonth()+1).padStart(2,'0'); }
+  function dd(d) { return String(d.getDate()).padStart(2,'0'); }
+  
+  async function loadDay(date) {
+    const m = mm(date);
+    const d = dd(date);
+    
+    document.getElementById('daily-date').textContent = formatDateDisplay(date);
+    document.getElementById('daily-saints').textContent = 'Loading…';
+    document.getElementById('daily-meta').textContent = '';
+    
+    // Hide all content sections, show loading
+    ['section-troparion','section-kontakion','section-saints-uk','section-rubrics','section-services'].forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    document.getElementById('section-loading').style.display = '';
+    document.getElementById('section-error').style.display = 'none';
+    
+    try {
+      const resp = await fetch(`${API_BASE}/${m}/${d}.json`);
+      if (!resp.ok) throw new Error('Not found');
+      const data = await resp.json();
+      renderDay(data, date);
+    } catch (e) {
+      document.getElementById('section-loading').style.display = 'none';
+      document.getElementById('section-error').style.display = '';
+      document.getElementById('daily-saints').textContent = 'Data unavailable';
+      document.getElementById('daily-meta').textContent = '';
+    }
+  }
+  
+  function renderDay(data, date) {
+    document.getElementById('section-loading').style.display = 'none';
+    
+    // Hero
+    document.getElementById('daily-date').textContent = formatDateDisplay(date);
+    
+    const saintEN = data.saints?.en || '';
+    document.getElementById('daily-saints').textContent = saintEN || 'Ordinary day';
+    
+    // Meta line
+    const metaParts = [];
+    if (data.tone) metaParts.push(`Tone ${data.tone}`);
+    if (data.fast?.label_en && data.fast.label_en !== 'Feast day') metaParts.push(data.fast.label_en);
+    if (data.rank?.label_en && data.rank.label_en !== 'Ordinary') metaParts.push(data.rank.label_en);
+    document.getElementById('daily-meta').textContent = metaParts.join(' · ');
+    
+    // Troparion
+    if (data.troparion) {
+      document.getElementById('daily-troparion').textContent = data.troparion;
+      document.getElementById('section-troparion').style.display = '';
+    }
+    
+    // Kontakion
+    if (data.kontakion) {
+      document.getElementById('daily-kontakion').textContent = data.kontakion;
+      document.getElementById('section-kontakion').style.display = '';
+    }
+    
+    // Info grid
+    document.getElementById('info-tone').textContent = data.tone ? `Tone ${data.tone}` : '—';
+    document.getElementById('info-fast').textContent = data.fast?.label_en || '—';
+    document.getElementById('info-rank').textContent = data.rank?.label_en || '—';
+    // Season from fast
+    const season = data.fast?.label_en || '';
+    if (season.includes('Lent')) {
+      document.getElementById('info-season').textContent = 'Great Lent';
+    } else if (season.includes('Paschal')) {
+      document.getElementById('info-season').textContent = 'Paschal Season';
+    } else if (season.includes('Pentecost')) {
+      document.getElementById('info-season').textContent = season;
+    } else if (season.includes('Cheesefare')) {
+      document.getElementById('info-season').textContent = 'Cheesefare Week';
+    } else if (season.includes('Fast-free')) {
+      document.getElementById('info-season').textContent = 'Fast-free week';
+    } else {
+      document.getElementById('info-season').textContent = 'Ordinary Time';
+    }
+    
+    // Saints Ukrainian
+    if (data.saints?.uk && data.saints.uk.length > 0) {
+      const ul = document.getElementById('daily-saints-uk');
+      ul.innerHTML = data.saints.uk.map(s => `<li>${s}</li>`).join('');
+      document.getElementById('section-saints-uk').style.display = '';
+    }
+    
+    // Rubrics
+    if (data.rubrics) {
+      document.getElementById('daily-rubrics').textContent = data.rubrics;
+      document.getElementById('section-rubrics').style.display = '';
+    }
+    
+    // Services
+    if (data.services) {
+      const badges = [];
+      if (data.services.vespers) badges.push('<span class="service-badge available">☾ Vespers</span>');
+      else badges.push('<span class="service-badge">☾ Vespers</span>');
+      if (data.services.matins) badges.push('<span class="service-badge available">☉ Matins</span>');
+      else badges.push('<span class="service-badge">☉ Matins</span>');
+      if (data.services.compline) badges.push('<span class="service-badge available">✦ Hours/Compline</span>');
+      else badges.push('<span class="service-badge">✦ Hours/Compline</span>');
+      document.getElementById('daily-services').innerHTML = badges.join('');
+      document.getElementById('section-services').style.display = '';
+    }
+  }
+  
+  // Navigation
+  function shiftDay(offset) {
+    currentDate = new Date(currentDate.getTime() + offset * 86400000);
+    loadDay(currentDate);
+  }
+  
+  document.getElementById('prev-day').addEventListener('click', () => shiftDay(-1));
+  document.getElementById('next-day').addEventListener('click', () => shiftDay(1));
+  document.getElementById('today-btn').addEventListener('click', () => {
+    currentDate = new Date();
+    loadDay(currentDate);
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') shiftDay(-1);
+    if (e.key === 'ArrowRight') shiftDay(1);
+  });
+  
+  // Initial load
+  loadDay(currentDate);
+</script>
+
 <style>
   .daily-page-hero {
     text-align: center;
-    padding: 56px 0 40px;
+    padding: 56px 0 32px;
     position: relative;
   }
   .daily-page-hero::before {
@@ -100,12 +263,13 @@ import Pullquote from '../../components/Pullquote.astro';
   }
   .daily-page-feast {
     font-family: var(--font-display);
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 300;
     color: var(--beeswax);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-bottom: 8px;
     position: relative;
+    line-height: 1.3;
   }
   .daily-page-tone {
     font-family: var(--font-ui);
@@ -115,11 +279,52 @@ import Pullquote from '../../components/Pullquote.astro';
     color: var(--deep-muted);
     position: relative;
   }
+
+  /* Date nav */
+  .date-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .date-nav-btn {
+    background: none;
+    border: 0.5px solid var(--gold-15);
+    border-radius: 8px;
+    color: var(--halo-gold);
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: var(--font-body);
+  }
+  .date-nav-btn:hover { background: var(--gold-06); }
+  .date-nav-today {
+    background: var(--gold-06);
+    border: 0.5px solid var(--gold-15);
+    border-radius: 6px;
+    color: var(--halo-gold);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .date-nav-today:hover { background: var(--gold-10); }
+
+  /* Sections */
   .daily-section {
     background: var(--warm-dark);
     border-radius: 12px;
-    padding: 32px;
-    margin-bottom: 24px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
   }
   .daily-section-label {
     font-family: var(--font-ui);
@@ -138,43 +343,115 @@ import Pullquote from '../../components/Pullquote.astro';
     height: 0.5px;
     background: var(--gold-15);
   }
+
+  /* Prayer text */
   .daily-prayer-text {
-    text-align: center;
     font-family: var(--font-display);
-    font-size: 19px;
+    font-size: 17px;
     font-style: italic;
     color: var(--beeswax);
-    line-height: 1.6;
+    line-height: 1.7;
   }
-  .reading-type {
+
+  /* Info grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .info-item {
+    text-align: center;
+    padding: 12px;
+    background: var(--icon-wall);
+    border-radius: 8px;
+    border: 0.5px solid var(--gold-06);
+  }
+  .info-label {
     font-family: var(--font-ui);
-    font-size: 10px;
+    font-size: 9px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--halo-gold);
-    margin-bottom: 8px;
-  }
-  .reading-ref {
-    font-size: 16px;
-    color: var(--beeswax);
+    color: var(--censer-smoke);
     margin-bottom: 4px;
   }
-  .reading-excerpt {
+  .info-value {
+    font-family: var(--font-display);
     font-size: 15px;
-    color: var(--censer-smoke);
-    line-height: 1.6;
+    color: var(--beeswax);
+    font-weight: 400;
   }
-  .desert-father-note {
+
+  /* Saints list */
+  .saints-list {
+    list-style: none;
+    padding: 0;
+  }
+  .saints-list li {
+    font-size: 15px;
+    color: var(--aged-vellum);
+    line-height: 1.6;
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--gold-06);
+  }
+  .saints-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Rubrics */
+  .rubrics-text {
     font-size: 14px;
     color: var(--censer-smoke);
-    line-height: 1.6;
-    margin-top: 12px;
+    line-height: 1.7;
+    font-style: italic;
   }
-  .prayer-source {
+
+  /* Service badges */
+  .services-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .service-badge {
     font-family: var(--font-ui);
     font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--deep-muted);
+    border: 0.5px solid var(--gold-10);
+    padding: 6px 14px;
+    border-radius: 6px;
+    opacity: 0.5;
+  }
+  .service-badge.available {
+    color: var(--halo-gold);
+    border-color: var(--gold-40);
+    opacity: 1;
+  }
+  .services-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
     color: var(--deep-muted);
     margin-top: 8px;
-    text-align: center;
+  }
+
+  /* About box */
+  .about-box {
+    margin-top: 40px;
+    padding: 20px 24px;
+    background: var(--gold-04);
+    border-radius: 8px;
+  }
+  .about-box p {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .about-box a { color: var(--halo-gold); }
+
+  @media (max-width: 768px) {
+    .daily-section { padding: 20px; }
+    .info-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   }
 </style>
