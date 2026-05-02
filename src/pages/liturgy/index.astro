@@ -25,6 +25,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <span style="color: var(--beeswax);">Liturgy</span>
       </nav>
 
+      <!-- Sub-page navigation cards -->
+      <div class="liturgy-nav-grid">
+        <a href={`${base}/liturgy/walkthrough/`} class="liturgy-nav-card">
+          <div class="nav-card-icon">☦</div>
+          <h3>Step-by-Step Walkthrough</h3>
+          <p>The entire Divine Liturgy from vesting to dismissal — what happens, what it means, and what you'll experience at each moment.</p>
+        </a>
+        <a href={`${base}/liturgy/whats-happening-now/`} class="liturgy-nav-card">
+          <div class="nav-card-icon">📖</div>
+          <h3>What's Happening Now?</h3>
+          <p>Quick-reference cards for each moment of the service. Pull this up on your phone when you need a guide.</p>
+        </a>
+        <a href={`${base}/liturgy/symbolism/`} class="liturgy-nav-card">
+          <div class="nav-card-icon">🕯</div>
+          <h3>Symbolism Explainers</h3>
+          <p>Incense, icons, vestments, gestures — the symbolic language of Byzantine worship decoded.</p>
+        </a>
+        <a href={`${base}/liturgy/feasts-and-fasts/`} class="liturgy-nav-card">
+          <div class="nav-card-icon">📅</div>
+          <h3>Feasts & Fasts</h3>
+          <p>The Twelve Great Feasts, Pascha, the four fasting seasons, and the theology that holds the liturgical year together.</p>
+        </a>
+      </div>
+
+      <hr class="divider" />
+
       <article class="liturgy-body">
 
         <h2>What Is the Divine Liturgy?</h2>
@@ -314,8 +340,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     margin-bottom: 16px;
   }
 
+  /* Nav grid */
+  .liturgy-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 8px 0 0;
+  }
+  .liturgy-nav-card {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: border-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .liturgy-nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-40), transparent);
+  }
+  .liturgy-nav-card:hover {
+    border-color: var(--gold-15);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  .nav-card-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+  .liturgy-nav-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 8px;
+  }
+  .liturgy-nav-card p {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--censer-smoke);
+    line-height: 1.5;
+    margin: 0;
+  }
+
   @media (max-width: 768px) {
     .service-grid { grid-template-columns: 1fr; }
+    .liturgy-nav-grid { grid-template-columns: 1fr; }
     .article-image--wide {
       margin-left: -20px;
       margin-right: -20px;

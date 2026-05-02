@@ -1,0 +1,535 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Pullquote from '../../../components/Pullquote.astro';
+import Layer2Panel from '../../../components/Layer2Panel.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Feasts & Fasts" description="The liturgical year in the Byzantine tradition — the Twelve Great Feasts, Pascha, the four fasting seasons, and the theology that holds them together.">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Liturgy</div>
+      <h1 class="hero-title" style="font-size:34px;">Feasts & Fasts</h1>
+      <p class="hero-subtitle">
+        The Byzantine liturgical year is a rhythm of preparation and celebration, fasting and feasting — the Church breathing in and breathing out, all year long.
+      </p>
+    </div>
+  </section>
+
+  <div class="article-surface">
+    <div class="container--narrow">
+
+      <nav class="breadcrumbs">
+        <a href={`${base}/`}>Home</a>
+        <span class="sep">›</span>
+        <a href={`${base}/liturgy/`}>Liturgy</a>
+        <span class="sep">›</span>
+        <span style="color: var(--beeswax);">Feasts & Fasts</span>
+      </nav>
+
+      <article class="ff-body">
+
+        <p class="drop-cap">Christianity did not invent fasting. But it did something radical with it: it married fasting to feasting in an annual cycle that shapes the entire life of the believer. In the Byzantine tradition, nearly half the days of the year involve some form of fasting. The other half are celebration. The two are inseparable. You cannot feast properly if you have not fasted. You cannot fast properly if there is no feast ahead. The liturgical year is built on this tension — and it is one of the most distinctive features of Eastern Christian life.</p>
+
+        <figure class="article-image article-image--wide">
+          <img src="/byzantine-doors/images/menologion-manuscript.jpg" alt="Byzantine menologion manuscript page showing saints and feasts" />
+          <figcaption>A page from a Byzantine menologion — a liturgical calendar with illustrations of saints and feast days. The liturgical year is not an abstract schedule; it is a story told through the body.</figcaption>
+        </figure>
+
+        <!-- ===== PASCHA ===== -->
+        <h2>Pascha: The Feast of Feasts</h2>
+
+        <p>Everything revolves around Pascha — the Resurrection of Christ. It is not one feast among twelve. It is the feast that gives all other feasts their meaning. The entire liturgical year is structured around it: Great Lent prepares for it, Bright Week celebrates it, the Pentecostarion extends it for fifty days until Pentecost.</p>
+
+        <p>The Paschal celebration begins at midnight on Saturday night. The church is dark. The priest lights a single candle from the "new fire" and the flame spreads person to person until the entire church is filled with light. Then the doors of the church are thrown open and the procession goes outside — because the women went <em>to</em> the tomb. When the procession returns, the priest stands before the closed doors and sings: "Christ is risen from the dead, trampling down death by death, and upon those in the tombs bestowing life."</p>
+
+        <p>The doors open. The congregation pours in, singing. The Paschal Liturgy that follows is the most joyful service of the year. No one kneels during Bright Week. The greeting for forty days is: "Christ is risen!" — "Indeed He is risen!"</p>
+
+        <Pullquote attribution="— St. John Chrysostom, Paschal Homily (read every year at the Paschal Liturgy)">
+          Let no one fear death, for the death of our Savior has set us free. He has destroyed it by enduring it. He despoiled Hades when He descended into it. It was embittered when it tasted His flesh. Isaiah foretold this when he said: Hades was embittered when it encountered You in the lower regions.
+        </Pullquote>
+
+        <Layer2Panel label="The Paschal Homily of St. John Chrysostom">
+          <p style="color: var(--aged-vellum); font-size: 15px; line-height: 1.8;">This homily, attributed to St. John Chrysostom (d. 407), is read in its entirety at every Paschal Liturgy in the Byzantine tradition. It is perhaps the most beloved text in Eastern Christianity. Its central image: Hades expected to swallow Christ but was instead destroyed from within. "It took a body and encountered God. It took earth and met heaven." The homily invites everyone to the Paschal feast — "the table is full-laden; feast royally, all of you" — and famously declares: "Let no one bewail his poverty, for the universal kingdom has been revealed." Christ Our Pascha §§ 222–228 discusses the theology of the Resurrection and its cosmic scope.</p>
+        </Layer2Panel>
+
+        <!-- ===== TWELVE GREAT FEASTS ===== -->
+        <h2>The Twelve Great Feasts</h2>
+
+        <p>Below Pascha stand twelve feasts that mark the decisive events of salvation history. They are divided into feasts of the Lord (Christological) and feasts of the Theotokos (Marian). Each has its own liturgical texts, icon, and often a period of preparation.</p>
+
+        <div class="feast-grid">
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">September 14</div>
+            <h3 class="feast-name">Exaltation of the Holy Cross</h3>
+            <p class="feast-desc">The finding and elevation of the True Cross by St. Helena in Jerusalem (326 AD). A strict fast day — the Cross is venerated in a solemn procession while the faithful prostrate. One of only two feasts of the Lord that is also a fast.</p>
+          </div>
+
+          <div class="feast-card feast-card--theotokos">
+            <div class="feast-date">September 8</div>
+            <h3 class="feast-name">Nativity of the Theotokos</h3>
+            <p class="feast-desc">The birth of Mary to Joachim and Anna. The liturgical year begins here — with the birth of the woman who will bear God. "Your nativity, O Theotokos, has proclaimed joy to the whole world."</p>
+          </div>
+
+          <div class="feast-card feast-card--theotokos">
+            <div class="feast-date">November 21</div>
+            <h3 class="feast-name">Entrance of the Theotokos into the Temple</h3>
+            <p class="feast-desc">The three-year-old Mary is presented at the Temple and enters the Holy of Holies. The feast celebrates the one who will become the living temple of God — the ark of the new covenant.</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">December 25</div>
+            <h3 class="feast-name">Nativity of Christ</h3>
+            <p class="feast-desc">The Incarnation — God becomes human in a cave in Bethlehem. Preceded by a 40-day fast. The troparion: "Your Nativity, O Christ our God, has shone to the world the light of wisdom." The icon shows the cave as a dark opening in the earth — God descending into the world's darkness.</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">January 6</div>
+            <h3 class="feast-name">Theophany (Baptism of the Lord)</h3>
+            <p class="feast-desc">Christ is baptized in the Jordan. The Trinity is revealed: the Father's voice, the Son in the water, the Spirit descending as a dove. The Great Blessing of Water sanctifies all creation. "When You, O Lord, were baptized in the Jordan, the worship of the Trinity was made manifest."</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">February 2</div>
+            <h3 class="feast-name">The Encounter (Presentation in the Temple)</h3>
+            <p class="feast-desc">The infant Christ is brought to the Temple. The elder Simeon, who had been promised he would not die before seeing the Messiah, takes the child in his arms: "Now You dismiss Your servant in peace… for my eyes have seen Your salvation." In the Byzantine tradition this feast is called the "Encounter" — the meeting of the old covenant and the new.</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">March 25</div>
+            <h3 class="feast-name">Annunciation</h3>
+            <p class="feast-desc">Gabriel appears to Mary: "Rejoice, Full of Grace, the Lord is with you." Mary's "yes" makes the Incarnation possible. The feast is so important that even during Great Lent, fasting is relaxed — fish is permitted. If Annunciation falls on Good Friday (a rare occurrence called Kyrio-Pascha), both are celebrated together.</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">Moveable (40 days before Pascha)</div>
+            <h3 class="feast-name">Palm Sunday (Entry into Jerusalem)</h3>
+            <p class="feast-desc">Christ enters Jerusalem to the cries of "Hosanna!" — but the triumph is ironic. He enters on a donkey, not a warhorse. The crowds who cheer will soon cry "Crucify." Palm branches are blessed and distributed. Fish is permitted. The next day begins Holy Week.</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">Moveable (40 days after Pascha)</div>
+            <h3 class="feast-name">Ascension</h3>
+            <p class="feast-desc">Christ ascends to the Father from the Mount of Olives. Human nature — united to God in the Incarnation — is taken into heaven itself. "You ascended in glory, O Christ our God, granting joy to Your disciples by the promise of the Holy Spirit."</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">Moveable (50 days after Pascha)</div>
+            <h3 class="feast-name">Pentecost</h3>
+            <p class="feast-desc">The Holy Spirit descends on the Apostles. The Church is born. The icon shows the Apostles seated in a semicircle with tongues of fire above them, and below them a dark figure labeled "Cosmos" — the world in darkness, waiting for the light they are about to carry. The day after Pentecost is "Holy Spirit Monday."</p>
+          </div>
+
+          <div class="feast-card feast-card--lord">
+            <div class="feast-date">August 6</div>
+            <h3 class="feast-name">Transfiguration</h3>
+            <p class="feast-desc">On Mount Tabor, Christ reveals His divine glory to Peter, James, and John. His face shines like the sun, His garments become white as light. Moses and Elijah appear. The theology of <em>theosis</em> is grounded here: the divine light that transfigured Christ is the same uncreated light that transforms the saints. Fruits are blessed on this day.</p>
+          </div>
+
+          <div class="feast-card feast-card--theotokos">
+            <div class="feast-date">August 15</div>
+            <h3 class="feast-name">Dormition of the Theotokos</h3>
+            <p class="feast-desc">Mary "falls asleep" in death — and is assumed bodily into heaven. Preceded by a two-week fast (August 1–14). The icon shows Christ receiving His mother's soul as an infant in swaddling clothes — a deliberate inversion of the Nativity, where Mary held Him. "In giving birth you preserved your virginity; in falling asleep you did not forsake the world, O Theotokos."</p>
+          </div>
+
+        </div>
+
+        <div class="feast-legend">
+          <span class="legend-item"><span class="legend-dot legend-dot--lord"></span> Feast of the Lord</span>
+          <span class="legend-item"><span class="legend-dot legend-dot--theotokos"></span> Feast of the Theotokos</span>
+        </div>
+
+        <Layer2Panel label="Why Twelve? The Theology of the Festal Cycle">
+          <p style="color: var(--aged-vellum); font-size: 15px; line-height: 1.8;">The Twelve Great Feasts are not arbitrary selections. Together they trace the entire arc of salvation: from the preparation (Nativity of the Theotokos, Entrance into the Temple) through the Incarnation (Annunciation, Nativity of Christ, Theophany, Presentation) to the public ministry (Transfiguration, Palm Sunday) and the eschatological fulfillment (Ascension, Pentecost). The Cross stands at the center. The Dormition of the Theotokos closes the cycle with a preview of the general resurrection. Christ Our Pascha §§ 139–162 surveys the festal theology; the Catechism of the Catholic Church §§ 1168–1173 addresses the liturgical year from the Latin perspective, offering useful comparison points.</p>
+        </Layer2Panel>
+
+        <!-- ===== FASTING SEASONS ===== -->
+        <h2>The Four Fasting Seasons</h2>
+
+        <p>The Byzantine year includes four extended fasting periods. Each prepares for a major feast. The practice is not punishment or mere discipline — it is training (<em>askesis</em>) for the soul. As the body learns to say "not yet" to food, the whole person practices saying "not yet" to impulse, distraction, and self-will. Fasting without prayer is just a diet. Prayer without fasting can become disembodied. Together, they form what the tradition calls the "two wings" of the spiritual life.</p>
+
+        <div class="fast-cards">
+
+          <div class="fast-card">
+            <div class="fast-header">
+              <h3 class="fast-name">Great Lent</h3>
+              <div class="fast-duration">~7 weeks (before Pascha)</div>
+            </div>
+            <div class="fast-details">
+              <p><strong>Prepares for:</strong> Pascha (the Resurrection)</p>
+              <p><strong>Duration:</strong> Begins on Clean Monday (the Monday before Ash Wednesday in the Latin calendar) and runs through Lazarus Saturday. Holy Week adds another six days of strict fasting.</p>
+              <p><strong>Rules:</strong> No meat, dairy, eggs, fish, wine, or oil on weekdays. Fish permitted on Annunciation (March 25) and Palm Sunday. Wine and oil permitted on Saturdays and Sundays. The first week and Holy Week are the strictest.</p>
+              <p><strong>Character:</strong> The most intense fasting season. Liturgical changes are dramatic: weekday Liturgies cease (replaced by the Presanctified Liturgy on Wednesday and Friday evenings), the Great Canon of St. Andrew of Crete is read, prostrations multiply, and the mood shifts from celebration to repentance. The Prayer of St. Ephrem — "O Lord and Master of my life, grant me not the spirit of sloth, meddling, love of power, and idle talk" — is said with prostrations at every service.</p>
+            </div>
+          </div>
+
+          <div class="fast-card">
+            <div class="fast-header">
+              <h3 class="fast-name">Apostles' Fast</h3>
+              <div class="fast-duration">1–6 weeks (variable)</div>
+            </div>
+            <div class="fast-details">
+              <p><strong>Prepares for:</strong> Feast of Sts. Peter and Paul (June 29)</p>
+              <p><strong>Duration:</strong> Begins the Monday after All Saints Sunday (one week after Pentecost) and ends June 28. Because Pascha is moveable, this fast can last anywhere from one to six weeks.</p>
+              <p><strong>Rules:</strong> Milder than Great Lent. No meat or dairy. Fish, wine, and oil generally permitted except on Wednesdays and Fridays.</p>
+              <p><strong>Character:</strong> The least well-known of the four fasts. It commemorates the Apostles' preparation for their missionary work after Pentecost. In years when Pascha is late, the fast can shrink to just a few days.</p>
+            </div>
+          </div>
+
+          <div class="fast-card">
+            <div class="fast-header">
+              <h3 class="fast-name">Dormition Fast</h3>
+              <div class="fast-duration">2 weeks (August 1–14)</div>
+            </div>
+            <div class="fast-details">
+              <p><strong>Prepares for:</strong> Dormition of the Theotokos (August 15)</p>
+              <p><strong>Duration:</strong> Fixed — August 1 through August 14.</p>
+              <p><strong>Rules:</strong> Nearly as strict as Great Lent. No meat, dairy, eggs, or fish. Wine and oil on Saturdays and Sundays only. Fish permitted on the Transfiguration (August 6).</p>
+              <p><strong>Character:</strong> Short but intense. Many parishes celebrate a Paraklesis service (a supplication to the Theotokos) each evening during this period. It is a season of Marian devotion and preparation for the feast that the Byzantine tradition considers the "summer Pascha."</p>
+            </div>
+          </div>
+
+          <div class="fast-card">
+            <div class="fast-header">
+              <h3 class="fast-name">Nativity Fast (Pylypivka)</h3>
+              <div class="fast-duration">40 days (November 15 – December 24)</div>
+            </div>
+            <div class="fast-details">
+              <p><strong>Prepares for:</strong> Nativity of Christ (December 25)</p>
+              <p><strong>Duration:</strong> Fixed — November 15 through December 24. In the Ukrainian tradition it is called <em>Pylypivka</em> because it begins the day after the feast of the Apostle Philip (November 14).</p>
+              <p><strong>Rules:</strong> Similar to the Apostles' Fast in strictness. No meat or dairy. Fish, wine, and oil generally permitted except on Wednesdays and Fridays. The last few days before the Nativity are stricter.</p>
+              <p><strong>Character:</strong> The "Advent" of the East, though the two are not exactly parallel. While Western Advent focuses on waiting and anticipation, Pylypivka is a genuine fasting season with concrete dietary rules. The liturgical texts increasingly emphasize the Incarnation. The Royal Hours on December 24 draw explicit parallels between the Nativity and the Crucifixion — the swaddling clothes prefigure the burial shroud, the manger prefigures the tomb.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <Pullquote attribution="— St. Basil the Great, On Fasting, Homily I">
+          Fasting was ordained in Paradise. The first commandment given to Adam was: "Of the tree of the knowledge of good and evil you shall not eat." "You shall not eat" is a law of fasting. If Eve had fasted from the tree, we would not now need this fast.
+        </Pullquote>
+
+        <Layer2Panel label="Fasting in Eastern Catholic Practice Today">
+          <p style="color: var(--aged-vellum); font-size: 15px; line-height: 1.8;">In practice, the strictness of fasting varies considerably among Eastern Catholics. The full monastic rule (no meat, dairy, eggs, fish, wine, or oil on fast days) is observed primarily in monasteries. Most Eastern Catholic eparchies have adapted guidelines that are less strict than the full typikon but considerably more demanding than the two obligatory fast days (Ash Wednesday and Good Friday) of the Latin Church. Common pastoral guidance: avoid meat on Wednesdays and Fridays throughout the year, keep at least the first and last weeks of Great Lent strictly, and take on additional fasting according to your spiritual father's counsel and your own capacity. The point is not legalistic compliance but gradual growth. Christ Our Pascha §§ 593–601 discusses fasting as spiritual training. Consult your pastor for the specific guidelines of your eparchy.</p>
+        </Layer2Panel>
+
+        <!-- ===== WEEKLY RHYTHM ===== -->
+        <h2>The Weekly Rhythm</h2>
+
+        <p>Beyond the four seasons, fasting structures every week of the year. Two days recur:</p>
+
+        <div class="week-grid">
+          <div class="week-card">
+            <h3>Wednesday</h3>
+            <p class="week-reason">The day Judas agreed to betray Christ.</p>
+            <p>A fast day throughout the year (outside of fast-free weeks). Abstinence from meat and dairy at minimum. In stricter practice, also fish, wine, and oil.</p>
+          </div>
+          <div class="week-card">
+            <h3>Friday</h3>
+            <p class="week-reason">The day Christ was crucified.</p>
+            <p>A fast day throughout the year (outside of fast-free weeks). Same rules as Wednesday. Friday is generally kept slightly more strictly than Wednesday in the tradition.</p>
+          </div>
+        </div>
+
+        <p>Several weeks of the year are <strong>fast-free</strong> — no fasting even on Wednesday and Friday:</p>
+        <ul class="fast-free-list">
+          <li><strong>Bright Week</strong> — the week after Pascha (the joy is too great for fasting)</li>
+          <li><strong>The week after Pentecost</strong> — Trinity Week</li>
+          <li><strong>December 25 – January 4</strong> — Sviatky (the twelve days from Nativity to the eve of Theophany)</li>
+          <li><strong>The week of the Publican and Pharisee</strong> — the first preparatory week before Great Lent (a deliberate contrast: the Pharisee fasted and boasted; we refrain to avoid his error)</li>
+          <li><strong>Cheesefare Week (Masnytsya)</strong> — the last week before Great Lent, when meat is already excluded but dairy is consumed freely</li>
+        </ul>
+
+        <!-- ===== THEOLOGY ===== -->
+        <h2>How Feasts and Fasts Work Together</h2>
+
+        <p>The pattern is deliberate: every major feast is preceded by a fast. Not because joy must be earned — grace is not transactional — but because the human person needs preparation to receive what is offered. You cannot walk from a shopping mall into a cathedral and immediately perceive the silence. You need the transition. Fasting creates that transition.</p>
+
+        <p>The rhythm also prevents both extremes. A community that only feasts becomes soft, complacent, numb to beauty because it is never absent. A community that only fasts becomes rigid, joyless, and eventually proud of its own discipline. The Byzantine year alternates: fast and feast, preparation and celebration, discipline and freedom, cross and resurrection. Each makes the other possible.</p>
+
+        <p>Alexander Schmemann put it most clearly: the purpose of fasting is to make us hungry — not merely for food, but for God. When the body learns to wait, the soul remembers what it is waiting for. And when the feast arrives, it arrives as gift, not entitlement.</p>
+
+        <Pullquote attribution="— Alexander Schmemann, Great Lent: Journey to Pascha">
+          Fasting is the joyful rediscovery that all of life, every bit of it, is a gift — and that the proper response to a gift is gratitude, not greed.
+        </Pullquote>
+
+        <figure class="article-image">
+          <img src="/byzantine-doors/images/chora-anastasis.jpg" alt="The Anastasis fresco from the Chora Church — Christ pulling Adam and Eve from their tombs" />
+          <figcaption>The Anastasis (Resurrection), Chora Church, Istanbul (14th century). Christ tramples the gates of Hades and pulls Adam and Eve from their tombs. This is the image the entire liturgical year is built around — every fast points toward this moment, and every feast celebrates it.</figcaption>
+        </figure>
+
+        <Layer2Panel label="Fasting, Feasting, and the Eschatological Vision">
+          <p style="color: var(--aged-vellum); font-size: 15px; line-height: 1.8;">The alternation of fasting and feasting is ultimately eschatological — it points beyond itself. The feasts are foretastes of the heavenly banquet; the fasts are reminders that we have not yet arrived. The tension between the two mirrors the central Christian paradox: the Kingdom of God is "already" inaugurated in Christ's Resurrection, but "not yet" fully realized. We live between Pascha and the Second Coming. The liturgical year trains us to inhabit that space faithfully — celebrating what has been given, longing for what is still to come. Christ Our Pascha §§ 105–108 discusses the eschatological dimension of Christian life. St. Maximus the Confessor's <em>Mystagogy</em> explores how the liturgical cycle reveals the structure of salvation history.</p>
+        </Layer2Panel>
+
+        <div class="cta-box">
+          <p>For practical fasting rules and a day-by-day guide, see our tools section.</p>
+          <a href={`${base}/tools/fasting-guide/`} class="btn-primary">Fasting Guide →</a>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .ff-body {
+    padding-bottom: 80px;
+  }
+  .ff-body p,
+  .ff-body li {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--aged-vellum);
+    margin-bottom: 20px;
+  }
+  .ff-body h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 48px 0 16px;
+    letter-spacing: 0.5px;
+  }
+  .ff-body h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 8px;
+  }
+  .ff-body .drop-cap::first-letter {
+    font-family: var(--font-display);
+    font-size: 56px;
+    float: left;
+    color: var(--halo-gold);
+    opacity: 0.7;
+    line-height: 0.8;
+    margin: 8px 14px 0 0;
+    font-weight: 400;
+  }
+  .ff-body em {
+    color: var(--censer-smoke);
+  }
+  .ff-body ul {
+    padding-left: 20px;
+  }
+  .ff-body li {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  /* Article images */
+  .article-image {
+    margin: 36px 0;
+    text-align: center;
+  }
+  .article-image img {
+    max-width: 100%;
+    max-height: 500px;
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .article-image figcaption {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .article-image--wide {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+  .article-image--wide img {
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Feast grid */
+  .feast-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0 16px;
+  }
+  .feast-card {
+    background: var(--icon-wall);
+    border-radius: 10px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--halo-gold);
+  }
+  .feast-card--lord {
+    border-left-color: var(--halo-gold);
+  }
+  .feast-card--theotokos {
+    border-left-color: var(--theotokos-blue);
+  }
+  .feast-card--theotokos {
+    border-left-color: #3A7CA5;
+  }
+  .feast-date {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--censer-smoke);
+    margin-bottom: 4px;
+  }
+  .feast-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 8px;
+  }
+  .feast-desc {
+    font-size: 14px;
+    color: var(--aged-vellum);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Feast legend */
+  .feast-legend {
+    display: flex;
+    gap: 24px;
+    margin: 12px 0 32px;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--censer-smoke);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .legend-dot--lord {
+    background: var(--halo-gold);
+  }
+  .legend-dot--theotokos {
+    background: #3A7CA5;
+  }
+
+  /* Fasting season cards */
+  .fast-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .fast-card {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .fast-header {
+    background: var(--gold-06);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fast-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0;
+  }
+  .fast-duration {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--halo-gold);
+    white-space: nowrap;
+  }
+  .fast-details {
+    padding: 20px 24px;
+  }
+  .fast-details p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .fast-details p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Weekly rhythm */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0 24px;
+  }
+  .week-card {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .week-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 4px;
+  }
+  .week-reason {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--halo-gold);
+    font-style: italic;
+    margin-bottom: 12px !important;
+  }
+  .week-card p {
+    font-size: 14px;
+    color: var(--aged-vellum);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* Fast-free list */
+  .fast-free-list {
+    margin: 12px 0 24px;
+    padding-left: 20px;
+  }
+  .fast-free-list li {
+    color: var(--aged-vellum);
+    line-height: 1.7;
+  }
+
+  /* CTA box */
+  .cta-box {
+    margin-top: 48px;
+    padding: 24px;
+    background: var(--gold-04);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .cta-box p {
+    font-size: 16px;
+    color: var(--beeswax);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .week-grid { grid-template-columns: 1fr; }
+    .fast-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .article-image--wide {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+</style>

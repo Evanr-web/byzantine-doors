@@ -1,0 +1,711 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Pullquote from '../../../components/Pullquote.astro';
+import Layer2Panel from '../../../components/Layer2Panel.astro';
+import StarDivider from '../../../components/StarDivider.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="Liturgical Walkthrough" description="A step-by-step visual guide through the entire Divine Liturgy of St. John Chrysostom — what happens, what it means, and what you'll experience.">
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">Liturgy</div>
+      <h1 class="hero-title" style="font-size:34px;">The Divine Liturgy, Step by Step</h1>
+      <p class="hero-subtitle">
+        A complete walkthrough of the Liturgy of St. John Chrysostom — from the hidden preparation of the gifts to the final blessing.
+      </p>
+    </div>
+  </section>
+
+  <div class="article-surface">
+    <div class="container--narrow">
+
+      <nav class="breadcrumbs">
+        <a href={`${base}/`}>Home</a>
+        <span class="sep">›</span>
+        <a href={`${base}/liturgy/`}>Liturgy</a>
+        <span class="sep">›</span>
+        <span style="color: var(--beeswax);">Walkthrough</span>
+      </nav>
+
+      <article class="walkthrough-body">
+
+        <p class="drop-cap">The Divine Liturgy of St. John Chrysostom follows a structure that has remained essentially unchanged since the fourth century. What follows is a step-by-step guide through the entire service — what happens at each moment, what it means theologically, and what you'll see and hear if you're standing in the nave. The Liturgy is not a performance to watch. It is an event to enter. But knowing the map helps.</p>
+
+        <p class="intro-note">This walkthrough covers the standard Sunday celebration. Specific hymns and readings change with the liturgical calendar, but the structure holds.</p>
+
+        <figure class="article-image article-image--wide">
+          <img src="/byzantine-doors/images/hagia-sophia-interior.jpg" alt="Interior of Hagia Sophia — vast dome, golden mosaics, light streaming from above" />
+          <figcaption>Hagia Sophia, Istanbul. The building that shaped how Eastern Christians imagine liturgical space — heaven made visible.</figcaption>
+        </figure>
+
+        <!-- ===== PART I: PROSKOMEDIA ===== -->
+        <div class="timeline-phase">
+          <h2 class="phase-title">Part I: The Proskomedia</h2>
+          <p class="phase-desc">The preparation of the gifts, done before the public service begins. The congregation may not see any of this — it happens quietly behind the iconostasis.</p>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Step 1 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">1</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Vesting of the Priest</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest washes his hands and puts on each liturgical vestment — sticharion, epitrachelion, zone, epimanikia, and phelonion — reciting a specific prayer with each one. If a deacon serves, he vests simultaneously at the opposite side of the altar.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>Each vestment symbolizes a grace. The sticharion (long white robe) represents the purity of baptism. The epitrachelion (stole) is the yoke of priestly authority. The phelonion (outer garment) represents the righteousness that covers the priest — not his own, but Christ's. Vesting is not costume change. It is transformation: the priest "puts on Christ" (Galatians 3:27) to act in His person.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>Nothing, usually. This happens in the sanctuary before the service. If you arrive early, you might hear faint prayers from behind the iconostasis.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">2</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Preparation of the Lamb</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>At the prothesis (a small table to the left of the altar), the priest takes a round loaf of leavened bread (<em>prosphora</em>) and, using a liturgical lance, cuts a square portion from its center. This square is called the <strong>Lamb</strong>. He scores it with a cross, pierces its side, and pours wine and water into the chalice.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>Every action replays the Passion in miniature. The cutting recalls the Crucifixion. The piercing echoes the soldier's lance (John 19:34). The wine and water recall the blood and water that flowed from Christ's side. Isaiah 53:7 is quoted: "He was led as a sheep to the slaughter." The Lamb of God is being prepared for sacrifice — not metaphorically, but sacramentally.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The priest recites these prayers in a low voice. You may hear fragments of Isaiah and the Psalms. The prothesis is usually hidden from the congregation's view.</p>
+              </div>
+              <Layer2Panel label="The Prosphora and Its Seal">
+                <p>The prosphora is not ordinary bread. It is baked from fine wheat flour, water, yeast, and salt — and stamped with a seal bearing the letters IC XC NI KA ("Jesus Christ Conquers"). The seal creates the grid the priest uses to cut the Lamb. The use of <em>leavened</em> bread is significant: it represents the fullness of Christ's humanity, body and soul, risen and alive. This is one of the theological differences from the Latin use of unleavened bread (azymes), debated extensively in the eleventh century.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">3</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Commemoration Particles</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest cuts additional small particles of bread and arranges them around the Lamb on the diskos (paten). The first particle honors the Theotokos. Nine more honor ranks of saints: John the Baptist, the prophets, the apostles, the hierarchs, the martyrs, the monastics, the healers, and the saints of the day. Additional particles are placed for the living and the dead — including names submitted by parishioners on prayer lists.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The diskos becomes a map of the entire Church: Christ at the center, His mother beside Him, the saints surrounding Him, the living and dead gathered around. Before a single word is sung publicly, the whole Church — past, present, heaven and earth — is assembled on a small metal plate. The Liturgy is never a local event.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>If you submitted names on a prayer list (usually a slip of paper given before the service), they are being read now. You won't see it, but your loved ones are on that diskos.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <StarDivider />
+
+        <!-- ===== PART II: LITURGY OF THE CATECHUMENS ===== -->
+        <div class="timeline-phase">
+          <h2 class="phase-title">Part II: The Liturgy of the Catechumens</h2>
+          <p class="phase-desc">The public service begins. Named for the catechumens — those preparing for baptism — who were permitted to attend this portion. Today, everyone is present, but the name persists.</p>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Step 4 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">4</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Opening Doxology</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The deacon (or priest) calls out: <em>"Bless, Master!"</em> The priest responds from behind the closed Royal Doors: <strong>"Blessed is the Kingdom of the Father and of the Son and of the Holy Spirit, now and ever and unto ages of ages."</strong> The congregation responds: <em>"Amen."</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>This is the most important sentence in the Liturgy. Every other Christian service begins with a lesser blessing. The Liturgy begins by blessing the Kingdom itself. Alexander Schmemann writes that this opening declares the Liturgy's destination: not a memorial, not a teaching moment, but an entrance into the Kingdom of God. The "Amen" is not polite agreement. It is the congregation's ratification: "Yes, we are going there."</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The priest's voice from behind the iconostasis, resonant and deliberate. The congregation stands. Everyone crosses themselves at "Amen." This is the moment the Liturgy begins.</p>
+              </div>
+              <Layer2Panel label="Schmemann on the Opening Blessing">
+                <p>In <em>For the Life of the World</em>, Schmemann argues that this opening distinguishes the Liturgy from all other worship. "From the beginning the destination is announced: the journey is to the Kingdom." The Liturgy does not build toward the Kingdom as a climax. It begins inside it. Every subsequent action — the readings, the hymns, the consecration — takes place within the reality that this first blessing declares.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">5</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Great Litany</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The deacon stands before the Royal Doors and intones a series of petitions: <em>"In peace let us pray to the Lord… For the peace from above and the salvation of our souls… For the peace of the whole world, the good estate of the holy Churches of God, and the union of all…"</em> After each petition, the congregation responds: <em>"Lord, have mercy"</em> (<em>Hospody, pomyluj</em> in Church Slavonic, <em>Kyrie eleison</em> in Greek).</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The litany moves from the universal to the particular: world peace, then the Church, then the local bishop, then travelers, the sick, the imprisoned, then deliverance from all affliction. The structure reflects the Church's self-understanding: it prays for the whole world before it prays for itself. "Lord, have mercy" is not a mantra. It is the most condensed prayer possible — an acknowledgment that everything depends on God's mercy.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The deacon holds his orarion (stole) raised with his right hand. The choir or congregation responds rhythmically. The pace is steady, meditative. If you know nothing else, you can participate here by joining the response.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">6</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Antiphons</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>Three sets of psalm verses are sung antiphonally (alternating between two choirs or between cantor and congregation). The First Antiphon typically draws from Psalm 102: <em>"Bless the Lord, O my soul, and all that is within me bless His holy name."</em> The Second Antiphon uses Psalm 145. Between them, the hymn <em>"Only-begotten Son and Word of God"</em> is sung. The Third Antiphon uses the Beatitudes (Matthew 5:3–12), with troparia inserted between verses.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The Antiphons form a movement from Old Testament praise (the Psalms) through the Incarnation ("Only-begotten Son… who for our salvation was incarnate") to the New Testament call to holiness (the Beatitudes). The liturgy is rehearsing salvation history in compressed form. The "Only-begotten Son" hymn, attributed to Emperor Justinian (6th century), is a complete Christological statement in one sentence.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>Sustained chanting. The melodies are often in a specific tone (one of eight <em>hlasy</em> or modes) that rotates weekly. The congregation may join in the Beatitudes. The pace is unhurried.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">7</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Small Entrance</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The Royal Doors open. The priest (or deacon) carries the Gospel book out through the north door of the iconostasis, processes through the nave, and re-enters through the Royal Doors. He lifts the Gospel book high and declares: <em>"Wisdom! Let us attend!"</em> The troparion and kontakion of the day are sung.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The Small Entrance represents Christ coming among His people. The Gospel book is not just a text — it is an icon of Christ's presence. Lifting it and calling "Wisdom!" announces that God is about to speak. In the early Church, this was the actual entrance of the clergy into the church building. The procession through the nave recalls that Christ did not remain hidden but came out among humanity.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The doors swing open. Candles precede the Gospel book. The priest moves slowly through the church. People bow as the Gospel passes. Some touch the edge of the priest's vestment. The call <em>"Wisdom!"</em> cuts through the space with authority. This is a moment of genuine solemnity.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 8 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">8</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Trisagion</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The congregation sings: <strong>"Holy God, Holy Mighty, Holy Immortal, have mercy on us"</strong> — three times. This is the Trisagion ("Thrice-Holy") hymn.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The Trisagion echoes Isaiah 6:3 (the seraphim crying "Holy, holy, holy") and is one of the oldest hymns in continuous Christian use, attested from the Council of Chalcedon (451). The threefold repetition invokes the Trinity. "Have mercy on us" grounds it: this is not angelic distance but human need. The hymn unites the heavenly and earthly choirs — the congregation sings what the angels sing.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>Everyone stands. The melody is usually simple enough for the whole congregation to sing. Some people cross themselves with each repetition. On certain feast days (the Exaltation of the Cross, Holy Cross Sunday), the Trisagion is replaced by: "Before Thy Cross we bow down, O Master, and Thy holy Resurrection we glorify."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 9 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">9</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Readings: Epistle and Gospel</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>A reader chants the <em>prokeimenon</em> (a psalm verse that introduces the reading), then reads the Epistle. After an Alleluia verse, the deacon or priest reads the Gospel. Before the Gospel, the priest prays: <em>"Illumine our hearts, O Master who loves mankind, with the pure light of Your divine knowledge."</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The Epistle and Gospel are not information delivery. They are proclamation — the living Word of God addressed to this assembly, in this place, now. The Alleluia between them signals a transition: from apostolic teaching to the voice of Christ Himself in the Gospel. Standing for the Gospel is universal — it is how the Church shows that Christ is speaking.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The reader chants the Epistle from a lectern or the center of the nave. The Gospel is read by the priest or deacon from the altar or ambo. Incense may be used. The congregation stands throughout the Gospel. A homily (sermon) may follow, though not always.</p>
+              </div>
+              <Layer2Panel label="The Lectionary Cycle">
+                <p>The Byzantine lectionary follows a cycle keyed to Pascha. Beginning on the Sunday after Easter, the Church reads through the Acts of the Apostles, then the Epistles of Paul, then the Catholic Epistles over the course of the year. The Gospels follow their own cycle: John from Pascha to Pentecost, Matthew from Pentecost through fall, Luke through winter and into Lent. Mark fills specific days. Every passage is assigned to a specific day — the readings are never chosen by the priest. The system ensures the Church hears the entirety of the New Testament, not just favorite passages.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 10 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">10</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Litany and Dismissal of the Catechumens</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>After the readings (and homily, if given), the deacon intones the Augmented Litany — a more intense series of petitions. Then: <em>"All catechumens, depart! Catechumens, depart! All that are catechumens, depart! Let no catechumen remain!"</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>In the early Church, this was a real dismissal. Those preparing for baptism had heard the Word; now the mysteries (sacraments) were about to be celebrated, and only the initiated could remain. Today, no one leaves. But the words survive as a reminder: what follows is not for spectators. The Eucharist is the meal of the baptized. The dismissal marks the boundary between teaching and mystery.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The deacon's voice, firm and almost commanding. Nobody moves. The doors do not close. But the atmosphere shifts — something more solemn is about to begin.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <StarDivider />
+
+        <!-- ===== PART III: LITURGY OF THE FAITHFUL ===== -->
+        <div class="timeline-phase">
+          <h2 class="phase-title">Part III: The Liturgy of the Faithful</h2>
+          <p class="phase-desc">The heart of the Liturgy. In the early Church, only the baptized remained for this portion. Here the gifts are offered, consecrated, and received.</p>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Step 11 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">11</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Cherubic Hymn</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The choir begins the Cherubic Hymn: <em>"Let us who mystically represent the Cherubim, and who sing the thrice-holy hymn to the life-creating Trinity, now lay aside all earthly cares…"</em> The hymn pauses midway while the Great Entrance takes place, then concludes: <em>"…that we may receive the King of all, who comes invisibly upborne by the angelic hosts. Alleluia."</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The hymn announces a staggering claim: the congregation is doing what the Cherubim do. Not imitating, but "mystically representing" — the Greek <em>eikonizein</em> means to be a living icon of the angels' worship. The command to "lay aside all earthly cares" is not pious suggestion. It is liturgical instruction: what is about to happen requires total attention. The King is arriving.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>A slow, solemn melody fills the church. The congregation stands still. Many bow their heads. Some people place their hands at their sides, palms forward. The music swells, then pauses for the procession. This is the single most atmospheric moment in the entire service.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 12 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">12</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Great Entrance</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest takes the prepared gifts — the diskos with the Lamb and commemoration particles, and the chalice with wine — from the prothesis. Preceded by candles and incense, he carries them through the north door, processes through the nave, and enters through the Royal Doors to place them on the altar. He commemorates the hierarchs, the civil authorities, and the faithful: <em>"May the Lord God remember all of you in His Kingdom, always, now and ever and unto ages of ages."</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The Great Entrance is the offering of the gifts. It parallels the entrance of the King — the bread and wine that will become Christ's Body and Blood are carried like a sovereign arriving at court. The commemoration of "all of you" means exactly that: every person in the church is being brought before God. The gifts represent not only bread and wine but the lives of the people who brought them. The whole creation is being offered back to its Creator.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The most visually striking moment. The priest emerges carrying the chalice and diskos, covered with veils. Incense fills the air. The congregation bows deeply — many bow from the waist. Children are sometimes lifted so they can see. The priest's voice echoes the commemorations through the silent nave. People cross themselves. Some whisper their own loved ones' names.</p>
+              </div>
+              <Layer2Panel label="The Great Entrance and the Offertory">
+                <p>The Great Entrance is often compared to the Western offertory, but the theology is different. In the Byzantine understanding, the gifts were already prepared and set apart during the Proskomedia. The Great Entrance is their solemn transfer to the altar — their journey from preparation to consecration. St. Germanus of Constantinople (8th century) interpreted it as representing Christ's burial procession: the diskos is the tomb, the veils are the burial cloths, the spice of incense accompanies the Body. The Cherubic Hymn, introduced by Emperor Justin II in 573–574, was added precisely to give this moment its full weight.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 13 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">13</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Creed</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The deacon calls: <em>"The doors! The doors! In wisdom let us attend!"</em> The congregation recites (or sings) the Nicene-Constantinopolitan Creed: <em>"I believe in one God, the Father Almighty, Maker of heaven and earth…"</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>"The doors!" originally instructed the doorkeepers to close and guard the church doors — no one enters or leaves during the mysteries. Today it signals: the threshold has been crossed. The Creed is not a loyalty oath. It is the baptismal confession of faith — the same words spoken at every baptism since the fourth century. By reciting it, the congregation affirms that what is about to happen (the Eucharist) is grounded in this faith: God became human, died, rose, and will come again. Without that, the Eucharist is unintelligible.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The whole congregation recites together. The aer (large veil covering the gifts) is waved gently over the chalice and diskos during the Creed — symbolizing the descent of the Holy Spirit. The Byzantine Creed does not include the <em>filioque</em> ("and the Son") clause added in the West.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 14 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">14</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Anaphora</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The Eucharistic prayer begins. The priest and congregation exchange: <em>"The Lord be with you" — "And with your spirit." "Let us lift up our hearts" — "We lift them up to the Lord." "Let us give thanks to the Lord" — "It is fitting and right."</em> The priest then prays the anaphora — a great prayer of thanksgiving recounting God's work from creation through the Incarnation, death, and resurrection of Christ. He speaks Christ's words at the Last Supper: <em>"Take, eat, this is My Body… Drink of it, all of you, this is My Blood…"</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The anaphora ("offering up") is the theological center of the Liturgy. It is a single, continuous prayer — the longest in the service — that does everything: thanks God, remembers salvation history, repeats Christ's words, invokes the Spirit, and intercedes for the world. The Sursum Corda ("Lift up your hearts") is ancient — attested by Hippolytus of Rome around 215 AD. It directs the congregation's attention from earth to heaven, from the horizontal to the vertical.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>In many parishes, the anaphora is prayed partly aloud and partly silently (the "secret prayers"). You will hear the dialogue, the Words of Institution proclaimed clearly, and key exclamations. The congregation stands in silence during the quiet portions. At the Words of Institution, some people bow or kneel. A bell may ring.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 15 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">15</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Epiklesis</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest prays: <em>"Send down Your Holy Spirit upon us and upon these gifts here offered. And make this bread the precious Body of Your Christ. And that which is in this chalice, the precious Blood of Your Christ. Changing them by Your Holy Spirit."</em> The deacon responds: <em>"Amen. Amen. Amen."</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>This is the <em>epiklesis</em> — the invocation of the Holy Spirit. In the Eastern tradition, this is the moment of consecration: the Spirit transforms the bread and wine into the Body and Blood of Christ. The theology is deliberately trinitarian. The Father is addressed. The Son is offered. The Spirit effects the change. No Person of the Trinity acts alone. The words "upon us <em>and</em> upon these gifts" are crucial — the Spirit transforms not only the bread and wine but the community itself. <em>Christ Our Pascha</em> §553 teaches that the Eucharist makes the Church as much as the Church makes the Eucharist.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The most sacred moment. Many people kneel or prostrate. The priest blesses the gifts. The triple "Amen" from the deacon is emphatic and final. In some churches, a bell rings. Silence, then the church exhales.</p>
+              </div>
+              <Layer2Panel label="East and West on Consecration">
+                <p>The question of <em>when</em> the bread and wine become the Body and Blood of Christ was debated between East and West for centuries. The Latin tradition locates the moment at the Words of Institution ("This is My Body"). The Eastern tradition locates it at the Epiklesis — the invocation of the Spirit. The Byzantine Catholic position, as expressed in <em>Christ Our Pascha</em> §552, holds that the entire anaphora is consecratory — it is a unified prayer, not a formula with a "magic moment." But the Epiklesis is its climax. The Spirit does what only God can do: make the ordinary into the holy.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 16 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">16</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">The Lord's Prayer</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest invites: <em>"And make us worthy, O Master, that with boldness and without condemnation we may dare to call upon You, the heavenly God, as Father, and to say…"</em> The congregation prays together: <em>"Our Father, who art in heaven…"</em></p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>The introduction is not false modesty. Calling God "Father" is understood as an extraordinary privilege — something that requires "boldness" (<em>parrhesia</em> in Greek, the frank speech of a free citizen before a king). In the early Church, the Lord's Prayer was taught to catechumens only after their baptism; it was considered too intimate for the uninitiated. Its placement here, immediately before Communion, is intentional: "Give us this day our daily bread" is understood as a petition for the Eucharist.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>Everyone prays together. This is usually the moment visitors feel most at home — the prayer is universal. Heads are bowed. The priest concludes: <em>"For Thine is the kingdom and the power and the glory…"</em></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 17 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">17</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Communion</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>The priest elevates the Lamb and declares: <em>"The holy things for the holy!"</em> The congregation responds: <em>"One is holy, one is Lord, Jesus Christ, to the glory of God the Father."</em> The priest breaks the Lamb into four portions, places one in the chalice, adds warm water (<em>zeon</em>), and communes himself. Then the Royal Doors open, the priest emerges with the chalice, and the faithful approach to receive Communion — Body and Blood together, administered by spoon.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>"The holy things for the holy" is a challenge: the Eucharist is for those who are holy. The response is the Church's honest reply: "One is holy" — only Christ. No one approaches Communion on the basis of personal worthiness. The warm water (<em>zeon</em>) added to the chalice symbolizes the warmth of the Holy Spirit and the living nature of Christ's Blood — He is risen, not dead. Communion by spoon unites Body and Blood in a single act: the fullness of Christ, received whole.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The faithful line up. Arms crossed over the chest, heads slightly tilted back, mouths open. The priest calls each person by their baptismal name: <em>"The servant of God [Name] receives the precious and holy Body and Blood of our Lord, God, and Savior Jesus Christ, for the remission of sins and life everlasting."</em> Infants are communed. Children are communed. No one is turned away by age. After receiving, each person kisses the base of the chalice and moves to a side table for blessed bread and warm water (to cleanse the palate).</p>
+              </div>
+              <Layer2Panel label="Infant Communion and Full Initiation">
+                <p>In the Byzantine tradition, baptism, chrismation (confirmation), and first Communion happen in a single service — even for newborns. There is no "age of reason" requirement, no first Communion class, no separation of the sacraments of initiation. The theology is clear: if a person is baptized into Christ, they are a full member of the Body, and full members receive the Body. <em>Christ Our Pascha</em> §§580–587 explains this as following the ancient practice of the undivided Church. The Western practice of delaying Communion and Confirmation developed later and is not shared by the Eastern Churches.</p>
+              </Layer2Panel>
+            </div>
+          </div>
+
+          <!-- Step 18 -->
+          <div class="timeline-step">
+            <div class="step-marker">
+              <span class="step-number">18</span>
+            </div>
+            <div class="step-content">
+              <h3 class="step-name">Thanksgiving and Dismissal</h3>
+              <div class="step-section">
+                <div class="step-label">What's Happening</div>
+                <p>After Communion, the choir sings: <em>"We have seen the true light. We have received the heavenly Spirit. We have found the true faith, worshipping the undivided Trinity, who has saved us."</em> The priest blesses the congregation: <em>"Save, O God, Your people and bless Your inheritance."</em> A final litany of thanksgiving follows. The priest offers the dismissal, commemorating the saint of the day, and blesses the people: <em>"The blessing of the Lord be upon you, through His grace and love for mankind, always, now and ever and unto ages of ages."</em> The congregation receives antidoron — blessed (but not consecrated) bread — as they leave.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What It Means</div>
+                <p>"We have seen the true light" is not future aspiration. It is present-tense testimony. The Liturgy is understood as a real encounter with Christ — not a memorial, not a symbol, but the thing itself. The antidoron ("instead of the gifts") is given to everyone, including those who did not receive Communion — it is blessed bread, a sign of fellowship. The dismissal sends the congregation back into the world carrying what they received. The Liturgy ends, but the Kingdom they entered does not.</p>
+              </div>
+              <div class="step-section">
+                <div class="step-label">What You'll See & Hear</div>
+                <p>The choir sings with a note of triumph. People relax slightly. The priest emerges with a tray of antidoron. People approach, kiss the cross he holds, and receive a piece of bread. Conversations begin. Children run. The incense lingers. The Liturgy is over, but nobody hurries.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <StarDivider />
+
+        <Pullquote attribution="— Alexander Schmemann, For the Life of the World">
+          The Liturgy is not a "service" in the sense of a "religious obligation." It is the entrance of the Church into the joy of its Lord. And to enter into that joy, so as to be a witness to it in the world, is indeed the very calling of the Church.
+        </Pullquote>
+
+        <div class="cta-box">
+          <p>Need a quick reference during the service?</p>
+          <a href={`${base}/liturgy/whats-happening-now/`} class="btn-primary">What's Happening Now Guide →</a>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .walkthrough-body {
+    padding-bottom: 80px;
+  }
+  .walkthrough-body p,
+  .walkthrough-body li {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--aged-vellum);
+    margin-bottom: 20px;
+  }
+  .walkthrough-body h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 48px 0 16px;
+    letter-spacing: 0.5px;
+  }
+  .walkthrough-body h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 16px;
+  }
+  .walkthrough-body .drop-cap::first-letter {
+    font-family: var(--font-display);
+    font-size: 56px;
+    float: left;
+    color: var(--halo-gold);
+    opacity: 0.7;
+    line-height: 0.8;
+    margin: 8px 14px 0 0;
+    font-weight: 400;
+  }
+  .walkthrough-body em {
+    color: var(--censer-smoke);
+  }
+  .intro-note {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--censer-smoke);
+    border-left: 2px solid var(--gold-15);
+    padding-left: 16px;
+    margin-bottom: 32px;
+  }
+
+  /* Article images */
+  .article-image {
+    margin: 36px 0;
+    text-align: center;
+  }
+  .article-image img {
+    max-width: 100%;
+    max-height: 500px;
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .article-image figcaption {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .article-image--wide {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+  .article-image--wide img {
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Phase headers */
+  .timeline-phase {
+    margin: 48px 0 24px;
+  }
+  .phase-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--halo-gold);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .phase-desc {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 56px;
+    margin: 32px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold-40), var(--gold-10));
+  }
+
+  .timeline-step {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .step-marker {
+    position: absolute;
+    left: -56px;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--icon-wall);
+    border: 1px solid var(--gold-40);
+    color: var(--halo-gold);
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .step-content {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .step-section {
+    margin-bottom: 16px;
+  }
+  .step-section:last-child {
+    margin-bottom: 0;
+  }
+  .step-label {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    margin-bottom: 6px;
+  }
+  .step-section p {
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+  .step-name {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 16px;
+  }
+
+  /* CTA box */
+  .cta-box {
+    margin-top: 48px;
+    padding: 24px;
+    background: var(--gold-04);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .cta-box p {
+    font-size: 16px;
+    color: var(--beeswax);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .timeline { padding-left: 44px; }
+    .step-marker { left: -44px; }
+    .step-marker, .step-number { width: 28px; height: 28px; }
+    .step-number { font-size: 13px; }
+    .timeline::before { left: 13px; }
+    .article-image--wide {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+  }
+</style>
