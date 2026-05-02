@@ -67,12 +67,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p class="rubrics-text" id="daily-rubrics"></p>
     </div>
 
-    <!-- Available Services -->
-    <div class="daily-section" id="section-services" style="display:none;">
-      <div class="daily-section-label">Services Available</div>
-      <div class="services-badges" id="daily-services"></div>
-      <p class="services-note">Full service texts are available in the <a href="https://evanr-web.github.io/prayer-app/" style="color:var(--halo-gold);">Prayer of the Church</a> app.</p>
-    </div>
+    <!-- Available Services — hidden until PWA is presentation-ready -->
 
     <!-- Loading / Error states -->
     <div class="daily-section" id="section-loading">
@@ -218,18 +213,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       document.getElementById('section-rubrics').style.display = '';
     }
     
-    // Services
-    if (data.services) {
-      const badges = [];
-      if (data.services.vespers) badges.push('<span class="service-badge available">☾ Vespers</span>');
-      else badges.push('<span class="service-badge">☾ Vespers</span>');
-      if (data.services.matins) badges.push('<span class="service-badge available">☉ Matins</span>');
-      else badges.push('<span class="service-badge">☉ Matins</span>');
-      if (data.services.compline) badges.push('<span class="service-badge available">✦ Hours/Compline</span>');
-      else badges.push('<span class="service-badge">✦ Hours/Compline</span>');
-      document.getElementById('daily-services').innerHTML = badges.join('');
-      document.getElementById('section-services').style.display = '';
-    }
+    // Services section hidden until PWA is presentation-ready
   }
   
   // Navigation
