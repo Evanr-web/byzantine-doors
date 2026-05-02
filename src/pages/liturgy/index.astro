@@ -1,69 +1,324 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import StarDivider from '../../components/StarDivider.astro';
+import Pullquote from '../../components/Pullquote.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<BaseLayout title="Liturgy" description="Liturgical texts, chants, and guides — coming soon.">
+<BaseLayout title="Liturgy" description="A guide to the Divine Liturgy and the services of the Byzantine tradition — what happens, when, and why.">
 
   <section class="hero">
     <div class="hero-content">
       <div class="section-label" style="margin-bottom:16px;">Liturgy</div>
-      <h1 class="hero-title" style="font-size:34px;">Liturgical Texts & Guides</h1>
+      <h1 class="hero-title" style="font-size:34px;">The Divine Liturgy & the Services</h1>
       <p class="hero-subtitle">
-        Texts, chants, and guides for liturgical worship in the Byzantine tradition.
+        What happens in Byzantine worship, from the preparation of the gifts to the final blessing — and the daily cycle of prayer that surrounds it.
       </p>
     </div>
   </section>
 
-  <div class="container--narrow" style="padding-bottom:80px; text-align:center;">
+  <div class="article-surface">
+    <div class="container--narrow">
 
-    <StarDivider />
+      <nav class="breadcrumbs">
+        <a href={`${base}/`}>Home</a>
+        <span class="sep">›</span>
+        <span style="color: var(--beeswax);">Liturgy</span>
+      </nav>
 
-    <div class="coming-soon">
-      <div class="coming-soon-icon">⛪</div>
-      <h2 class="coming-soon-title">Coming Soon</h2>
-      <p class="coming-soon-desc">
-        We're preparing a comprehensive liturgical resource — texts of the Divine Liturgy, explanations of each part, chant recordings, and guides for following along at your first (or fiftieth) service.
-      </p>
-      <p class="coming-soon-sub">
-        In the meantime, explore the <a href={`${base}/journey/`}>Journey</a> to learn what happens during the Liturgy, or visit <a href={`${base}/tools/`}>Tools</a> for practical guides on attending.
-      </p>
+      <article class="liturgy-body">
+
+        <h2>What Is the Divine Liturgy?</h2>
+
+        <figure class="article-image article-image--wide">
+          <img src="/byzantine-doors/images/hagia-sophia-interior.jpg" alt="Interior of Hagia Sophia — vast dome, golden mosaics, light streaming from above" />
+          <figcaption>Hagia Sophia, Istanbul. For nearly a thousand years, the Divine Liturgy was celebrated beneath this dome. The building was designed to make worshippers feel they had entered heaven.</figcaption>
+        </figure>
+
+        <p class="drop-cap">The Divine Liturgy is the central act of worship in the Byzantine tradition. It is not a lecture. Not a concert. Not a prayer meeting. It is the event in which the Church believes heaven and earth overlap: the risen Christ becomes present in bread and wine, and the congregation, together with angels and saints, participates in the eternal worship of God.</p>
+
+        <p>Two forms are in regular use. The <strong>Liturgy of St. John Chrysostom</strong> is celebrated on most Sundays and weekdays throughout the year. The <strong>Liturgy of St. Basil the Great</strong>, longer and more ancient in some of its prayers, is used ten times a year, including the Sundays of Great Lent and Holy Thursday. A third form, the <strong>Liturgy of the Presanctified Gifts</strong>, is used on weekday evenings during Lent. It contains no consecration; Communion is from gifts consecrated the previous Sunday.</p>
+
+        <p>Every Liturgy follows the same basic structure, a structure inherited from the earliest centuries and shared, in its essentials, with every ancient Christian tradition.</p>
+
+        <h2>The Structure</h2>
+
+        <div class="liturgy-section">
+          <h3>Proskomedia: The Preparation</h3>
+          <p>Before the congregation arrives, the priest prepares the bread and wine at a small table (the <em>prothesis</em>) in the sanctuary. This is the <strong>Proskomedia</strong>, the "offering." The priest cuts a square portion called the <strong>Lamb</strong> from the center of a round loaf of leavened bread (<em>prosphora</em>), commemorating Christ as the sacrificial Lamb. Additional particles of bread are cut in memory of the Theotokos, the saints, the living, and the dead.</p>
+          <p>The entire Church, past and present, is symbolically gathered on the <em>diskos</em> (paten) before the Liturgy even begins. The preparation is done quietly, often invisibly. It is the hidden foundation on which everything else rests.</p>
+        </div>
+
+        <div class="liturgy-section">
+          <h3>The Liturgy of the Word</h3>
+          <p>The public service begins. The congregation gathers. The priest blesses: "Blessed is the Kingdom of the Father and of the Son and of the Holy Spirit." Not "blessed is this church" or "blessed is this community." The Kingdom. The Liturgy begins by declaring where it is headed.</p>
+          <p>What follows: litanies (structured prayers with the congregation responding "Lord, have mercy"), antiphons (psalm verses sung antiphonally), and the <strong>Small Entrance</strong>, a procession with the Gospel book through the nave and into the sanctuary. The Gospel is carried high. It is Christ entering His Church.</p>
+          <p>Then the readings. An Epistle. A Gospel. Sometimes a homily. The Liturgy of the Word is the part most familiar to Western visitors: Scripture proclaimed, explained, received.</p>
+        </div>
+
+        <div class="liturgy-section">
+          <h3>The Liturgy of the Faithful</h3>
+          <p>This is where the Liturgy becomes most distinctively itself. In the early Church, catechumens (those preparing for baptism) were dismissed at this point. Only the baptized remained.</p>
+          <p>The <strong>Great Entrance</strong> is the climactic procession: the priest carries the prepared bread and wine from the prothesis, through the nave, and to the altar. The Cherubic Hymn accompanies it: "Let us who mystically represent the Cherubim, and who sing the thrice-holy hymn to the life-creating Trinity, now lay aside all earthly cares." The congregation stands in silence. Some bow. The gifts pass by. This is the moment the entire church holds its breath.</p>
+        </div>
+
+        <Pullquote attribution="— The Cherubic Hymn, Divine Liturgy of St. John Chrysostom">
+          Let us who mystically represent the Cherubim, and who sing the thrice-holy hymn to the life-creating Trinity, now lay aside all earthly cares — that we may receive the King of all, who comes invisibly upborne by the angelic hosts. Alleluia.
+        </Pullquote>
+
+        <h2>The Major Moments</h2>
+
+        <div class="liturgy-section">
+          <h3>The Anaphora and Epiklesis</h3>
+          <p>After the Creed, the Eucharistic prayer (<em>anaphora</em>) begins. The priest recounts the story of salvation, repeats Christ's words at the Last Supper, and then invokes the Holy Spirit (<em>epiklesis</em>): "Send down Your Holy Spirit upon us and upon these gifts here offered." The Eastern tradition locates the moment of consecration here, in the coming of the Spirit, not solely in the words of institution. The Spirit transforms the bread and wine into the Body and Blood of Christ.</p>
+          <p>The theology is deliberate. Salvation is trinitarian. The Father sends the Son. The Son offers Himself. The Spirit makes Christ present. No Person of the Trinity acts alone.</p>
+        </div>
+
+        <div class="liturgy-section">
+          <h3>Communion</h3>
+          <p>The faithful receive both Body and Blood together, administered by spoon from the chalice. Leavened bread, wine, joined. Infants and children receive from the day of their baptism. No "age of reason" requirement. No first Communion class. The child is baptized, chrismated, and communed in a single liturgy, fully initiated into the Church.</p>
+          <p>The words at distribution: "The servant of God [name] receives the precious and holy Body and Blood of our Lord, God, and Savior Jesus Christ, for the remission of sins and life everlasting."</p>
+        </div>
+
+        <figure class="article-image">
+          <img src="/byzantine-doors/images/san-vitale-triumphal.jpg" alt="Triumphal arch mosaic in San Vitale, Ravenna — Christ enthroned, flanked by angels" />
+          <figcaption>San Vitale, Ravenna (6th century). Christ enthroned between angels. The Liturgy is understood as participation in this heavenly worship — not a re-creation of it, but the real thing, breaking through into time.</figcaption>
+        </figure>
+
+        <h2>What You'll Hear</h2>
+
+        <p>The Liturgy is almost entirely sung. No instruments. Human voices only. Several hymns recur so frequently that learning them is the fastest way to feel at home in Byzantine worship:</p>
+
+        <div class="hymn-list">
+          <div class="hymn-item">
+            <div class="hymn-name">The Trisagion</div>
+            <div class="hymn-text">"Holy God, Holy Mighty, Holy Immortal, have mercy on us."</div>
+            <div class="hymn-note">Sung three times, invoking the Trinity. One of the oldest hymns in Christianity, attested from the fifth century.</div>
+          </div>
+
+          <div class="hymn-item">
+            <div class="hymn-name">The Cherubic Hymn</div>
+            <div class="hymn-text">"Let us who mystically represent the Cherubim…"</div>
+            <div class="hymn-note">Accompanies the Great Entrance. The congregation is invited to set aside everything and join the angelic worship.</div>
+          </div>
+
+          <div class="hymn-item">
+            <div class="hymn-name">"We Have Seen the True Light"</div>
+            <div class="hymn-text">"We have seen the true light. We have received the heavenly Spirit. We have found the true faith, worshipping the undivided Trinity, who has saved us."</div>
+            <div class="hymn-note">Sung after Communion. A summary of the entire Liturgy in four lines.</div>
+          </div>
+
+          <div class="hymn-item">
+            <div class="hymn-name">"It Is Truly Right"</div>
+            <div class="hymn-text">"It is truly right to bless you, O Theotokos, ever blessed and most pure, and the Mother of our God."</div>
+            <div class="hymn-note">A hymn to the Mother of God, sung during the anaphora. Its presence at the heart of the Eucharistic prayer reflects the intimate connection between the Incarnation and the Eucharist.</div>
+          </div>
+        </div>
+
+        <h2>The Other Services</h2>
+
+        <p>The Divine Liturgy does not exist in isolation. It is surrounded by a daily cycle of prayer inherited from the monastic tradition. In a parish setting, most of these are celebrated only on major feast days or during Lent. In monasteries, they are the pulse of every day.</p>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Vespers</h3>
+            <p>The evening service. Begins the liturgical day (in the Byzantine reckoning, the day begins at sunset, not midnight). Themes of creation, light, and thanksgiving for the day. The hymn <em>Phos Hilaron</em> ("O Gladsome Light") is among the oldest Christian hymns still in use.</p>
+          </div>
+          <div class="service-card">
+            <h3>Matins (Orthros)</h3>
+            <p>The morning service. Longer and richer than Vespers. Themes of resurrection, light breaking into darkness, and praise. The <em>Canon</em>, a complex poetic composition of nine odes, forms its centerpiece. On Sundays, the Resurrection Gospel is read.</p>
+          </div>
+          <div class="service-card">
+            <h3>The Hours</h3>
+            <p>Short services marking the first, third, sixth, and ninth hours of the day (roughly 6 AM, 9 AM, noon, 3 PM). Each consists of psalms, troparia, and prayers. They punctuate the day with remembrance.</p>
+          </div>
+          <div class="service-card">
+            <h3>Compline</h3>
+            <p>The final prayer of the day, before sleep. Themes of repentance, trust, and surrender. The Great Compline, used during Lent, includes the penitential Canon of St. Andrew of Crete and extends considerably.</p>
+          </div>
+        </div>
+
+        <figure class="article-image">
+          <img src="/byzantine-doors/images/ravenna-san-vitale-christ.jpg" alt="Christ mosaic in San Vitale, Ravenna" />
+          <figcaption>San Vitale, Ravenna. Christ reigns. The Liturgy and the daily cycle of prayer are the Church's way of living inside that reign — hour by hour, day by day, season by season.</figcaption>
+        </figure>
+
+        <h2>Recommended Reading</h2>
+
+        <p>Alexander Schmemann's <em>For the Life of the World</em> is the essential starting point: short, luminous, and transformative. His <em>Introduction to Liturgical Theology</em> goes deeper into the structure and history. For a walk-through of the Liturgy itself, see Hugh Wybrew's <em>The Orthodox Liturgy</em> or the <em>Divine Liturgy: An Anthology for Worship</em> (published by the Ukrainian Greek-Catholic Church). The catechism <em>Christ Our Pascha</em> covers the sacraments and liturgical life in §§ 432–620.</p>
+
+        <div class="cta-box">
+          <p>Want to understand what happens before, during, and after your first visit?</p>
+          <a href={`${base}/tools/first-visit/`} class="btn-primary">Your First Visit Guide →</a>
+        </div>
+
+      </article>
+
     </div>
-
-    <StarDivider />
-
   </div>
 
 </BaseLayout>
 
 <style>
-  .coming-soon {
-    max-width: 520px;
-    margin: 0 auto;
+  .liturgy-body {
+    padding-bottom: 80px;
   }
-  .coming-soon-icon {
-    font-size: 48px;
-    margin-bottom: 24px;
-    opacity: 0.5;
-  }
-  .coming-soon-title {
-    font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--beeswax);
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-  .coming-soon-desc {
-    font-size: 16px;
+  .liturgy-body p,
+  .liturgy-body li {
+    font-size: 17px;
+    line-height: 1.85;
     color: var(--aged-vellum);
-    line-height: 1.7;
     margin-bottom: 20px;
   }
-  .coming-soon-sub {
-    font-size: 15px;
+  .liturgy-body h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 48px 0 16px;
+    letter-spacing: 0.5px;
+  }
+  .liturgy-body h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 36px 0 12px;
+  }
+  .liturgy-body .drop-cap::first-letter {
+    font-family: var(--font-display);
+    font-size: 56px;
+    float: left;
+    color: var(--halo-gold);
+    opacity: 0.7;
+    line-height: 0.8;
+    margin: 8px 14px 0 0;
+    font-weight: 400;
+  }
+  .liturgy-body em {
     color: var(--censer-smoke);
-    line-height: 1.7;
+  }
+
+  /* Article images */
+  .article-image {
+    margin: 36px 0;
+    text-align: center;
+  }
+  .article-image img {
+    max-width: 100%;
+    max-height: 500px;
+    border: 0.5px solid var(--gold-10);
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .article-image figcaption {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--deep-muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .article-image--wide {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+  .article-image--wide img {
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Liturgy sections */
+  .liturgy-section {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .liturgy-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  .liturgy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Hymn list */
+  .hymn-list {
+    margin: 24px 0 32px;
+  }
+  .hymn-item {
+    padding: 20px 0;
+    border-bottom: 0.5px solid var(--gold-06);
+  }
+  .hymn-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--beeswax);
+    margin-bottom: 6px;
+  }
+  .hymn-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-style: italic;
+    color: #D4C5AB;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .hymn-note {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--censer-smoke);
+    line-height: 1.5;
+  }
+
+  /* Service grid */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .service-card {
+    background: var(--icon-wall);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin: 0 0 8px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* CTA box */
+  .cta-box {
+    margin-top: 48px;
+    padding: 24px;
+    background: var(--gold-04);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .cta-box p {
+    font-size: 16px;
+    color: var(--beeswax);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .service-grid { grid-template-columns: 1fr; }
+    .article-image--wide {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
   }
 </style>

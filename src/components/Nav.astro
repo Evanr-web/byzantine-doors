@@ -1,6 +1,5 @@
 ---
-// Nav.astro — Site navigation bar
-// Base path for links
+// Nav.astro — Site navigation bar with mobile hamburger
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 
@@ -16,7 +15,7 @@ const links = [
 
 <nav class="site-nav">
   <a href={`${base}/`} class="nav-logo">Byzantine Doors</a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     {links.map(link => (
       <a
         href={link.href}
@@ -27,7 +26,30 @@ const links = [
     ))}
     <a href={`${base}/journey/`} class="nav-cta">Begin the Journey</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<script is:inline>
+  const btn = document.getElementById('nav-hamburger');
+  const nav = document.getElementById('nav-links');
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+      });
+    });
+  }
+</script>
 
 <style>
   .site-nav {
@@ -51,6 +73,7 @@ const links = [
     color: var(--halo-gold);
     letter-spacing: 2px;
     text-decoration: none;
+    z-index: 101;
   }
   .nav-logo:hover { opacity: 0.8; }
   .nav-links {
@@ -84,12 +107,63 @@ const links = [
   }
   .nav-cta:hover { background: var(--gold-06); }
 
+  /* Hamburger button */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--halo-gold);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
   @media (max-width: 768px) {
     .site-nav { padding: 0 20px; }
-    .nav-links { gap: 16px; }
-    .nav-links a { font-size: 10px; }
-  }
-  @media (max-width: 480px) {
-    .nav-links a:not(.nav-cta) { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--narthex-dark);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      z-index: 100;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    .nav-cta {
+      font-size: 14px !important;
+      padding: 10px 24px;
+      margin-top: 8px;
+    }
   }
 </style>
