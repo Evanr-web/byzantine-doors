@@ -88,7 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <!-- About -->
     <div class="about-box">
-      <p>Liturgical data from the <a href="https://evanr-web.github.io/calendar-api/">UGCC Calendar API</a>. Calendar follows the Ukrainian Greek-Catholic Church (Gregorian/New Calendar). English translations courtesy of <a href="https://liturgy.royaldoors.net">Royal Doors</a>.</p>
+      <p>Liturgical data from the <a href="https://evanr-web.github.io/calendar-api/">UGCC Calendar API</a>. Calendar follows the Ukrainian Greek-Catholic Church (Gregorian/New Calendar). English troparia and kontakia from the <a href="https://www.oca.org/saints">Orthodox Church in America</a> (used with attribution, pending formal permission). Service texts courtesy of <a href="https://liturgy.royaldoors.net">Royal Doors</a>.</p>
     </div>
 
   </div>
@@ -157,15 +157,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     if (data.rank?.label_en && data.rank.label_en !== 'Ordinary') metaParts.push(data.rank.label_en);
     document.getElementById('daily-meta').textContent = metaParts.join(' · ');
     
-    // Troparion
-    if (data.troparion) {
-      document.getElementById('daily-troparion').textContent = data.troparion;
+    // Troparion (prefer English, fall back to Ukrainian)
+    const tropEn = data.troparion_en;
+    const tropUk = data.troparion;
+    if (tropEn && tropEn.text) {
+      // Clean up OCA formatting (remove / line breaks for display)
+      const tropText = tropEn.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-troparion').innerText = tropText;
+      const toneLabel = tropEn.tone ? ` — Tone ${tropEn.tone}` : '';
+      document.querySelector('#section-troparion .daily-section-label').innerHTML = 
+        `Troparion${toneLabel}<span class="label-line"></span>`;
+      document.getElementById('section-troparion').style.display = '';
+    } else if (tropUk) {
+      document.getElementById('daily-troparion').textContent = tropUk;
       document.getElementById('section-troparion').style.display = '';
     }
     
-    // Kontakion
-    if (data.kontakion) {
-      document.getElementById('daily-kontakion').textContent = data.kontakion;
+    // Kontakion (prefer English, fall back to Ukrainian)
+    const kondEn = data.kontakion_en;
+    const kondUk = data.kontakion;
+    if (kondEn && kondEn.text) {
+      const kondText = kondEn.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-kontakion').innerText = kondText;
+      const toneLabel = kondEn.tone ? ` — Tone ${kondEn.tone}` : '';
+      document.querySelector('#section-kontakion .daily-section-label').innerHTML = 
+        `Kontakion${toneLabel}<span class="label-line"></span>`;
+      document.getElementById('section-kontakion').style.display = '';
+    } else if (kondUk) {
+      document.getElementById('daily-kontakion').textContent = kondUk;
       document.getElementById('section-kontakion').style.display = '';
     }
     
@@ -337,11 +356,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     align-items: center;
     gap: 12px;
   }
-  .daily-section-label::after {
+  .daily-section-label::after,
+  .label-line {
     content: '';
     flex: 1;
     height: 0.5px;
     background: var(--gold-15);
+  }
+  .label-line {
+    display: inline-block;
+    margin-left: 12px;
+    vertical-align: middle;
   }
 
   /* Prayer text */
