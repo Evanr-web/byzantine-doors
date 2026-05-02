@@ -355,6 +355,9 @@ a:hover { opacity: 0.8; }
   padding: 24px;
   cursor: pointer;
   transition: border-color 0.3s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 .narthex-q:hover { border-color: var(--gold-15); }
 .narthex-q h3 {

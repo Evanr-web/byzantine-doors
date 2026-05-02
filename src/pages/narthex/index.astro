@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title="The Narthex" description="Entry points for the curious — universal human questions that open doors to an ancient tradition.">
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="hero-content">
+      <div class="section-label" style="margin-bottom:16px;">The Narthex</div>
+      <h1 class="hero-title" style="font-size:34px;">Begin with What's Real</h1>
+      <p class="hero-subtitle">
+        These questions aren't about religion. They're about reality. Start with whichever one pulls you in.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="padding-bottom:80px;">
+    <div class="narthex-hub-grid">
+
+      <a href={`${base}/narthex/beauty/`} class="narthex-hub-card">
+        <div class="narthex-hub-img-wrap">
+          <img src={`${base}/images/hagia-sophia-interior.jpg`} alt="Interior of Hagia Sophia" loading="lazy" />
+        </div>
+        <div class="narthex-hub-body">
+          <h3>"Why does beauty matter?"</h3>
+          <p>Why do we build cathedrals instead of warehouses? What ancient Christians understood about beauty that we've forgotten.</p>
+          <span class="narthex-hub-meta">9 min read</span>
+        </div>
+      </a>
+
+      <a href={`${base}/narthex/ancient-faith/`} class="narthex-hub-card">
+        <div class="narthex-hub-img-wrap">
+          <img src={`${base}/images/ravenna-sant-apollinare.jpg`} alt="Mosaic procession from Ravenna" loading="lazy" />
+        </div>
+        <div class="narthex-hub-body">
+          <h3>"What did ancient Christians actually believe?"</h3>
+          <p>Before the splits, before the denominations — what did the first thousand years of Christianity look like?</p>
+          <span class="narthex-hub-meta">10 min read</span>
+        </div>
+      </a>
+
+      <a href={`${base}/narthex/beyond-materialism/`} class="narthex-hub-card">
+        <div class="narthex-hub-img-wrap">
+          <img src={`${base}/images/sinai-monastery.jpg`} alt="St. Catherine's Monastery, Sinai" loading="lazy" />
+        </div>
+        <div class="narthex-hub-body">
+          <h3>"Is there more to reality than what we can measure?"</h3>
+          <p>A tradition that never had a war with science, because it never reduced truth to only what is empirical.</p>
+          <span class="narthex-hub-meta">10 min read</span>
+        </div>
+      </a>
+
+      <a href={`${base}/narthex/prayer/`} class="narthex-hub-card">
+        <div class="narthex-hub-img-wrap">
+          <img src={`${base}/images/cefalu-pantocrator.jpg`} alt="Christ Pantocrator, Cefalù" loading="lazy" />
+        </div>
+        <div class="narthex-hub-body">
+          <h3>"What if prayer isn't what you think it is?"</h3>
+          <p>Not talking at God. Not asking for things. Something older, quieter, and far more transformative.</p>
+          <span class="narthex-hub-meta">9 min read</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .narthex-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .narthex-hub-card {
+    background: var(--gold-06);
+    border: 0.5px solid var(--gold-10);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .narthex-hub-card:hover {
+    border-color: var(--gold-40);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .narthex-hub-img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  .narthex-hub-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .narthex-hub-card:hover .narthex-hub-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .narthex-hub-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .narthex-hub-body h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--beeswax);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .narthex-hub-body p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--censer-smoke);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 12px;
+  }
+  .narthex-hub-meta {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--deep-muted);
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 768px) {
+    .narthex-hub-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>
