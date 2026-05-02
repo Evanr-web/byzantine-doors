@@ -5,6 +5,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 <BaseLayout title="Daily" description="Today's liturgical day — saints, troparion, fasting, and tone from the UGCC liturgical calendar.">
 
+  <!-- Schema.org for daily liturgical content -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Daily Liturgical Calendar — Byzantine Doors",
+    "description": "Today's saint, troparion, kontakion, scripture readings, fasting rules, and liturgical tone from the Ukrainian Greek-Catholic Church calendar.",
+    "isPartOf": { "@type": "WebSite", "name": "Byzantine Doors", "url": "https://byzantinedoors.com" },
+    "about": {
+      "@type": "Event",
+      "name": "Daily Liturgical Commemoration",
+      "description": "UGCC liturgical calendar with daily saints, troparia, kontakia, and scripture readings for 2026.",
+      "organizer": { "@type": "Organization", "name": "Ukrainian Greek-Catholic Church" }
+    }
+  })} />
+
   <!-- Daily Hero (populated by JS) -->
   <div class="daily-page-hero">
     <div class="container--narrow">
@@ -61,9 +76,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <!-- Saints (Ukrainian) — hidden on English site, data retained in API -->
     <div class="daily-section" id="section-saints-uk" style="display:none !important;"></div>
 
+    <!-- Scripture Readings -->
+    <div class="daily-section" id="section-readings" style="display:none;">
+      <div class="daily-section-label">Scripture Readings</div>
+      <div id="daily-readings"></div>
+    </div>
+
     <!-- Rubrics -->
     <div class="daily-section" id="section-rubrics" style="display:none;">
-      <div class="daily-section-label">Service Instructions (Ustav)</div>
+      <div class="daily-section-label">Устав</div>
       <p class="rubrics-text" id="daily-rubrics"></p>
     </div>
 
@@ -114,7 +135,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     document.getElementById('daily-meta').textContent = '';
     
     // Hide all content sections, show loading
-    ['section-troparion','section-kontakion','section-saints-uk','section-rubrics','section-services'].forEach(id => {
+    ['section-troparion','section-kontakion','section-saints-uk','section-readings','section-rubrics','section-services'].forEach(id => {
       document.getElementById(id).style.display = 'none';
     });
     document.getElementById('section-loading').style.display = '';
@@ -213,6 +234,28 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       document.getElementById('section-rubrics').style.display = '';
     }
     
+    // Scripture readings
+    if (data.readings) {
+      const r = data.readings;
+      let html = '';
+      if (r.epistle) {
+        html += `<div class="reading-block">`;
+        html += `<div class="reading-type">Epistle</div>`;
+        html += `<div class="reading-ref">${r.epistle.display}</div>`;
+        html += `</div>`;
+      }
+      if (r.gospel) {
+        html += `<div class="reading-block" style="margin-top:16px;">`;
+        html += `<div class="reading-type">Gospel</div>`;
+        html += `<div class="reading-ref">${r.gospel.display}</div>`;
+        html += `</div>`;
+      }
+      if (html) {
+        document.getElementById('daily-readings').innerHTML = html;
+        document.getElementById('section-readings').style.display = '';
+      }
+    }
+
     // Services section hidden until PWA is presentation-ready
   }
   
@@ -455,6 +498,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     margin: 0;
   }
   .about-box a { color: var(--halo-gold); }
+
+  /* Readings */
+  .reading-block {
+    padding: 4px 0;
+  }
+  .reading-type {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--halo-gold);
+    margin-bottom: 4px;
+  }
+  .reading-ref {
+    font-family: var(--font-display);
+    font-size: 17px;
+    color: var(--beeswax);
+  }
 
   @media (max-width: 768px) {
     .daily-section { padding: 20px; }
