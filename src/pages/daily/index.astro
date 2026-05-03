@@ -188,14 +188,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     if (data.rank?.label_en && data.rank.label_en !== 'Ordinary') metaParts.push(data.rank.label_en);
     document.getElementById('daily-meta').textContent = metaParts.join(' · ');
     
-    // Troparion (prefer English, fall back to Ukrainian)
+    // Troparion (prefer troparion_en, then troparia_additional, then Ukrainian)
     const tropEn = data.troparion_en;
+    const tropAdd = data.troparia_additional;
     const tropUk = data.troparion;
     if (tropEn && tropEn.text) {
-      // Clean up OCA formatting (remove / line breaks for display)
       const tropText = tropEn.text.replace(/\s*\/\s*/g, '\n');
       document.getElementById('daily-troparion').innerText = tropText;
       const toneLabel = tropEn.tone ? ` — Tone ${tropEn.tone}` : '';
+      const tropLabel = document.querySelector('#section-troparion .daily-section-label');
+      if (tropLabel) tropLabel.textContent = `Troparion${toneLabel}`;
+      document.getElementById('section-troparion').style.display = '';
+    } else if (tropAdd && tropAdd.length > 0) {
+      const t = tropAdd[0];
+      const tropText = t.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-troparion').innerText = tropText;
+      const toneLabel = t.tone ? ` — Tone ${t.tone}` : '';
       const tropLabel = document.querySelector('#section-troparion .daily-section-label');
       if (tropLabel) tropLabel.textContent = `Troparion${toneLabel}`;
       document.getElementById('section-troparion').style.display = '';
@@ -204,13 +212,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       document.getElementById('section-troparion').style.display = '';
     }
     
-    // Kontakion (prefer English, fall back to Ukrainian)
+    // Kontakion (prefer kontakion_en, then kontakia_additional, then Ukrainian)
     const kondEn = data.kontakion_en;
+    const kondAdd = data.kontakia_additional;
     const kondUk = data.kontakion;
     if (kondEn && kondEn.text) {
       const kondText = kondEn.text.replace(/\s*\/\s*/g, '\n');
       document.getElementById('daily-kontakion').innerText = kondText;
       const toneLabel2 = kondEn.tone ? ` — Tone ${kondEn.tone}` : '';
+      const kondLabel = document.querySelector('#section-kontakion .daily-section-label');
+      if (kondLabel) kondLabel.textContent = `Kontakion${toneLabel2}`;
+      document.getElementById('section-kontakion').style.display = '';
+    } else if (kondAdd && kondAdd.length > 0) {
+      const k = kondAdd[0];
+      const kondText = k.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-kontakion').innerText = kondText;
+      const toneLabel2 = k.tone ? ` — Tone ${k.tone}` : '';
       const kondLabel = document.querySelector('#section-kontakion .daily-section-label');
       if (kondLabel) kondLabel.textContent = `Kontakion${toneLabel2}`;
       document.getElementById('section-kontakion').style.display = '';
