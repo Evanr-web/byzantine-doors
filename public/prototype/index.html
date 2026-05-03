@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byzantine Doors — Daily Readings Prototype</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --byz-blue: #1B2A4A;
+    --byz-gold: #C6A032;
+    --byz-cream: #FAF8F0;
+    --byz-red: #8B2500;
+    --byz-teal: #1A6B5C;
+    --byz-gold-light: #E8D59A;
+    --byz-blue-light: #2D4470;
+    --byz-blue-dark: #0F1A2E;
+    --font-liturgical: 'Cormorant Garamond', 'Georgia', serif;
+    --font-ui: 'Inter', -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--byz-cream);
+    color: var(--byz-blue);
+    font-family: var(--font-liturgical);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.site-header {
+    background: linear-gradient(135deg, var(--byz-blue-dark) 0%, var(--byz-blue) 50%, var(--byz-blue-light) 100%);
+    color: var(--byz-cream);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(198,160,50,0.08) 0%, transparent 70%);
+}
+.site-header h1 {
+    font-family: var(--font-liturgical);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+.site-header .subtitle {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--byz-gold);
+    margin-bottom: 1rem;
+}
+.header-cross {
+    color: var(--byz-gold);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.8rem;
+    opacity: 0.7;
+}
+.prototype-badge {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(198,160,50,0.15);
+    border: 1px solid rgba(198,160,50,0.3);
+    color: var(--byz-gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 3px;
+    margin-top: 0.8rem;
+}
+
+/* ── Navigation ── */
+.week-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1rem;
+    background: var(--byz-blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--byz-gold);
+}
+.nav-day {
+    text-decoration: none;
+    color: rgba(250,248,240,0.7);
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    min-width: 3rem;
+}
+.nav-day:hover {
+    background: rgba(198,160,50,0.15);
+    color: var(--byz-cream);
+}
+.nav-num {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    color: var(--byz-cream);
+}
+.nav-sunday {
+    color: var(--byz-gold);
+}
+.nav-sunday .nav-num {
+    color: var(--byz-gold);
+}
+
+/* ── Day Cards ── */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+.day-card {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(27,42,74,0.06), 0 8px 24px rgba(27,42,74,0.04);
+    overflow: hidden;
+    border: 1px solid rgba(27,42,74,0.06);
+}
+.day-card.sunday {
+    border-left: 4px solid var(--byz-gold);
+}
+.day-header {
+    background: linear-gradient(to right, var(--byz-blue), var(--byz-blue-light));
+    color: var(--byz-cream);
+    padding: 1.2rem 1.5rem;
+}
+.day-date {
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--byz-gold-light);
+    margin-bottom: 0.2rem;
+}
+.day-title {
+    font-family: var(--font-liturgical);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.propers-section, .readings-section {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(27,42,74,0.06);
+}
+.section-heading {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--byz-gold);
+    margin-bottom: 0.8rem;
+}
+.propers-text {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    text-align: justify;
+    hyphens: auto;
+}
+.rubric {
+    color: var(--byz-red);
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* ── Readings ── */
+.reading-block {
+    margin-bottom: 1.2rem;
+}
+.reading-block:last-child {
+    margin-bottom: 0;
+}
+.reading-label {
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--byz-teal);
+    margin-bottom: 0.15rem;
+}
+.reading-ref {
+    font-family: var(--font-liturgical);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--byz-blue);
+    margin-bottom: 0.5rem;
+}
+.reading-text {
+    font-size: 1rem;
+    color: #3a3a3a;
+    text-align: justify;
+    hyphens: auto;
+    line-height: 1.75;
+}
+
+/* ── Fathers ── */
+.fathers-section {
+    padding: 1.2rem 1.5rem 1.5rem;
+    background: linear-gradient(to bottom, rgba(198,160,50,0.03), rgba(198,160,50,0.07));
+}
+.fathers-header {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--byz-gold);
+    margin-bottom: 0.8rem;
+}
+.fathers-icon {
+    font-size: 0.9rem;
+    margin-right: 0.3rem;
+}
+.fathers-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    border-left: 3px solid var(--byz-gold);
+    box-shadow: 0 1px 3px rgba(27,42,74,0.04);
+}
+.fathers-attribution {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--byz-blue);
+    margin-bottom: 0.7rem;
+    line-height: 1.5;
+}
+.fathers-passage {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #666;
+}
+.fathers-quote {
+    font-family: var(--font-liturgical);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #2a2a2a;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: justify;
+    hyphens: auto;
+}
+.fathers-source {
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    color: #999;
+    margin-top: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+/* ── Footer ── */
+.site-footer {
+    background: var(--byz-blue);
+    color: rgba(250,248,240,0.6);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    line-height: 1.7;
+}
+.site-footer a {
+    color: var(--byz-gold-light);
+}
+.footer-cross {
+    color: var(--byz-gold);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.8rem;
+    opacity: 0.5;
+}
+.footer-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(198,160,50,0.3);
+    margin: 1rem auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .site-header h1 { font-size: 1.8rem; }
+    .week-nav { gap: 0.2rem; padding: 0.75rem 0.5rem; }
+    .nav-day { font-size: 0.6rem; padding: 0.3rem 0.35rem; min-width: 2.2rem; }
+    .nav-num { font-size: 0.95rem; }
+    .day-header, .propers-section, .readings-section, .fathers-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .day-title { font-size: 1.15rem; }
+    .fathers-card { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+    <span class="header-cross">☦</span>
+    <h1>Daily Readings</h1>
+    <div class="subtitle">byzantinedoors.com</div>
+    <p style="font-family: var(--font-liturgical); font-size: 1rem; opacity: 0.8; max-width: 500px; margin: 0 auto;">
+        Liturgical propers, scripture readings, and reflections from the Church Fathers for the Byzantine Catholic daily cycle.
+    </p>
+    <span class="prototype-badge">Prototype · May 4–10, 2026</span>
+</header>
+
+<nav class="week-nav">
+    <a href="#2026-05-04" class="nav-day">Monday<br><span class="nav-num">4</span></a>
+<a href="#2026-05-05" class="nav-day">Tuesday<br><span class="nav-num">5</span></a>
+<a href="#2026-05-06" class="nav-day">Wednesday<br><span class="nav-num">6</span></a>
+<a href="#2026-05-07" class="nav-day">Thursday<br><span class="nav-num">7</span></a>
+<a href="#2026-05-08" class="nav-day">Friday<br><span class="nav-num">8</span></a>
+<a href="#2026-05-09" class="nav-day">Saturday<br><span class="nav-num">9</span></a>
+<a href="#2026-05-10" class="nav-day nav-sunday">Sunday<br><span class="nav-num">10</span></a>
+</nav>
+
+<main class="container">
+    
+    <section id="2026-05-04" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Monday, May 4, 2026</div>
+            <h2 class="day-title">The Holy Martyr Pelagia.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You!</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 12:12-17</div>
+            <div class="reading-text">In those days, after Peter had been miraculously freed from prison, he went to the house of Mary, the mother of John whose other name was Mark, where many had gathered and were praying. When he knocked at the outer gate, a maid named Rhoda came to answer. On recognizing Peter’s voice, she was so overjoyed that, instead of opening the gate, she ran in and announced that Peter was standing at the gate. They said to her, “You are out of your mind!” But she insisted that it was so. They said, “It is…</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 8:42-51</div>
+            <div class="reading-text">The Lord said to the Jews that came to him, “If God were your Father, you would love me, for I came from God and now I am here. I did not come on my own, but he sent me. Why do you not understand what I say? It is because you cannot accept my word. You are from your father the devil, and you choose to do your father’s desires. He was a murderer from the beginning and does not stand in the truth, because there is no truth in him. When he lies, he speaks according to his own nature, for he is a liar and the father of lies. But because I tell the truth, you do not believe me. Which of you convict…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 54 on John</em>
+                    <br><span class="fathers-passage">on John 8:42–51</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “If you continue in My word, you are My disciples indeed: and the truth shall make you free. He said not, ‘I will deliver you from bondage,’ but allowed them to conjecture. Beloved, our condition needs much endurance; and endurance is produced when doctrines are deeply rooted. For as no wind is able by its assaults to tear up the oak, which sends down its root into the lower recesses of the earth, so too the soul which is nailed by the fear of God none will be able to overturn.”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-05" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Tuesday, May 5, 2026</div>
+            <h2 class="day-title">The Holy and Glorious Martyr Irene; Our Venerable Father Nicephoras, Hegumen of the Monastery at Medicius.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You!</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 12:25-13:12</div>
+            <div class="reading-text">In those days, after completing their mission Barnabas and Saul returned to Jerusalem and brought with them John, whose other name was Mark.
+
+Now in the church at Antioch there were prophets and teachers: Barnabas, Simeon who was called Niger, Lucius of Cyrene, Manaen a member of the court of Herod the ruler, and Saul. While they were worshiping the Lord and fasting, the Holy Spirit said, “Set apart for me Barnabas and Saul for the work to which I have called them.” Then after fasting and prayin…</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 8:51-59</div>
+            <div class="reading-text">The Lord said to the Jews that came to him, “Very truly, I tell you, whoever keeps my word will never see death.” The Jews said to him, “Now we know that you have a demon. Abraham died, and so did the prophets; yet you say, ‘Whoever keeps my word will never taste death.’ Are you greater than our father Abraham, who died? The prophets also died. Who do you claim to be?” Jesus answered, “If I glorify myself, my glory is nothing. It is my Father who glorifies me, he of whom you say, ‘He is our God,’ though you do not know him. But I know him; if I would say that I do not know him, I would be a li…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 55 on John</em>
+                    <br><span class="fathers-passage">on John 8:51–59</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “A shameless and a forward thing is wickedness, and when it ought to hide itself, then is it the fiercer. For when they ought to have been pricked by what was said, admiring the boldness and conclusiveness of the words, they even insult Him. Where there was need to instruct them, to pull down their excessive insolence, He was vehement; but when it was needful that He being insulted should bear it, He used much gentleness — thus teaching us to avenge insults offered to God, but to overlook such as are offered to ourselves.”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-06" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Wednesday, May 6, 2026</div>
+            <h2 class="day-title">The Holy, Just, and Long-suffering Job.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You!</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 13:13-24</div>
+            <div class="reading-text">In those days, Paul and his companions set sail from Paphos and came to Perga in Pamphylia. John, however, left them and returned to Jerusalem; but they went on from Perga and came to Antioch in Pisidia. And on the sabbath day they went into the synagogue and sat down. After the reading of the law and the prophets, the officials of the synagogue sent them a message, saying, “Brothers, if you have any word of exhortation for the people, give it.” So Paul stood up and with a gesture began to speak…</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 6:5-14</div>
+            <div class="reading-text">At that time, when he looked up and saw a large crowd coming toward him, Jesus said to Philip, “Where are we to buy bread for these people to eat?” He said this to test him, for he himself knew what he was going to do. Philip answered him, “Six months’ wages would not buy enough bread for each of them to get a little.” One of his disciples, Andrew, Simon Peter’s brother, said to him, “There is a boy here who has five barley loaves and two fish. But what are they among so many people?” Jesus said, “Make the people sit down.” Now there was a great deal of grass in the place; so they sat down, ab…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 42 on John</em>
+                    <br><span class="fathers-passage">on John 6:5–14</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “Let us not contend with violent men, but learn when the doing so brings no hurt to our virtue to give place to their evil counsels. He sat not at any time idly with the disciples, but perhaps carefully conversing with them. Having lifted up His eyes, He beheld the multitudes coming unto Him. He knew which of His disciples needed most instruction; for this is he who afterwards said, ‘Show us the Father, and it suffices us,’ and on this account Jesus was beforehand bringing him into a proper state.”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-07" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Thursday, May 7, 2026</div>
+            <h2 class="day-title">Commemoration of the Appearance of the Sign of the Precious Cross over Jerusalem; The Holy Martyr Acacius.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 4:</span> When the disciples of the Lord learned from the angel* the glorious news of the resurrection* and cast off the ancestral condemnation,* they proudly told the apostles:* “Death has been plundered!* Christ our God is risen,* granting to the world great mercy.”</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You!</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 8:</span> Drawn to the well by faith,* the Samaritan woman beheld You, the Water of Wisdom,* and drinking abundantly of You,* she inherited the heavenly Kingdom for ever,* becoming everlastingly glorious.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 14:20-27</div>
+            <div class="reading-text">In those days, when the disciples surrounded Paul, he got up and went into the city. The next day he went on with Barnabas to Derbe.
+
+After they had proclaimed the good news to that city and had made many disciples, they returned to Lystra, then on to Iconium and Antioch. There they strengthened the souls of the disciples and encouraged them to continue in the faith, saying, “It is through many persecutions that we must enter the kingdom of God.” And after they had appointed elders for them in e…</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 9:39-10:9</div>
+            <div class="reading-text">The Lord said to the Jews that came to him, “I came into this world for judgment so that those who do not see may see, and those who do see may become blind.” Some of the Pharisees near him heard this and said to him, “Surely we are not blind, are we?” Jesus said to them, “If you were blind, you would not have sin. But now that you say, ‘We see,’ your sin remains.
+
+“Very truly, I tell you, anyone who does not enter the sheepfold by the gate but climbs in by another way is a thief and a bandit. The one who enters by the gate is the shepherd of the sheep. The gatekeeper opens the gate for him, a…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 59 on John</em>
+                    <br><span class="fathers-passage">on John 9:39–10:9</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “They who for the sake of the truth and the confession of Christ suffer anything terrible and are insulted, these are especially honoured. The Jews cast him out from the Temple, and the Lord of the Temple found him; he was separated from that pestilent company, and met with the Fountain of salvation. ‘For judgment I have come into this world, that they which see not might see, and that they which see might be made blind.’”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-08" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Friday, May 8, 2026</div>
+            <h2 class="day-title">The Holy Apostle and Evangelist John the Theologian; Our Venerable Father Arsenius the Great.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 4:</span> When the disciples of the Lord learned from the angel* the glorious news of the resurrection* and cast off the ancestral condemnation,* they proudly told the apostles:* “Death has been plundered!* Christ our God is risen,* granting to the world great mercy.”</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 2:</span> O beloved apostle of Christ our God,* hasten, deliver a people without defense.* He who received you when you leaned upon His breast accepts you as you bow in prayer.* Implore Him, O Theologian, to scatter the cloud of nations that besets us,* asking peace and great mercy.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 2:</span> O virgin apostle, who can recount your mighty works?* For you pour out wonders and healings* and you pray for our souls as Theologian and friend of Christ.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 8:</span> Drawn to the well by faith,* the Samaritan woman beheld You, the Water of Wisdom,* and drinking abundantly of You,* she inherited the heavenly Kingdom for ever,* becoming everlastingly glorious.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 15:5-34; 1 John 1:1-7</div>
+            <div class="reading-text">In those days, some believers who belonged to the sect of the Pharisees stood up and said, “It is necessary for them to be circumcised and ordered to keep the law of Moses.”
+
+The apostles and the elders met together to consider this matter. After there had been much debate, Peter stood up and said to them, “My brothers, you know that in the early days God made a choice among you, that I should be the one through whom the Gentiles would hear the message of the good news and become believers. And …</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 10:17-28; John 19:25-27; 21:24-25</div>
+            <div class="reading-text">The Lord said to the Jews that came to him, “For this reason the Father loves me, because I lay down my life in order to take it up again. No one takes it from me, but I lay it down of my own accord. I have power to lay it down, and I have power to take it up again. I have received this command from my Father.”
+
+Again the Jews were divided because of these words. Many of them were saying, “He has a demon and is out of his mind. Why listen to him?” Others were saying, “These are not the words of one who has a demon. Can a demon open the eyes of the blind?”
+
+At that time the festival of the Dedi…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 60 on John</em>
+                    <br><span class="fathers-passage">on John 10:17–28</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “A great matter, beloved, a great matter it is to preside over a Church: a matter needing wisdom and courage as great as that of which Christ speaks, that a man should lay down his life for the sheep, and never leave them deserted or naked; that he should stand against the wolf nobly. For in this the shepherd differs from the hireling; the one always looks to his own safety, caring not for the sheep; the other always seeks that of the sheep, neglecting his own.”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-09" class="day-card ">
+        <div class="day-header">
+            <div class="day-date">Saturday, May 9, 2026</div>
+            <h2 class="day-title">The Transfer of the Relics of our Holy Father Nicholas the Wonderworker from Myra to Bari; Holy Prophet Isaiah; Holy Martyr Christopher.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 4:</span> When the disciples of the Lord learned from the angel* the glorious news of the resurrection* and cast off the ancestral condemnation,* they proudly told the apostles:* “Death has been plundered!* Christ our God is risen,* granting to the world great mercy.”</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 8:</span> At the mid-point of the Feast, O Saviour,* water my thirsty soul with streams of true godliness;* for You cried out to all: Let any who thirst, come to Me and drink.* O Source of Life, Christ our God, glory to You!</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 4:</span> The day of radiant feasting is here,* the city of Bari rejoices, and the world exults with hymns and spiritual songs.* For today is the sacred feast* of the transfer of the precious and healing relics of the bishop and wonder-worker Nicholas.* Like a never-setting sun* he shines with radiant beams of light* dispelling the gloom of temptations and grief* from those who cry with faith:* Save us, great Nicholas, for you intercede for us.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 3:</span> Like a star your relics have moved from east to west,* and the sea is hallowed by your passage;* holy bishop Nicholas, the city of Bari receives grace through you,* for you are revealed as one who works wonders:* illustrious, awesome, and merciful.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 8:</span> Drawn to the well by faith,* the Samaritan woman beheld You, the Water of Wisdom,* and drinking abundantly of You,* she inherited the heavenly Kingdom for ever,* becoming everlastingly glorious.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> At the mid-point of the Feast according to the Law,* Maker of all things and Master,* You said to those present, O Christ God:* Come, and draw the water of immortality.* And so we fall before You crying out with faith: Grant us Your mercies , for You are the source of our life.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 15:35-41; Hebrews 13:17-21</div>
+            <div class="reading-text">In those days, Paul and Barnabas remained in Antioch, and there, with many others, they taught and proclaimed the word of the Lord.
+
+After some days Paul said to Barnabas, “Come, let us return and visit the believers in every city where we proclaimed the word of the Lord and see how they are doing.” Barnabas wanted to take with them John called Mark. But Paul decided not to take with them one who had deserted them in Pamphylia and had not accompanied them in the work. The disagreement became so …</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 10:27-38; Luke 6:17-23</div>
+            <div class="reading-text">The Lord said to the Jews that came to him, “My sheep hear my voice. I know them, and they follow me. I give them eternal life, and they will never perish. No one will snatch them out of my hand. What my Father has given me is greater than all else, and no one can snatch it out of the Father’s hand. The Father and I are one.”
+
+The Jews took up stones again to stone him. Jesus replied, “I have shown you many good works from the Father. For which of these are you going to stone me?” The Jews answered, “It is not for a good work that we are going to stone you, but for blasphemy, because you, thou…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 60 on John</em>
+                    <br><span class="fathers-passage">on John 10:27–38</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “‘I am the good Shepherd, and know My sheep, and am known of Mine.’ He proves one from the other; by giving His mortal life He proves that He gives life immortal. As Paul also says, ‘If when we were enemies we were reconciled to God by the death of His Son, much more being reconciled we shall be saved.’”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="2026-05-10" class="day-card sunday">
+        <div class="day-header">
+            <div class="day-date">Sunday, May 10, 2026</div>
+            <h2 class="day-title">Sunday of the Man Born Blind; The Holy Apostle Simon the Zealot.</h2>
+        </div>
+        
+        <div class="propers-section">
+            <h3 class="section-heading">Troparia &amp; Kontakia</h3>
+            <p class="propers-text"><span class="rubric">Troparion, Tone 5:</span> Let us the faithful acclaim and worship the Word,* co-eternal with the Father and the Spirit,* and born of the Virgin for our salvation.* For He willed to be lifted up on the cross in the flesh, to suffer death* and to raise the dead by His glorious resurrection.</p>
+<p class="propers-text"><span class="rubric">Troparion, Tone 3:</span> Holy apostle Simon, intercede with the merciful God* to grant forgiveness of sins to our souls.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 2:</span> With praises let all of us call blessed* the divinely eloquent Simon.* He diligently planted the teachings of wisdom in the hearts of the godly* and stands now at the throne of glory* rejoicing with the bodiless powers and praying unceasingly for all of us.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 4:</span> Blinded in the eyes of my soul,* I come to You, O Christ, like the man who was blind from birth,* and I cry in repentance:* You are the brilliant light of those in darkness.</p>
+<p class="propers-text"><span class="rubric">Kontakion, Tone 8:</span> Though You descended into a tomb, O Immortal One,* yet You destroyed the power of Hades;* and You rose as victor, O Christ God,* calling to the myrrh-bearing women: Rejoice!* and giving peace to Your Apostles:* You, who grant Resurrection to the fallen.</p>
+
+        </div>
+        
+        <div class="readings-section">
+            <h3 class="section-heading">Scripture Readings</h3>
+            <div class="reading-block">
+            <div class="reading-label">Epistle</div>
+            <div class="reading-ref">Acts 16:16-34; 1 Corinthians 4:9-16</div>
+            <div class="reading-text">In those days, as we, Paul and Luke, were going to the place of prayer, we met a slave-girl who had a spirit of divination and brought her owners a great deal of money by fortune-telling. While she followed Paul and us, she would cry out, “These men are slaves of the Most High God, who proclaim to you a way of salvation.” She kept doing this for many days. But Paul, very much annoyed, turned and said to the spirit, “I order you in the name of Jesus Christ to come out of her.” And it came out tha…</div>
+        </div>
+            <div class="reading-block">
+            <div class="reading-label">Gospel</div>
+            <div class="reading-ref">John 9:1-38; Matthew 13:54-58</div>
+            <div class="reading-text">At that time, as Jesus walked along, he saw a man blind from birth. His disciples asked him, “Rabbi, who sinned, this man or his parents, that he was born blind?” Jesus answered, “Neither this man nor his parents sinned; he was born blind so that God’s works might be revealed in him. We must work the works of him who sent me while it is day; night is coming when no one can work. As long as I am in the world, I am the light of the world.” When he had said this, he spat on the ground and made mud with the saliva and spread the mud on the man’s eyes, saying to him, “Go, wash in the pool of Siloam…</div>
+        </div>
+        </div>
+        
+        <div class="fathers-section">
+            <div class="fathers-header">
+                <span class="fathers-icon">☦</span> From the Fathers
+            </div>
+            <div class="fathers-card">
+                <div class="fathers-attribution">
+                    St. John Chrysostom — <em>Homily 56 on John</em>
+                    <br><span class="fathers-passage">on John 9:1–38</span>
+                </div>
+                <blockquote class="fathers-quote">
+                    “Being full of love for man, and caring for our salvation, and desiring to stop the mouths of the foolish, He omits nothing of His own part. When they would not receive His sublime sayings, but said that He had a devil, He went forth from the Temple, and healed the blind, mitigating their rage by His absence, and by working the miracle softening their hardness and cruelty. ‘Neither has this man sinned, nor his parents’ — He said not that it is possible to sin from one’s very birth, but that the Son of God should be glorified in him.”
+                </blockquote>
+                <div class="fathers-source">
+                    NPNF Series I, Vol. 14 (1889) · Public Domain
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <span class="footer-cross">☦</span>
+    Patristic texts from <em>Nicene and Post-Nicene Fathers</em>, Series I, Vol. 14 (1889). Public domain.
+    <div class="footer-divider"></div>
+    Liturgical propers pending permission from the Synod of the Hierarchy<br>
+    of the Ukrainian Catholic Church (1988) and the Metropolitan Andrey<br>
+    Sheptytsky Institute for Eastern Christian Studies (2004).
+    <div class="footer-divider"></div>
+    <a href="https://byzantinedoors.com">byzantinedoors.com</a>
+</footer>
+
+<script>
+// Smooth scroll for nav
+document.querySelectorAll('.nav-day').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+            const navHeight = document.querySelector('.week-nav').offsetHeight;
+            const y = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    });
+});
+
+// Highlight active nav day on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            document.querySelectorAll('.nav-day').forEach(a => a.style.background = 'none');
+            const active = document.querySelector('.nav-day[href="#' + entry.target.id + '"]');
+            if (active) active.style.background = 'rgba(198,160,50,0.2)';
+        }
+    });
+}, { threshold: 0.3, rootMargin: '-80px 0px -60% 0px' });
+
+document.querySelectorAll('.day-card').forEach(card => observer.observe(card));
+</script>
+</body>
+</html>
