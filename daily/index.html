@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Today's liturgical day — saints, troparion, fasting, and tone from the UGCC liturgical calendar."><title>Daily — Byzantine Doors</title><link rel="icon" type="image/x-icon" href="/byzantine-doorsfavicon.ico"><link rel="icon" type="image/png" href="/byzantine-doorsfavicon.png"><!-- Schema.org structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Byzantine Doors","url":"https://byzantinedoors.com","description":"Discover the ancient faith of Eastern Christianity — its beauty, its theology, its living tradition.","publisher":{"@type":"Organization","name":"Byzantine Doors"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Daily","item":"https://byzantinedoors.com"}]}</script><!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/byzantine-doors/_astro/index@_@astro.DdOm7FrE.css">
+<link rel="stylesheet" href="/byzantine-doors/_astro/BaseLayout.B30Ku41s.css"></head> <body> <nav class="site-nav" data-astro-cid-dmqpwcec> <a href="/byzantine-doors/" class="nav-logo" data-astro-cid-dmqpwcec>Byzantine Doors</a> <div class="nav-links" id="nav-links" data-astro-cid-dmqpwcec> <a href="/byzantine-doors/reading-tracks/" data-astro-cid-dmqpwcec> Start Here </a><a href="/byzantine-doors/journey/" data-astro-cid-dmqpwcec> Journey </a><a href="/byzantine-doors/library/" data-astro-cid-dmqpwcec> Library </a><a href="/byzantine-doors/daily/" class="active" data-astro-cid-dmqpwcec> Daily </a><a href="/byzantine-doors/liturgy/" data-astro-cid-dmqpwcec> Liturgy </a><a href="/byzantine-doors/tools/" data-astro-cid-dmqpwcec> Tools </a><a href="/byzantine-doors/about/" data-astro-cid-dmqpwcec> About </a> <a href="/byzantine-doors/journey/" class="nav-cta" data-astro-cid-dmqpwcec>Begin the Journey</a> </div> <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec></span> <span data-astro-cid-dmqpwcec></span> <span data-astro-cid-dmqpwcec></span> </button> </nav> <script>
+  const btn = document.getElementById('nav-hamburger');
+  const nav = document.getElementById('nav-links');
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+    // Close menu when a link is clicked
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.classList.remove('open');
+      });
+    });
+  }
+</script> <main style="padding-top: 60px;">   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Daily Liturgical Calendar — Byzantine Doors","description":"Today's saint, troparion, kontakion, scripture readings, fasting rules, and liturgical tone from the Ukrainian Greek-Catholic Church calendar.","isPartOf":{"@type":"WebSite","name":"Byzantine Doors","url":"https://byzantinedoors.com"},"about":{"@type":"Event","name":"Daily Liturgical Commemoration","description":"UGCC liturgical calendar with daily saints, troparia, kontakia, and scripture readings for 2026.","organizer":{"@type":"Organization","name":"Ukrainian Greek-Catholic Church"}}}</script>  <div class="daily-page-hero" data-astro-cid-gda3mtzk> <div class="container--narrow" data-astro-cid-gda3mtzk> <div class="daily-page-date" id="daily-date" data-astro-cid-gda3mtzk>Loading…</div> <h1 class="daily-page-feast" id="daily-saints" data-astro-cid-gda3mtzk>—</h1> <div class="daily-page-tone" id="daily-meta" data-astro-cid-gda3mtzk>—</div> </div> </div> <div class="container--narrow" style="padding-bottom:80px;" data-astro-cid-gda3mtzk> <!-- Date Navigation --> <div class="date-nav" data-astro-cid-gda3mtzk> <button class="date-nav-btn" id="prev-day" aria-label="Previous day" data-astro-cid-gda3mtzk>‹</button> <button class="date-nav-today" id="today-btn" data-astro-cid-gda3mtzk>Today</button> <button class="date-nav-btn" id="next-day" aria-label="Next day" data-astro-cid-gda3mtzk>›</button> </div> <!-- Troparion --> <div class="daily-section" id="section-troparion" style="display:none;" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>Troparion</div> <p class="daily-prayer-text" id="daily-troparion" data-astro-cid-gda3mtzk></p> </div> <!-- Kontakion --> <div class="daily-section" id="section-kontakion" style="display:none;" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>Kontakion</div> <p class="daily-prayer-text" id="daily-kontakion" data-astro-cid-gda3mtzk></p> </div> <!-- Fasting & Season Info --> <div class="daily-section" id="section-fast" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>Liturgical Day</div> <div class="info-grid" data-astro-cid-gda3mtzk> <div class="info-item" data-astro-cid-gda3mtzk> <div class="info-label" data-astro-cid-gda3mtzk>Tone</div> <div class="info-value" id="info-tone" data-astro-cid-gda3mtzk>—</div> </div> <div class="info-item" data-astro-cid-gda3mtzk> <div class="info-label" data-astro-cid-gda3mtzk>Fast</div> <div class="info-value" id="info-fast" data-astro-cid-gda3mtzk>—</div> </div> <div class="info-item" data-astro-cid-gda3mtzk> <div class="info-label" data-astro-cid-gda3mtzk>Rank</div> <div class="info-value" id="info-rank" data-astro-cid-gda3mtzk>—</div> </div> <div class="info-item" data-astro-cid-gda3mtzk> <div class="info-label" data-astro-cid-gda3mtzk>Season</div> <div class="info-value" id="info-season" data-astro-cid-gda3mtzk>—</div> </div> </div> </div> <!-- Saints (Ukrainian) — hidden on English site, data retained in API --> <div class="daily-section" id="section-saints-uk" style="display:none !important;" data-astro-cid-gda3mtzk></div> <!-- Scripture Readings --> <div class="daily-section" id="section-readings" style="display:none;" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>Scripture Readings</div> <div id="daily-readings" data-astro-cid-gda3mtzk></div> </div> <!-- Rubrics --> <div class="daily-section" id="section-rubrics" style="display:none;" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>Устав</div> <p class="rubrics-text" id="daily-rubrics" data-astro-cid-gda3mtzk></p> </div> <!-- Available Services — hidden until PWA is presentation-ready --> <!-- From the Fathers --> <div class="daily-section" id="section-fathers" style="display:none;" data-astro-cid-gda3mtzk> <div class="daily-section-label" data-astro-cid-gda3mtzk>☦ From the Fathers</div> <div class="fathers-carousel" data-astro-cid-gda3mtzk> <div class="fathers-cards" id="fathers-cards" data-astro-cid-gda3mtzk></div> <div class="fathers-nav" data-astro-cid-gda3mtzk> <button class="fathers-nav-btn" id="fathers-prev" aria-label="Previous reflection" data-astro-cid-gda3mtzk>‹</button> <div class="fathers-dots" id="fathers-dots" data-astro-cid-gda3mtzk></div> <button class="fathers-nav-btn" id="fathers-next" aria-label="Next reflection" data-astro-cid-gda3mtzk>›</button> </div> </div> <div class="fathers-attribution" data-astro-cid-gda3mtzk>
+Patristic texts from <em data-astro-cid-gda3mtzk>Nicene and Post-Nicene Fathers</em> (1889) and <em data-astro-cid-gda3mtzk>Catena Aurea</em>, tr. Newman (1841). Public domain.
+</div> </div> <!-- Loading / Error states --> <div class="daily-section" id="section-loading" data-astro-cid-gda3mtzk> <p style="text-align:center; color:var(--censer-smoke);" data-astro-cid-gda3mtzk>Loading liturgical data…</p> </div> <div class="daily-section" id="section-error" style="display:none;" data-astro-cid-gda3mtzk> <p style="text-align:center; color:var(--censer-smoke);" data-astro-cid-gda3mtzk>Unable to load data for this date. The calendar API covers January–December 2026.</p> </div> <!-- About --> <div class="about-box" data-astro-cid-gda3mtzk> <p data-astro-cid-gda3mtzk>Liturgical calendar data follows the Byzantine (Gregorian/New Calendar) tradition as used by Ukrainian Greek-Catholic parishes. English troparia and kontakia courtesy of the <a href="https://www.oca.org/saints" data-astro-cid-gda3mtzk>Orthodox Church in America</a>. Service texts courtesy of <a href="https://liturgy.royaldoors.net" data-astro-cid-gda3mtzk>Royal Doors</a>. Patristic reflections from <em data-astro-cid-gda3mtzk>Nicene and Post-Nicene Fathers</em> (1889) and <em data-astro-cid-gda3mtzk>Catena Aurea</em>, tr. Newman (1841) — public domain. This is an independent project and is not an official publication of any church body.</p> </div> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-logo" data-astro-cid-sz7xmlte>Byzantine Doors</div> <div class="footer-text" data-astro-cid-sz7xmlte>
+Catechetical and parish resources for the Byzantine Christian tradition
+</div> <div class="footer-disclaimer" data-astro-cid-sz7xmlte>
+Byzantine Doors is an independent educational project created by a layperson to help English-speaking seekers and families discover the Byzantine Christian tradition. Theological content draws primarily from <em data-astro-cid-sz7xmlte>Christ Our Pascha</em>, the catechism of the Ukrainian Greek-Catholic Church. English hymn texts are sourced from publicly available translations and may differ from those used in your parish. This site is not an official publication of any eparchy, diocese, or church body. For authoritative guidance on liturgical practice, fasting, and prayer, please consult your pastor.
+</div> <div class="footer-links" data-astro-cid-sz7xmlte> <a href="#" data-astro-cid-sz7xmlte>About</a> <a href="#" data-astro-cid-sz7xmlte>Contact</a> <a href="#" data-astro-cid-sz7xmlte>Sources</a> <a href="#" data-astro-cid-sz7xmlte>Privacy</a> </div> </footer> </body></html> <script>
+  const API_BASE = 'https://evanr-web.github.io/calendar-api/api/2026';
+  
+  const MONTHS_EN = ['','January','February','March','April','May','June',
+                     'July','August','September','October','November','December'];
+  const DAYS_OF_WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  // API uses 1=Mon..7=Sun, JS Date uses 0=Sun..6=Sat
+  const DOW_FROM_API = {1:'Monday',2:'Tuesday',3:'Wednesday',4:'Thursday',5:'Friday',6:'Saturday',7:'Sunday'};
+  
+  let currentDate = new Date();
+  
+  function formatDateDisplay(d) {
+    return `${DAYS_OF_WEEK[d.getDay()]}, ${MONTHS_EN[d.getMonth()+1]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
+  
+  function mm(d) { return String(d.getMonth()+1).padStart(2,'0'); }
+  function dd(d) { return String(d.getDate()).padStart(2,'0'); }
+  
+  async function loadDay(date) {
+    const m = mm(date);
+    const d = dd(date);
+    
+    document.getElementById('daily-date').textContent = formatDateDisplay(date);
+    document.getElementById('daily-saints').textContent = 'Loading…';
+    document.getElementById('daily-meta').textContent = '';
+    
+    // Hide all content sections, show loading
+    ['section-troparion','section-kontakion','section-saints-uk','section-readings','section-rubrics'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    document.getElementById('section-loading').style.display = '';
+    document.getElementById('section-error').style.display = 'none';
+    
+    try {
+      const resp = await fetch(`${API_BASE}/${m}/${d}.json`);
+      if (!resp.ok) throw new Error('Not found');
+      const data = await resp.json();
+      renderDay(data, date);
+    } catch (e) {
+      document.getElementById('section-loading').style.display = 'none';
+      document.getElementById('section-error').style.display = '';
+      document.getElementById('daily-saints').textContent = 'Data unavailable';
+      document.getElementById('daily-meta').textContent = '';
+    }
+  }
+  
+  function renderDay(data, date) {
+    try {
+    document.getElementById('section-loading').style.display = 'none';
+    
+    // Hero
+    document.getElementById('daily-date').textContent = formatDateDisplay(date);
+    
+    const saintEN = data.saints?.en || '';
+    document.getElementById('daily-saints').textContent = saintEN || 'Ordinary day';
+    
+    // Meta line
+    const metaParts = [];
+    if (data.tone) metaParts.push(`Tone ${data.tone}`);
+    if (data.fast?.label_en && data.fast.label_en !== 'Feast day') metaParts.push(data.fast.label_en);
+    if (data.rank?.label_en && data.rank.label_en !== 'Ordinary') metaParts.push(data.rank.label_en);
+    document.getElementById('daily-meta').textContent = metaParts.join(' · ');
+    
+    // Troparion (prefer troparion_en, then troparia_additional, then Ukrainian)
+    const tropEn = data.troparion_en;
+    const tropAdd = data.troparia_additional;
+    const tropUk = data.troparion;
+    if (tropEn && tropEn.text) {
+      const tropText = tropEn.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-troparion').innerText = tropText;
+      const toneLabel = tropEn.tone ? ` — Tone ${tropEn.tone}` : '';
+      const tropLabel = document.querySelector('#section-troparion .daily-section-label');
+      if (tropLabel) tropLabel.textContent = `Troparion${toneLabel}`;
+      document.getElementById('section-troparion').style.display = '';
+    } else if (tropAdd && tropAdd.length > 0) {
+      const t = tropAdd[0];
+      const tropText = t.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-troparion').innerText = tropText;
+      const toneLabel = t.tone ? ` — Tone ${t.tone}` : '';
+      const tropLabel = document.querySelector('#section-troparion .daily-section-label');
+      if (tropLabel) tropLabel.textContent = `Troparion${toneLabel}`;
+      document.getElementById('section-troparion').style.display = '';
+    } else if (tropUk) {
+      document.getElementById('daily-troparion').textContent = tropUk;
+      document.getElementById('section-troparion').style.display = '';
+    }
+    
+    // Kontakion (prefer kontakion_en, then kontakia_additional, then Ukrainian)
+    const kondEn = data.kontakion_en;
+    const kondAdd = data.kontakia_additional;
+    const kondUk = data.kontakion;
+    if (kondEn && kondEn.text) {
+      const kondText = kondEn.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-kontakion').innerText = kondText;
+      const toneLabel2 = kondEn.tone ? ` — Tone ${kondEn.tone}` : '';
+      const kondLabel = document.querySelector('#section-kontakion .daily-section-label');
+      if (kondLabel) kondLabel.textContent = `Kontakion${toneLabel2}`;
+      document.getElementById('section-kontakion').style.display = '';
+    } else if (kondAdd && kondAdd.length > 0) {
+      const k = kondAdd[0];
+      const kondText = k.text.replace(/\s*\/\s*/g, '\n');
+      document.getElementById('daily-kontakion').innerText = kondText;
+      const toneLabel2 = k.tone ? ` — Tone ${k.tone}` : '';
+      const kondLabel = document.querySelector('#section-kontakion .daily-section-label');
+      if (kondLabel) kondLabel.textContent = `Kontakion${toneLabel2}`;
+      document.getElementById('section-kontakion').style.display = '';
+    } else if (kondUk) {
+      document.getElementById('daily-kontakion').textContent = kondUk;
+      document.getElementById('section-kontakion').style.display = '';
+    }
+    
+    // Info grid
+    document.getElementById('info-tone').textContent = data.tone ? `Tone ${data.tone}` : '—';
+    document.getElementById('info-fast').textContent = data.fast?.label_en || '—';
+    document.getElementById('info-rank').textContent = data.rank?.label_en || '—';
+    // Season from fast
+    const season = data.fast?.label_en || '';
+    if (season.includes('Lent')) {
+      document.getElementById('info-season').textContent = 'Great Lent';
+    } else if (season.includes('Paschal')) {
+      document.getElementById('info-season').textContent = 'Paschal Season';
+    } else if (season.includes('Pentecost')) {
+      document.getElementById('info-season').textContent = season;
+    } else if (season.includes('Cheesefare')) {
+      document.getElementById('info-season').textContent = 'Cheesefare Week';
+    } else if (season.includes('Fast-free')) {
+      document.getElementById('info-season').textContent = 'Fast-free week';
+    } else {
+      document.getElementById('info-season').textContent = 'Ordinary Time';
+    }
+    
+    // Saints Ukrainian
+    if (data.saints?.uk && data.saints.uk.length > 0) {
+      const ul = document.getElementById('daily-saints-uk');
+      ul.innerHTML = data.saints.uk.map(s => `<li>${s}</li>`).join('');
+      document.getElementById('section-saints-uk').style.display = '';
+    }
+    
+    // Rubrics
+    if (data.rubrics) {
+      document.getElementById('daily-rubrics').textContent = data.rubrics;
+      document.getElementById('section-rubrics').style.display = '';
+    }
+    
+    // Scripture readings
+    if (data.readings) {
+      const r = data.readings;
+      let html = '';
+      if (r.epistle) {
+        html += `<div class="reading-block">`;
+        html += `<div class="reading-type">Epistle</div>`;
+        html += `<div class="reading-ref">${r.epistle.display}</div>`;
+        html += `</div>`;
+      }
+      if (r.gospel) {
+        html += `<div class="reading-block" style="margin-top:16px;">`;
+        html += `<div class="reading-type">Gospel</div>`;
+        html += `<div class="reading-ref">${r.gospel.display}</div>`;
+        html += `</div>`;
+      }
+      if (html) {
+        document.getElementById('daily-readings').innerHTML = html;
+        document.getElementById('section-readings').style.display = '';
+      }
+    }
+
+    // Services section hidden until PWA is presentation-ready
+
+    // Load Fathers reflections
+    loadFathers(data);
+
+    } catch(err) { console.error('Render error:', err); }
+  }
+  
+  // ── Fathers carousel ──
+  let fathersData = null;
+  let fathersIndex = 0;
+  
+  // Resolve site base path for fetching static assets
+  const SITE_BASE = (function() {
+    // Detect from canonical link or current path
+    const path = window.location.pathname;
+    const match = path.match(/^\/([^/]+)\//); // e.g. /byzantine-doors/
+    return match ? '/' + match[1] : '';
+  })();
+  
+  async function loadFathersIndex() {
+    if (fathersData) return fathersData;
+    try {
+      const resp = await fetch(`${SITE_BASE}/api/fathers/index.json`);
+      if (resp.ok) fathersData = await resp.json();
+    } catch(e) { console.log('Fathers data not available'); }
+    return fathersData;
+  }
+  
+  // Normalize scripture references for matching
+  // API gives "John 8, 42-51" or "John 9, 39-10, 9"
+  // Fathers keys use "John 8:42-51" or "John 9:39-10:9"
+  function normalizeRef(ref) {
+    if (!ref) return '';
+    // "John 8, 42-51" → "John 8:42-51"
+    // "John 9, 39-10, 9" → "John 9:39-10:9"
+    return ref.replace(/(\d+),\s*/g, '$1:').replace(/:\s+/g, ':');
+  }
+  
+  async function loadFathers(dayData) {
+    const section = document.getElementById('section-fathers');
+    section.style.display = 'none';
+    
+    const idx = await loadFathersIndex();
+    if (!idx || !idx.readings) return;
+    
+    // Match gospel reading to fathers entries
+    const gospelDisplay = dayData.readings?.gospel?.display || '';
+    if (!gospelDisplay) return;
+    const normGospel = normalizeRef(gospelDisplay);
+    
+    // Try exact match first, then overlap match
+    let entries = idx.readings[normGospel] || null;
+    
+    if (!entries) {
+      // Fuzzy: match on book + starting chapter:verse
+      const normBook = normGospel.split(/\s+/)[0];
+      const normStart = normGospel.match(/(\d+:\d+)/)?.[1];
+      for (const [ref, data] of Object.entries(idx.readings)) {
+        const refBook = ref.split(/\s+/)[0];
+        const refStart = ref.match(/(\d+:\d+)/)?.[1];
+        if (normBook === refBook && normStart && refStart && normStart === refStart) {
+          entries = data;
+          break;
+        }
+      }
+    }
+    if (!entries || entries.length === 0) return;
+    
+    fathersIndex = 0;
+    renderFathersCarousel(entries);
+    section.style.display = '';
+  }
+  
+  function renderFathersCarousel(entries) {
+    const container = document.getElementById('fathers-cards');
+    const dotsContainer = document.getElementById('fathers-dots');
+    
+    // Build cards
+    container.innerHTML = entries.map((e, i) => `
+      <div class="fathers-card${i === 0 ? ' active' : ''}" data-index="${i}">
+        <div class="fathers-card-header">
+          <div class="fathers-name">${e.father}</div>
+          <div class="fathers-work">${e.work}</div>
+        </div>
+        <blockquote class="fathers-quote">“${e.text}”</blockquote>
+      </div>
+    `).join('');
+    
+    // Build dots
+    dotsContainer.innerHTML = entries.map((_, i) => 
+      `<button class="fathers-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Reflection ${i+1}"></button>`
+    ).join('');
+    
+    // Dot click handlers
+    dotsContainer.querySelectorAll('.fathers-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        fathersIndex = parseInt(dot.dataset.index);
+        showFather(entries);
+      });
+    });
+    
+    // Arrow handlers
+    document.getElementById('fathers-prev').onclick = () => {
+      fathersIndex = (fathersIndex - 1 + entries.length) % entries.length;
+      showFather(entries);
+    };
+    document.getElementById('fathers-next').onclick = () => {
+      fathersIndex = (fathersIndex + 1) % entries.length;
+      showFather(entries);
+    };
+  }
+  
+  function showFather(entries) {
+    document.querySelectorAll('.fathers-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.fathers-dot').forEach(d => d.classList.remove('active'));
+    const card = document.querySelector(`.fathers-card[data-index="${fathersIndex}"]`);
+    const dot = document.querySelector(`.fathers-dot[data-index="${fathersIndex}"]`);
+    if (card) card.classList.add('active');
+    if (dot) dot.classList.add('active');
+  }
+
+  // Touch/swipe support for fathers carousel
+  (function() {
+    const container = document.getElementById('fathers-cards');
+    let startX = 0;
+    container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+    container.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        const cards = document.querySelectorAll('.fathers-card');
+        if (diff > 0) { fathersIndex = (fathersIndex + 1) % cards.length; }
+        else { fathersIndex = (fathersIndex - 1 + cards.length) % cards.length; }
+        showFather(Array.from(cards));
+      }
+    }, {passive: true});
+  })();
+
+  // Navigation
+  function shiftDay(offset) {
+    currentDate = new Date(currentDate.getTime() + offset * 86400000);
+    loadDay(currentDate);
+  }
+  
+  document.getElementById('prev-day').addEventListener('click', () => shiftDay(-1));
+  document.getElementById('next-day').addEventListener('click', () => shiftDay(1));
+  document.getElementById('today-btn').addEventListener('click', () => {
+    currentDate = new Date();
+    loadDay(currentDate);
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') shiftDay(-1);
+    if (e.key === 'ArrowRight') shiftDay(1);
+  });
+  
+  // Initial load
+  loadFathersIndex(); // pre-fetch
+  loadDay(currentDate);
+</script>
