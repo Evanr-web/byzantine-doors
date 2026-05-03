@@ -82,12 +82,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div id="daily-readings"></div>
     </div>
 
-    <!-- Rubrics -->
-    <div class="daily-section" id="section-rubrics" style="display:none;">
-      <div class="daily-section-label">Устав</div>
-      <p class="rubrics-text" id="daily-rubrics"></p>
-    </div>
-
     <!-- Available Services — hidden until PWA is presentation-ready -->
 
     <!-- From the Fathers -->
@@ -104,6 +98,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="fathers-attribution">
         Patristic texts from <em>Nicene and Post-Nicene Fathers</em> (1889) and <em>Catena Aurea</em>, tr. Newman (1841). Public domain.
       </div>
+    </div>
+
+    <!-- Rubrics -->
+    <div class="daily-section" id="section-rubrics" style="display:none;">
+      <div class="daily-section-label">Устав</div>
+      <p class="rubrics-text" id="daily-rubrics"></p>
     </div>
 
     <!-- Loading / Error states -->
@@ -684,42 +684,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 
   /* ── Fathers Carousel ── */
-  .fathers-carousel {
+  :global(.fathers-carousel) {
     position: relative;
   }
-  .fathers-cards {
+  :global(.fathers-cards) {
     position: relative;
     min-height: 180px;
   }
-  .fathers-card {
+  :global(.fathers-card) {
     display: none;
     animation: fadeIn 0.3s ease;
   }
-  .fathers-card.active {
+  :global(.fathers-card.active) {
     display: block;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .fathers-card-header {
+  :global(.fathers-card-header) {
     margin-bottom: 12px;
   }
-  .fathers-name {
+  :global(.fathers-name) {
     font-family: var(--font-display);
     font-size: 17px;
     font-weight: 600;
     color: var(--beeswax);
     letter-spacing: 0.3px;
   }
-  .fathers-work {
+  :global(.fathers-work) {
     font-family: var(--font-ui);
     font-size: 11px;
     color: var(--censer-smoke);
     font-style: italic;
     margin-top: 2px;
   }
-  .fathers-quote {
+  :global(.fathers-quote) {
     font-family: var(--font-display);
     font-size: 16px;
     font-style: italic;
@@ -732,14 +732,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     background: var(--gold-04);
     border-radius: 0 8px 8px 0;
   }
-  .fathers-nav {
+  :global(.fathers-nav) {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
     margin-top: 20px;
   }
-  .fathers-nav-btn {
+  :global(.fathers-nav-btn) {
     background: none;
     border: 0.5px solid var(--gold-15);
     border-radius: 50%;
@@ -754,12 +754,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     transition: background 0.2s;
     font-family: var(--font-body);
   }
-  .fathers-nav-btn:hover { background: var(--gold-06); }
-  .fathers-dots {
+  :global(.fathers-nav-btn:hover) { background: var(--gold-06); }
+  :global(.fathers-dots) {
     display: flex;
     gap: 8px;
   }
-  .fathers-dot {
+  :global(.fathers-dot) {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -769,14 +769,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     padding: 0;
     transition: all 0.2s;
   }
-  .fathers-dot.active {
+  :global(.fathers-dot.active) {
     background: var(--halo-gold);
     border-color: var(--halo-gold);
   }
-  .fathers-dot:hover {
+  :global(.fathers-dot:hover) {
     border-color: var(--halo-gold);
   }
-  .fathers-attribution {
+  :global(.fathers-attribution) {
     font-family: var(--font-ui);
     font-size: 10px;
     color: var(--deep-muted);
@@ -784,13 +784,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     text-align: center;
     line-height: 1.5;
   }
-  .fathers-attribution em {
+  :global(.fathers-attribution em) {
     color: var(--censer-smoke);
   }
 
   @media (max-width: 768px) {
     .daily-section { padding: 20px; }
     .info-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .fathers-quote { padding: 12px 16px; font-size: 15px; }
+    :global(.fathers-quote) { padding: 12px 16px; font-size: 15px; }
   }
 </style>
