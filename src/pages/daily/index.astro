@@ -256,12 +256,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       document.getElementById('info-season').textContent = 'Ordinary Time';
     }
     
-    // Saints Ukrainian
-    if (data.saints?.uk && data.saints.uk.length > 0) {
-      const ul = document.getElementById('daily-saints-uk');
-      ul.innerHTML = data.saints.uk.map(s => `<li>${s}</li>`).join('');
-      document.getElementById('section-saints-uk').style.display = '';
-    }
+    // Saints Ukrainian (section hidden on English site, skip rendering)
     
     // Rubrics
     if (data.rubrics) {
