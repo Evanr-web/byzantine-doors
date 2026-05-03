@@ -80,6 +80,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="daily-section" id="section-readings" style="display:none;">
       <div class="daily-section-label">Scripture Readings</div>
       <div id="daily-readings"></div>
+      <div class="readings-attribution" id="readings-attribution" style="display:none;">
+        World English Bible (public domain)
+      </div>
     </div>
 
     <!-- Available Services — hidden until PWA is presentation-ready -->
@@ -87,6 +90,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <!-- From the Fathers -->
     <div class="daily-section" id="section-fathers" style="display:none;">
       <div class="daily-section-label">☦ From the Fathers</div>
+      <div class="fathers-reading-ref" id="fathers-reading-ref"></div>
       <div class="fathers-carousel">
         <div class="fathers-cards" id="fathers-cards"></div>
         <div class="fathers-nav">
@@ -264,7 +268,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       document.getElementById('section-rubrics').style.display = '';
     }
     
-    // Scripture readings
+    // Scripture readings — show references immediately, then fetch full text
     if (data.readings) {
       const r = data.readings;
       let html = '';
@@ -272,17 +276,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         html += `<div class="reading-block">`;
         html += `<div class="reading-type">Epistle</div>`;
         html += `<div class="reading-ref">${r.epistle.display}</div>`;
+        html += `<div class="reading-text" id="reading-epistle-text"><span class="reading-loading">Loading text…</span></div>`;
         html += `</div>`;
       }
       if (r.gospel) {
-        html += `<div class="reading-block" style="margin-top:16px;">`;
+        html += `<div class="reading-block">`;
         html += `<div class="reading-type">Gospel</div>`;
         html += `<div class="reading-ref">${r.gospel.display}</div>`;
+        html += `<div class="reading-text" id="reading-gospel-text"><span class="reading-loading">Loading text…</span></div>`;
         html += `</div>`;
       }
       if (html) {
         document.getElementById('daily-readings').innerHTML = html;
         document.getElementById('section-readings').style.display = '';
+        // Fetch full scripture text
+        loadReadingTexts(r);
       }
     }
 
@@ -292,6 +300,74 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     loadFathers(data);
 
     } catch(err) { console.error('Render error:', err); }
+  }
+  
+  // ── Scripture text fetching ──
+  const BIBLE_API = 'https://bible-api.com';
+  
+  function formatBibleRef(display) {
+    // "Acts 11:19-26, 29-30; Hebrews 13:7-16" → split on ";" for separate books
+    return display.split(';').map(s => s.trim());
+  }
+  
+  function bibleApiUrl(ref) {
+    // "Acts 11:19-26, 29-30" → "Acts+11:19-26,29-30"
+    return BIBLE_API + '/' + ref.replace(/,\s*/g, ',').replace(/\s+/g, '+') + '?translation=web';
+  }
+  
+  async function fetchReading(ref) {
+    try {
+      const resp = await fetch(bibleApiUrl(ref));
+      if (!resp.ok) return null;
+      const data = await resp.json();
+      return data;
+    } catch(e) { return null; }
+  }
+  
+  function formatVerses(data) {
+    if (!data || !data.verses) return '';
+    // Group verses, add verse numbers as superscript
+    return data.verses.map(v => 
+      `<sup class="verse-num">${v.verse}</sup>${v.text.trim()}`
+    ).join(' ');
+  }
+  
+  async function loadReadingTexts(readings) {
+    // Load epistle
+    if (readings.epistle) {
+      const refs = formatBibleRef(readings.epistle.display);
+      const el = document.getElementById('reading-epistle-text');
+      if (el) {
+        let allHtml = '';
+        for (const ref of refs) {
+          const data = await fetchReading(ref);
+          if (data) {
+            if (refs.length > 1) allHtml += `<div class="reading-sub-ref">${data.reference}</div>`;
+            allHtml += `<div class="reading-passage">${formatVerses(data)}</div>`;
+          }
+        }
+        el.innerHTML = allHtml || '<span class="reading-loading">Text unavailable</span>';
+      }
+    }
+    // Load gospel
+    if (readings.gospel) {
+      const refs = formatBibleRef(readings.gospel.display);
+      const el = document.getElementById('reading-gospel-text');
+      if (el) {
+        let allHtml = '';
+        for (const ref of refs) {
+          const data = await fetchReading(ref);
+          if (data) {
+            if (refs.length > 1) allHtml += `<div class="reading-sub-ref">${data.reference}</div>`;
+            allHtml += `<div class="reading-passage">${formatVerses(data)}</div>`;
+          }
+        }
+        el.innerHTML = allHtml || '<span class="reading-loading">Text unavailable</span>';
+        // Show attribution
+        const attr = document.getElementById('readings-attribution');
+        if (attr) attr.style.display = '';
+      }
+    }
   }
   
   // ── Fathers carousel ──
@@ -357,6 +433,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     
     fathersIndex = 0;
     renderFathersCarousel(entries);
+    // Show which gospel reading the reflections are for
+    const refEl = document.getElementById('fathers-reading-ref');
+    if (refEl) {
+      const gospelRef = normGospel.split(';')[0].trim(); // first gospel if compound
+      refEl.textContent = `Reflections on today's Gospel: ${gospelRef}`;
+    }
     section.style.display = '';
   }
   
@@ -775,6 +857,68 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
   :global(.fathers-dot:hover) {
     border-color: var(--halo-gold);
+  }
+  :global(.fathers-reading-ref) {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--halo-gold);
+    text-align: center;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  :global(.reading-block) {
+    margin-bottom: 24px;
+  }
+  :global(.reading-type) {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--halo-gold);
+    margin-bottom: 4px;
+  }
+  :global(.reading-ref) {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--censer-smoke);
+    margin-bottom: 12px;
+  }
+  :global(.reading-text) {
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--parchment-text);
+  }
+  :global(.reading-sub-ref) {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--censer-smoke);
+    margin: 16px 0 8px;
+  }
+  :global(.reading-passage) {
+    margin-bottom: 8px;
+  }
+  :global(.verse-num) {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    color: var(--censer-smoke);
+    margin-right: 2px;
+    vertical-align: super;
+  }
+  :global(.reading-loading) {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--censer-smoke);
+    font-style: italic;
+  }
+  :global(.readings-attribution) {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    color: var(--deep-muted);
+    text-align: right;
+    margin-top: 12px;
   }
   :global(.fathers-attribution) {
     font-family: var(--font-ui);
