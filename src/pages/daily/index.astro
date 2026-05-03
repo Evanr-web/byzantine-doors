@@ -286,14 +286,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   let fathersData = null;
   let fathersIndex = 0;
   
+  // Resolve site base path for fetching static assets
+  const SITE_BASE = (function() {
+    // Detect from canonical link or current path
+    const path = window.location.pathname;
+    const match = path.match(/^\/([^/]+)\//); // e.g. /byzantine-doors/
+    return match ? '/' + match[1] : '';
+  })();
+  
   async function loadFathersIndex() {
     if (fathersData) return fathersData;
     try {
-      const base = import.meta.env?.BASE_URL?.replace(/\/$/, '') || '';
-      const resp = await fetch(`${base || '.'}/api/fathers/index.json`);
+      const resp = await fetch(`${SITE_BASE}/api/fathers/index.json`);
       if (resp.ok) fathersData = await resp.json();
     } catch(e) { console.log('Fathers data not available'); }
     return fathersData;
+  }
+  
+  // Normalize scripture references for matching
+  // API gives "John 8, 42-51" or "John 9, 39-10, 9"
+  // Fathers keys use "John 8:42-51" or "John 9:39-10:9"
+  function normalizeRef(ref) {
+    if (!ref) return '';
+    // "John 8, 42-51" → "John 8:42-51"
+    // "John 9, 39-10, 9" → "John 9:39-10:9"
+    return ref.replace(/(\d+),\s*/g, '$1:').replace(/:\s+/g, ':');
   }
   
   async function loadFathers(dayData) {
@@ -304,18 +321,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     if (!idx || !idx.readings) return;
     
     // Match gospel reading to fathers entries
-    const gospelRef = dayData.readings?.gospel?.display || '';
-    if (!gospelRef) return;
+    const gospelDisplay = dayData.readings?.gospel?.display || '';
+    if (!gospelDisplay) return;
+    const normGospel = normalizeRef(gospelDisplay);
     
-    // Try to find a match — normalize references
-    let entries = null;
-    for (const [ref, data] of Object.entries(idx.readings)) {
-      // Check if the gospel ref overlaps with our key
-      const refBook = ref.split(/\s+/)[0];
-      const refChap = ref.match(/(\d+):/)?.[1];
-      if (gospelRef.includes(refBook) && refChap && gospelRef.includes(refChap + ':')) {
-        entries = data;
-        break;
+    // Try exact match first, then overlap match
+    let entries = idx.readings[normGospel] || null;
+    
+    if (!entries) {
+      // Fuzzy: match on book + starting chapter:verse
+      const normBook = normGospel.split(/\s+/)[0];
+      const normStart = normGospel.match(/(\d+:\d+)/)?.[1];
+      for (const [ref, data] of Object.entries(idx.readings)) {
+        const refBook = ref.split(/\s+/)[0];
+        const refStart = ref.match(/(\d+:\d+)/)?.[1];
+        if (normBook === refBook && normStart && refStart && normStart === refStart) {
+          entries = data;
+          break;
+        }
       }
     }
     if (!entries || entries.length === 0) return;
