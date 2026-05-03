@@ -120,7 +120,51 @@ Each article: historical context, big ideas in plain language, key works + readi
 
 ---
 
-## 6. SEO-Driven Hot Topics
+## 6. Atheist / Secular Questions Series
+
+Audience: honest skeptics, lapsed Christians, "spiritual but not religious." The Eastern tradition has unexpectedly strong answers here — apophatic theology, theosis, beauty, incarnational materialism.
+
+### Priority
+
+| # | Article | Angle | Status |
+|---|---------|-------|--------|
+| 1 | The Problem of Evil — An Eastern Answer | Evil as parasitic (privation of good), not a competing force. Theodicy without the courtroom. | 🔲 Not started |
+| 2 | Why All This Ritual? | Incarnational theology — matter matters. Icons, incense, bread, bodies. Not escapism. | 🔲 Not started |
+| 3 | Beauty Will Save the World | The aesthetic argument. Dostoevsky, the Envoys of Vladimir, why beauty is evidence. | 🔲 Not started |
+| 4 | Apophatic Theology — What Christians Don't Know About God | We agree God is beyond comprehension. We start there. Disarms the "you claim to know everything" attack. | 🔲 Not started |
+| 5 | Does God Exist? (The Eastern Case) | Not Aquinas's five proofs. The experiential, liturgical, patristic case. | 🔲 Not started |
+
+### Backlog
+
+| Article | Notes |
+|---------|-------|
+| Can You Be Good Without God? | Morality question — Eastern framing (telos, not rules) |
+| Isn't Religion Just About Power? | The persecution angle — UGCC underground 1946-89, Desert Fathers fleeing power |
+| How Can You Believe in Miracles? | Sacramental worldview — the ordinary IS miraculous |
+| Why Does God Need Worship? | He doesn't. Liturgy is therapy for us, not flattery for God. |
+
+---
+
+## 7. The East-West Bridge — Orthodox Objections to Rome, Byzantine Catholic Answers
+
+Audience: Orthodox curious about Rome, Latin Catholics discovering the East, anyone studying the schism. The framing: Orthodox Christians raise real objections to Roman Catholicism. Byzantine Catholics are the living proof that these objections don't require breaking communion.
+
+| # | Orthodox Objection to Rome | The BC Answer | Status |
+|---|---------------------------|---------------|--------|
+| 1 | Rome demands liturgical uniformity | BCs celebrate Chrysostom/Basil, not the Roman Mass. Full liturgical autonomy within communion. | 🔲 Not started |
+| 2 | The Filioque was imposed on the whole Church | BCs don't say it. Communion with Rome doesn't require it. | 🔲 Not started |
+| 3 | Rome requires priestly celibacy | BC priests can be married. Latin discipline is Latin, not universal. | 🔲 Not started |
+| 4 | Rome denies communion to infants | BCs baptize, chrismate, and commune infants. Full Eastern initiation, fully Catholic. | 🔲 Not started |
+| 5 | Papal primacy means papal control | BCs have their own patriarchs, synods, canon law (CCEO). Primacy without micromanagement. | 🔲 Not started |
+| 6 | Scholasticism replaced the Fathers | BC theology operates in patristic categories — theosis, apophatic, essence/energies. Not Thomistic. | 🔲 Not started |
+| 7 | The Immaculate Conception contradicts Eastern theology | BCs hold the Eastern understanding (All-Holy Panagia). The dogma binds Latin expression; Eastern expression differs. | 🔲 Not started |
+| 8 | Joining Rome means becoming Latin | Byzantine Catholics exist. Four hundred years of Eastern identity within Catholic communion. | 🔲 Not started |
+
+Possible format: one big article ("What Byzantine Catholics Prove About Unity") or a series. Could also be a single reference page with expandable sections.
+
+---
+
+## 8. SEO-Driven Hot Topics
 
 ### Tier A (Highest Search Volume)
 | Topic | Status |
