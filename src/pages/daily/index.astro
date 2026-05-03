@@ -90,6 +90,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <!-- Available Services — hidden until PWA is presentation-ready -->
 
+    <!-- From the Fathers -->
+    <div class="daily-section" id="section-fathers" style="display:none;">
+      <div class="daily-section-label">☦ From the Fathers</div>
+      <div class="fathers-carousel">
+        <div class="fathers-cards" id="fathers-cards"></div>
+        <div class="fathers-nav">
+          <button class="fathers-nav-btn" id="fathers-prev" aria-label="Previous reflection">‹</button>
+          <div class="fathers-dots" id="fathers-dots"></div>
+          <button class="fathers-nav-btn" id="fathers-next" aria-label="Next reflection">›</button>
+        </div>
+      </div>
+      <div class="fathers-attribution">
+        Patristic texts from <em>Nicene and Post-Nicene Fathers</em> (1889) and <em>Catena Aurea</em>, tr. Newman (1841). Public domain.
+      </div>
+    </div>
+
     <!-- Loading / Error states -->
     <div class="daily-section" id="section-loading">
       <p style="text-align:center; color:var(--censer-smoke);">Loading liturgical data…</p>
@@ -101,7 +117,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <!-- About -->
     <div class="about-box">
-      <p>Liturgical calendar data follows the Byzantine (Gregorian/New Calendar) tradition as used by Ukrainian Greek-Catholic parishes. English troparia and kontakia courtesy of the <a href="https://www.oca.org/saints">Orthodox Church in America</a>. Service texts courtesy of <a href="https://liturgy.royaldoors.net">Royal Doors</a>. This is an independent project and is not an official publication of any church body.</p>
+      <p>Liturgical calendar data follows the Byzantine (Gregorian/New Calendar) tradition as used by Ukrainian Greek-Catholic parishes. English troparia and kontakia courtesy of the <a href="https://www.oca.org/saints">Orthodox Church in America</a>. Service texts courtesy of <a href="https://liturgy.royaldoors.net">Royal Doors</a>. Patristic reflections from <em>Nicene and Post-Nicene Fathers</em> (1889) and <em>Catena Aurea</em>, tr. Newman (1841) — public domain. This is an independent project and is not an official publication of any church body.</p>
     </div>
 
   </div>
@@ -259,9 +275,120 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     }
 
     // Services section hidden until PWA is presentation-ready
+
+    // Load Fathers reflections
+    loadFathers(data);
+
     } catch(err) { console.error('Render error:', err); }
   }
   
+  // ── Fathers carousel ──
+  let fathersData = null;
+  let fathersIndex = 0;
+  
+  async function loadFathersIndex() {
+    if (fathersData) return fathersData;
+    try {
+      const base = import.meta.env?.BASE_URL?.replace(/\/$/, '') || '';
+      const resp = await fetch(`${base || '.'}/api/fathers/index.json`);
+      if (resp.ok) fathersData = await resp.json();
+    } catch(e) { console.log('Fathers data not available'); }
+    return fathersData;
+  }
+  
+  async function loadFathers(dayData) {
+    const section = document.getElementById('section-fathers');
+    section.style.display = 'none';
+    
+    const idx = await loadFathersIndex();
+    if (!idx || !idx.readings) return;
+    
+    // Match gospel reading to fathers entries
+    const gospelRef = dayData.readings?.gospel?.display || '';
+    if (!gospelRef) return;
+    
+    // Try to find a match — normalize references
+    let entries = null;
+    for (const [ref, data] of Object.entries(idx.readings)) {
+      // Check if the gospel ref overlaps with our key
+      const refBook = ref.split(/\s+/)[0];
+      const refChap = ref.match(/(\d+):/)?.[1];
+      if (gospelRef.includes(refBook) && refChap && gospelRef.includes(refChap + ':')) {
+        entries = data;
+        break;
+      }
+    }
+    if (!entries || entries.length === 0) return;
+    
+    fathersIndex = 0;
+    renderFathersCarousel(entries);
+    section.style.display = '';
+  }
+  
+  function renderFathersCarousel(entries) {
+    const container = document.getElementById('fathers-cards');
+    const dotsContainer = document.getElementById('fathers-dots');
+    
+    // Build cards
+    container.innerHTML = entries.map((e, i) => `
+      <div class="fathers-card${i === 0 ? ' active' : ''}" data-index="${i}">
+        <div class="fathers-card-header">
+          <div class="fathers-name">${e.father}</div>
+          <div class="fathers-work">${e.work}</div>
+        </div>
+        <blockquote class="fathers-quote">“${e.text}”</blockquote>
+      </div>
+    `).join('');
+    
+    // Build dots
+    dotsContainer.innerHTML = entries.map((_, i) => 
+      `<button class="fathers-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Reflection ${i+1}"></button>`
+    ).join('');
+    
+    // Dot click handlers
+    dotsContainer.querySelectorAll('.fathers-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        fathersIndex = parseInt(dot.dataset.index);
+        showFather(entries);
+      });
+    });
+    
+    // Arrow handlers
+    document.getElementById('fathers-prev').onclick = () => {
+      fathersIndex = (fathersIndex - 1 + entries.length) % entries.length;
+      showFather(entries);
+    };
+    document.getElementById('fathers-next').onclick = () => {
+      fathersIndex = (fathersIndex + 1) % entries.length;
+      showFather(entries);
+    };
+  }
+  
+  function showFather(entries) {
+    document.querySelectorAll('.fathers-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.fathers-dot').forEach(d => d.classList.remove('active'));
+    const card = document.querySelector(`.fathers-card[data-index="${fathersIndex}"]`);
+    const dot = document.querySelector(`.fathers-dot[data-index="${fathersIndex}"]`);
+    if (card) card.classList.add('active');
+    if (dot) dot.classList.add('active');
+  }
+
+  // Touch/swipe support for fathers carousel
+  (function() {
+    const container = document.getElementById('fathers-cards');
+    let startX = 0;
+    container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+    container.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        const cards = document.querySelectorAll('.fathers-card');
+        if (diff > 0) { fathersIndex = (fathersIndex + 1) % cards.length; }
+        else { fathersIndex = (fathersIndex - 1 + cards.length) % cards.length; }
+        showFather(Array.from(cards));
+      }
+    }, {passive: true});
+  })();
+
   // Navigation
   function shiftDay(offset) {
     currentDate = new Date(currentDate.getTime() + offset * 86400000);
@@ -282,6 +409,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   });
   
   // Initial load
+  loadFathersIndex(); // pre-fetch
   loadDay(currentDate);
 </script>
 
@@ -520,8 +648,114 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     color: var(--beeswax);
   }
 
+  /* ── Fathers Carousel ── */
+  .fathers-carousel {
+    position: relative;
+  }
+  .fathers-cards {
+    position: relative;
+    min-height: 180px;
+  }
+  .fathers-card {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .fathers-card.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fathers-card-header {
+    margin-bottom: 12px;
+  }
+  .fathers-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--beeswax);
+    letter-spacing: 0.3px;
+  }
+  .fathers-work {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    color: var(--censer-smoke);
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .fathers-quote {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--aged-vellum);
+    line-height: 1.8;
+    margin: 0;
+    padding: 16px 20px;
+    border: none;
+    border-left: 2px solid var(--gold-15);
+    background: var(--gold-04);
+    border-radius: 0 8px 8px 0;
+  }
+  .fathers-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .fathers-nav-btn {
+    background: none;
+    border: 0.5px solid var(--gold-15);
+    border-radius: 50%;
+    color: var(--halo-gold);
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: var(--font-body);
+  }
+  .fathers-nav-btn:hover { background: var(--gold-06); }
+  .fathers-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .fathers-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-15);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  .fathers-dot.active {
+    background: var(--halo-gold);
+    border-color: var(--halo-gold);
+  }
+  .fathers-dot:hover {
+    border-color: var(--halo-gold);
+  }
+  .fathers-attribution {
+    font-family: var(--font-ui);
+    font-size: 10px;
+    color: var(--deep-muted);
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .fathers-attribution em {
+    color: var(--censer-smoke);
+  }
+
   @media (max-width: 768px) {
     .daily-section { padding: 20px; }
     .info-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .fathers-quote { padding: 12px 16px; font-size: 15px; }
   }
 </style>
